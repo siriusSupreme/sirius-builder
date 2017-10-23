@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter\Presenter;
+namespace Sirius\Builder\Grid\Filter\Presenter;
 
-use Encore\Admin\Facades\Admin;
+use Sirius\Builder\Facades\Admin;
 
 class Checkbox extends Radio
 {

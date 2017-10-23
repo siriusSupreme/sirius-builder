@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace Sirius\Builder\Grid\Displayers;
 
-use Encore\Admin\Admin;
+use Sirius\Builder\Admin;
 
 class Orderable extends AbstractDisplayer
 {

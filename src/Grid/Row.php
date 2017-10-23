@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid;
+namespace Sirius\Builder\Grid;
 
 class Row
 {

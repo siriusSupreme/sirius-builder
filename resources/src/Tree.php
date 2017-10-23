@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin;
+namespace Sirius\Builder;
 
 use Closure;
-use Encore\Admin\Tree\Tools;
+use Sirius\Builder\Tree\Tools;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;
 

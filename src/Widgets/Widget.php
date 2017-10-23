@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace Sirius\Builder\Widgets;
 
 use Illuminate\Support\Fluent;
 

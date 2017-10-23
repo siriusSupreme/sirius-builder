@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace Sirius\Builder\Console;
 
 use Illuminate\Console\Command;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace Sirius\Builder\Controllers;
 
-use Encore\Admin\Admin;
+use Sirius\Builder\Admin;
 
 class Dashboard
 {

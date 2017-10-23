@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace Sirius\Builder\Controllers;
 
 trait ModelForm
 {

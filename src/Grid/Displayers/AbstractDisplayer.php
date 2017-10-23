@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace Sirius\Builder\Grid\Displayers;
 
-use Encore\Admin\Grid;
-use Encore\Admin\Grid\Column;
+use Sirius\Builder\Grid;
+use Sirius\Builder\Grid\Column;
 
 abstract class AbstractDisplayer
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace Sirius\Builder\Form\Field;
 
-use Encore\Admin\Form\Field;
+use Sirius\Builder\Form\Field;
 use Illuminate\Contracts\Support\Arrayable;
 
 class Radio extends Field

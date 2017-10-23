@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace Sirius\Builder\Grid\Tools;
 
-use Encore\Admin\Grid;
+use Sirius\Builder\Grid;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Input;
 

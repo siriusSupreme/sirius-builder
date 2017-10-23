@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace Sirius\Builder\Form\Field;
 
-use Encore\Admin\Form\EmbeddedForm;
-use Encore\Admin\Form\Field;
+use Sirius\Builder\Form\EmbeddedForm;
+use Sirius\Builder\Form\Field;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 

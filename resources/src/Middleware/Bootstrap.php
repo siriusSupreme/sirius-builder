@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Middleware;
+namespace Sirius\Builder\Middleware;
 
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
+use Sirius\Builder\Form;
+use Sirius\Builder\Grid;
 use Illuminate\Http\Request;
 
 class Bootstrap

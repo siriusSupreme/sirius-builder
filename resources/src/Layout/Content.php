@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Layout;
+namespace Sirius\Builder\Layout;
 
 use Closure;
 use Illuminate\Contracts\Support\Renderable;

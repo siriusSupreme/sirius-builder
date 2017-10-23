@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin;
+namespace Sirius\Builder;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -10,11 +10,11 @@ class AdminServiceProvider extends ServiceProvider
      * @var array
      */
     protected $commands = [
-        'Encore\Admin\Console\MakeCommand',
-        'Encore\Admin\Console\MenuCommand',
-        'Encore\Admin\Console\InstallCommand',
-        'Encore\Admin\Console\UninstallCommand',
-        'Encore\Admin\Console\ImportCommand',
+        'Sirius\Builder\Console\MakeCommand',
+        'Sirius\Builder\Console\MenuCommand',
+        'Sirius\Builder\Console\InstallCommand',
+        'Sirius\Builder\Console\UninstallCommand',
+        'Sirius\Builder\Console\ImportCommand',
     ];
 
     /**
@@ -23,11 +23,11 @@ class AdminServiceProvider extends ServiceProvider
      * @var array
      */
     protected $routeMiddleware = [
-        'admin.auth'        => \Encore\Admin\Middleware\Authenticate::class,
-        'admin.pjax'        => \Encore\Admin\Middleware\Pjax::class,
-        'admin.log'         => \Encore\Admin\Middleware\LogOperation::class,
-        'admin.permission'  => \Encore\Admin\Middleware\Permission::class,
-        'admin.bootstrap'   => \Encore\Admin\Middleware\Bootstrap::class,
+        'admin.auth'        => \Sirius\Builder\Middleware\Authenticate::class,
+        'admin.pjax'        => \Sirius\Builder\Middleware\Pjax::class,
+        'admin.log'         => \Sirius\Builder\Middleware\LogOperation::class,
+        'admin.permission'  => \Sirius\Builder\Middleware\Permission::class,
+        'admin.bootstrap'   => \Sirius\Builder\Middleware\Bootstrap::class,
     ];
 
     /**

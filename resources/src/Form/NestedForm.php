@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace Sirius\Builder\Form;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Form;
+use Sirius\Builder\Admin;
+use Sirius\Builder\Form;
 use Illuminate\Support\Collection;
 
 /**
@@ -84,7 +84,7 @@ class NestedForm
     protected $original = [];
 
     /**
-     * @var \Encore\Admin\Form
+     * @var \Sirius\Builder\Form
      */
     protected $form;
 
@@ -207,7 +207,7 @@ class NestedForm
                 $value = $field->prepare($value);
             }
 
-            if (($field instanceof \Encore\Admin\Form\Field\Hidden) || $value != $field->original()) {
+            if (($field instanceof \Sirius\Builder\Form\Field\Hidden) || $value != $field->original()) {
                 if (is_array($columns)) {
                     foreach ($columns as $name => $column) {
                         array_set($prepared, $column, $value[$name]);

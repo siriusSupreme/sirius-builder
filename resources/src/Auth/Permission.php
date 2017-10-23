@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Auth;
+namespace Sirius\Builder\Auth;
 
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Middleware\Pjax;
+use Sirius\Builder\Facades\Admin;
+use Sirius\Builder\Middleware\Pjax;
 use Illuminate\Support\Facades\Auth;
 
 class Permission

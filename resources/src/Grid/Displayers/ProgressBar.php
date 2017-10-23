@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace Sirius\Builder\Grid\Displayers;
 
 class ProgressBar extends AbstractDisplayer
 {

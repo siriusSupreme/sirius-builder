@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Middleware;
+namespace Sirius\Builder\Middleware;
 
-use Encore\Admin\Facades\Admin;
+use Sirius\Builder\Facades\Admin;
 use Illuminate\Http\Request;
 
 class Permission
@@ -24,7 +24,7 @@ class Permission
         if (!Admin::user()->allPermissions()->first(function ($permission) use ($request) {
             return $permission->shouldPassThrough($request);
         })) {
-            \Encore\Admin\Auth\Permission::error();
+            \Sirius\Builder\Auth\Permission::error();
         }
 
         return $next($request);
