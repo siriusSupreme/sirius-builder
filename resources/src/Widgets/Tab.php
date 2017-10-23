@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Widgets;
 
-use Illuminate\Contracts\Support\Renderable;
+use Sirius\Support\Contracts\Renderable;
 
 class Tab extends Widget implements Renderable
 {

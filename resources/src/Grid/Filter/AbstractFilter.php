@@ -431,7 +431,7 @@ abstract class AbstractFilter
     /**
      * Render this filter.
      *
-     * @return \Illuminate\View\View|string
+     * @return \Sirius\View\View|string
      */
     public function render()
     {
@@ -441,7 +441,7 @@ abstract class AbstractFilter
     /**
      * Render this filter.
      *
-     * @return \Illuminate\View\View|string
+     * @return \Sirius\View\View|string
      */
     public function __toString()
     {

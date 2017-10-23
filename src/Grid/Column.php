@@ -5,10 +5,10 @@ namespace Sirius\Builder\Grid;
 use Closure;
 use Sirius\Builder\Grid;
 use Sirius\Builder\Grid\Displayers\AbstractDisplayer;
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Str;
+use Sirius\Support\Contracts\Arrayable;
+use think\Model;
+use think\facade\Url;
+use Sirius\Support\Str;
 
 class Column
 {
@@ -497,7 +497,7 @@ class Column
     }
 
     /**
-     * Call Illuminate/Support displayer.
+     * Call Sirius/Support displayer.
      *
      * @param string $abstract
      * @param array  $arguments

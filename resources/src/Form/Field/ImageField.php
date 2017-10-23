@@ -73,7 +73,7 @@ trait ImageField
     /**
      * Render a image form field.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Sirius\Contracts\View\Factory|\Sirius\View\View
      */
     public function render()
     {

@@ -3,8 +3,8 @@
 namespace Sirius\Builder\Layout;
 
 use Closure;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Support\MessageBag;
+use Sirius\Support\Contracts\Renderable;
+use Sirius\Support\MessageBag;
 
 class Content implements Renderable
 {

@@ -4,7 +4,7 @@ namespace Sirius\Builder\Middleware;
 
 use Sirius\Builder\Form;
 use Sirius\Builder\Grid;
-use Illuminate\Http\Request;
+use Sirius\Http\Request;
 
 class Bootstrap
 {

@@ -9,7 +9,7 @@ use Sirius\Builder\Facades\Admin;
 use Sirius\Builder\Form;
 use Sirius\Builder\Grid;
 use Sirius\Builder\Layout\Content;
-use Illuminate\Routing\Controller;
+use Sirius\Routing\Controller;
 
 class UserController extends Controller
 {

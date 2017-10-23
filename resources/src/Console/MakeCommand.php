@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Console;
 
-use Illuminate\Console\GeneratorCommand;
+use Sirius\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 

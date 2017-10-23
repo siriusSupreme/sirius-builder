@@ -12,16 +12,16 @@ use Sirius\Builder\Grid\Filter;
 use Sirius\Builder\Grid\Model;
 use Sirius\Builder\Grid\Row;
 use Sirius\Builder\Grid\Tools;
-use Illuminate\Database\Eloquent\Model as Eloquent;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Schema;
+use Sirius\Database\Eloquent\Model as Eloquent;
+use Sirius\Database\Eloquent\Relations\BelongsTo;
+use Sirius\Database\Eloquent\Relations\BelongsToMany;
+use Sirius\Database\Eloquent\Relations\HasMany;
+use Sirius\Database\Eloquent\Relations\HasOne;
+use Sirius\Database\Eloquent\Relations\MorphToMany;
+use Sirius\Database\Eloquent\Relations\Relation;
+use Sirius\Support\Collection;
+use Sirius\Support\Facades\Input;
+use Sirius\Support\Facades\Schema;
 use Jenssegers\Mongodb\Eloquent\Model as MongodbModel;
 
 class Grid
@@ -36,21 +36,21 @@ class Grid
     /**
      * Collection of all grid columns.
      *
-     * @var \Illuminate\Support\Collection
+     * @var \Sirius\Support\Collection
      */
     protected $columns;
 
     /**
      * Collection of table columns.
      *
-     * @var \Illuminate\Support\Collection
+     * @var \Sirius\Support\Collection
      */
     protected $dbColumns;
 
     /**
      * Collection of all data rows.
      *
-     * @var \Illuminate\Support\Collection
+     * @var \Sirius\Support\Collection
      */
     protected $rows;
 
@@ -561,7 +561,7 @@ class Grid
     /**
      * Render the grid filter.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
+     * @return \Sirius\Contracts\View\Factory|\Sirius\View\View|string
      */
     public function renderFilter()
     {

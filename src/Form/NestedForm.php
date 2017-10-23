@@ -4,7 +4,7 @@ namespace Sirius\Builder\Form;
 
 use Sirius\Builder\Admin;
 use Sirius\Builder\Form;
-use Illuminate\Support\Collection;
+use Sirius\Support\Collection;
 
 /**
  * Class NestedForm.

@@ -4,14 +4,14 @@ namespace Sirius\Builder\Middleware;
 
 use Closure;
 use Sirius\Builder\Admin;
-use Illuminate\Support\Facades\Auth;
+use Sirius\Support\Facades\Auth;
 
 class Authenticate
 {
     /**
      * Handle an incoming request.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \Sirius\Http\Request $request
      * @param \Closure                 $next
      *
      * @return mixed
@@ -28,7 +28,7 @@ class Authenticate
     /**
      * Determine if the request has a URI that should pass through verification.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \Sirius\Http\Request $request
      *
      * @return bool
      */

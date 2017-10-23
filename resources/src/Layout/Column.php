@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Layout;
 
-use Illuminate\Contracts\Support\Renderable;
+use Sirius\Support\Contracts\Renderable;
 
 class Column implements Buildable
 {

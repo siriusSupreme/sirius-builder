@@ -4,7 +4,7 @@ namespace Sirius\Builder;
 
 use Sirius\Builder\Auth\Database\Menu;
 use Sirius\Builder\Auth\Database\Permission;
-use Illuminate\Support\Facades\Route;
+use Sirius\Support\Facades\Route;
 
 abstract class Extension
 {
@@ -23,7 +23,7 @@ abstract class Extension
 
     protected static function routes($callback)
     {
-        /* @var \Illuminate\Routing\Router $router */
+        /* @var \Sirius\Routing\Router $router */
         Route::group(['prefix' => config('admin.route.prefix')], function ($router) use ($callback) {
             $attributes = array_merge([
                 'middleware' => config('admin.route.middleware'),

@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder;
 
-use Illuminate\Support\ServiceProvider;
+use Sirius\Support\ServiceProvider;
 
 class AdminServiceProvider extends ServiceProvider
 {

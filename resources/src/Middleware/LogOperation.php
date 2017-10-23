@@ -4,15 +4,15 @@ namespace Sirius\Builder\Middleware;
 
 use Sirius\Builder\Auth\Database\OperationLog as OperationLogModel;
 use Sirius\Builder\Facades\Admin;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Sirius\Http\Request;
+use Sirius\Support\Str;
 
 class LogOperation
 {
     /**
      * Handle an incoming request.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \Sirius\Http\Request $request
      * @param \Closure                 $next
      *
      * @return mixed
@@ -49,7 +49,7 @@ class LogOperation
     /**
      * Determine if the request has a URI that should pass through CSRF verification.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \Sirius\Http\Request $request
      *
      * @return bool
      */

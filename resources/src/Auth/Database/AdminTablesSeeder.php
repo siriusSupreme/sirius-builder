@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Auth\Database;
 
-use Illuminate\Database\Seeder;
+use Sirius\Database\Seeder;
 
 class AdminTablesSeeder extends Seeder
 {

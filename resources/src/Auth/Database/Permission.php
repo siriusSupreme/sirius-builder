@@ -2,10 +2,10 @@
 
 namespace Sirius\Builder\Auth\Database;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Sirius\Database\Eloquent\Model;
+use Sirius\Database\Eloquent\Relations\BelongsToMany;
+use Sirius\Http\Request;
+use Sirius\Support\Str;
 
 class Permission extends Model
 {

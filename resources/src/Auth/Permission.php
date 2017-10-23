@@ -4,7 +4,7 @@ namespace Sirius\Builder\Auth;
 
 use Sirius\Builder\Facades\Admin;
 use Sirius\Builder\Middleware\Pjax;
-use Illuminate\Support\Facades\Auth;
+use Sirius\Support\Facades\Auth;
 
 class Permission
 {

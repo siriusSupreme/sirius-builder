@@ -3,9 +3,9 @@
 namespace Sirius\Builder\Auth\Database;
 
 use Sirius\Builder\Traits\AdminBuilder;
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Database\Eloquent\Model;
+use Sirius\Auth\Authenticatable;
+use Sirius\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Sirius\Database\Eloquent\Model;
 
 /**
  * Class Administrator.

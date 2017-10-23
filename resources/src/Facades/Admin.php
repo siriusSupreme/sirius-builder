@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Facades;
 
-use Illuminate\Support\Facades\Facade;
+use Sirius\Support\Facades\Facade;
 
 class Admin extends Facade
 {

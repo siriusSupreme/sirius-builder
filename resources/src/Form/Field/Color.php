@@ -45,7 +45,7 @@ class Color extends Text
     /**
      * Render this filed.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Sirius\Contracts\View\Factory|\Sirius\View\View
      */
     public function render()
     {

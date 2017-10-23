@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Grid\Exporters;
 
-use Illuminate\Support\Arr;
+use Sirius\Support\Arr;
 
 class CsvExporter extends AbstractExporter
 {

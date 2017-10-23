@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Form\Field;
 
 use Sirius\Builder\Form\Field;
-use Illuminate\Contracts\Support\Arrayable;
+use Sirius\Support\Contracts\Arrayable;
 
 class Radio extends Field
 {

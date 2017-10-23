@@ -4,10 +4,10 @@ namespace Sirius\Builder\Form;
 
 use Sirius\Builder\Admin;
 use Sirius\Builder\Form;
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Validator;
+use Sirius\Support\Contracts\Arrayable;
+use Sirius\Support\Contracts\Renderable;
+use Sirius\Support\Arr;
+use think\facade\Validate;
 
 /**
  * Class Field.
@@ -877,7 +877,7 @@ class Field implements Renderable
     /**
      * Render this filed.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Sirius\Contracts\View\Factory|\Sirius\View\View
      */
     public function render()
     {

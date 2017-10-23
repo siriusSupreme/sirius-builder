@@ -2,8 +2,8 @@
 
 namespace Sirius\Builder\Widgets;
 
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Support\Arr;
+use Sirius\Support\Contracts\Renderable;
+use Sirius\Support\Arr;
 
 class Table extends Widget implements Renderable
 {

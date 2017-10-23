@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Grid\Displayers;
 
-use Illuminate\Contracts\Support\Arrayable;
+use Sirius\Support\Contracts\Arrayable;
 
 class Badge extends AbstractDisplayer
 {

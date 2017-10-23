@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Console;
 
-use Illuminate\Console\Command;
+use Sirius\Console\Command;
 
 class UninstallCommand extends Command
 {

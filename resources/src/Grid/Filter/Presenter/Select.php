@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Grid\Filter\Presenter;
 
 use Sirius\Builder\Facades\Admin;
-use Illuminate\Contracts\Support\Arrayable;
+use Sirius\Support\Contracts\Arrayable;
 
 class Select extends Presenter
 {

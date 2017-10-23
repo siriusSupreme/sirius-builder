@@ -4,8 +4,8 @@ namespace Sirius\Builder;
 
 use Closure;
 use Sirius\Builder\Tree\Tools;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Database\Eloquent\Model;
+use Sirius\Support\Contracts\Renderable;
+use Sirius\Database\Eloquent\Model;
 
 class Tree implements Renderable
 {
@@ -319,7 +319,7 @@ SCRIPT;
     /**
      * Render a tree.
      *
-     * @return \Illuminate\Http\JsonResponse|string
+     * @return \Sirius\Http\JsonResponse|string
      */
     public function render()
     {

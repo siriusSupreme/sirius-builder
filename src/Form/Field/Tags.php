@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Form\Field;
 
 use Sirius\Builder\Form\Field;
-use Illuminate\Support\Arr;
+use Sirius\Support\Arr;
 
 class Tags extends Field
 {

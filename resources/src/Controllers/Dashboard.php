@@ -7,7 +7,7 @@ use Sirius\Builder\Admin;
 class Dashboard
 {
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Sirius\Contracts\View\Factory|\Sirius\View\View
      */
     public static function title()
     {
@@ -15,7 +15,7 @@ class Dashboard
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Sirius\Contracts\View\Factory|\Sirius\View\View
      */
     public static function environment()
     {
@@ -40,7 +40,7 @@ class Dashboard
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Sirius\Contracts\View\Factory|\Sirius\View\View
      */
     public static function extensions()
     {
@@ -101,7 +101,7 @@ class Dashboard
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Sirius\Contracts\View\Factory|\Sirius\View\View
      */
     public static function dependencies()
     {

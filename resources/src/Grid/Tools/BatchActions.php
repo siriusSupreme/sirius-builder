@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Grid\Tools;
 
 use Sirius\Builder\Admin;
-use Illuminate\Support\Collection;
+use Sirius\Support\Collection;
 
 class BatchActions extends AbstractTool
 {

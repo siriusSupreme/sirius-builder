@@ -11,7 +11,7 @@ use Sirius\Builder\Layout\Content;
 use Sirius\Builder\Layout\Row;
 use Sirius\Builder\Tree;
 use Sirius\Builder\Widgets\Box;
-use Illuminate\Routing\Controller;
+use Sirius\Routing\Controller;
 
 class MenuController extends Controller
 {
@@ -52,7 +52,7 @@ class MenuController extends Controller
      *
      * @param int $id
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Sirius\Http\RedirectResponse
      */
     public function show($id)
     {

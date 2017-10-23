@@ -6,19 +6,19 @@ use Sirius\Builder\Auth\Database\Administrator;
 use Sirius\Builder\Facades\Admin;
 use Sirius\Builder\Form;
 use Sirius\Builder\Layout\Content;
-use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Lang;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Validator;
+use Sirius\Http\Request;
+use Sirius\Routing\Controller;
+use Sirius\Support\Facades\Auth;
+use Sirius\Support\Facades\Lang;
+use Sirius\Support\Facades\Redirect;
+use Sirius\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
     /**
      * Login page.
      *
-     * @return \Illuminate\Contracts\View\Factory|Redirect|\Illuminate\View\View
+     * @return \Sirius\Contracts\View\Factory|Redirect|\Sirius\View\View
      */
     public function getLogin()
     {

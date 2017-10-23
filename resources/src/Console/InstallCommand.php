@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Console;
 
 use Sirius\Builder\Auth\Database\Administrator;
-use Illuminate\Console\Command;
+use Sirius\Console\Command;
 
 class InstallCommand extends Command
 {

@@ -2,9 +2,11 @@
 
 namespace Sirius\Builder\Traits;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Request;
+use think\Model;
+use think\Db;
+use think\facade\Request;
+use think\model\relation\BelongsTo;
+use think\model\relation\HasMany;
 
 trait ModelTree
 {
@@ -36,7 +38,7 @@ trait ModelTree
     /**
      * Get children of current node.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function children()
     {
@@ -46,7 +48,7 @@ trait ModelTree
     /**
      * Get parent of current node.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function parent()
     {
@@ -229,7 +231,7 @@ trait ModelTree
     /**
      * Get options for Select field in form.
      *
-     * @return \Illuminate\Support\Collection
+     * @return \Sirius\Support\Collection
      */
     public static function selectOptions()
     {

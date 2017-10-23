@@ -3,14 +3,14 @@
 namespace Sirius\Builder\Middleware;
 
 use Sirius\Builder\Facades\Admin;
-use Illuminate\Http\Request;
+use Sirius\Http\Request;
 
 class Permission
 {
     /**
      * Handle an incoming request.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \Sirius\Http\Request $request
      * @param \Closure                 $next
      *
      * @return mixed

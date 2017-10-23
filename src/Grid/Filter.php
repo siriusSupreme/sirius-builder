@@ -4,8 +4,7 @@ namespace Sirius\Builder\Grid;
 
 use Sirius\Builder\Facades\Admin;
 use Sirius\Builder\Grid\Filter\AbstractFilter;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Request;
+use think\facade\Request;
 
 /**
  * Class Filter.
@@ -169,7 +168,7 @@ class Filter
     /**
      * Get the string contents of the filter view.
      *
-     * @return \Illuminate\View\View|string
+     * @return \Sirius\View\View|string
      */
     public function render()
     {
@@ -212,7 +211,7 @@ EOT;
             $columns[] = $filter->getColumn();
         }
 
-        /** @var \Illuminate\Http\Request $request * */
+        /** @var \Sirius\Http\Request $request * */
         $request = Request::instance();
 
         $query = $request->query();
@@ -247,7 +246,7 @@ EOT;
     /**
      * Get the string contents of the filter view.
      *
-     * @return \Illuminate\View\View|string
+     * @return \Sirius\View\View|string
      */
     public function __toString()
     {

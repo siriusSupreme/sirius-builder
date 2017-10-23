@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Form\Field;
 
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Sirius\Database\Eloquent\Relations\BelongsToMany;
 
 class MultipleSelect extends Select
 {

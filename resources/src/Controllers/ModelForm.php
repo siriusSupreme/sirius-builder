@@ -9,7 +9,7 @@ trait ModelForm
      *
      * @param int $id
      *
-     * @return \Illuminate\Http\Response
+     * @return \Sirius\Http\Response
      */
     public function show($id)
     {
@@ -21,7 +21,7 @@ trait ModelForm
      *
      * @param int $id
      *
-     * @return \Illuminate\Http\Response
+     * @return \Sirius\Http\Response
      */
     public function update($id)
     {
@@ -33,7 +33,7 @@ trait ModelForm
      *
      * @param int $id
      *
-     * @return \Illuminate\Http\Response
+     * @return \Sirius\Http\Response
      */
     public function destroy($id)
     {
@@ -53,7 +53,7 @@ trait ModelForm
     /**
      * Store a newly created resource in storage.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Sirius\Http\Response
      */
     public function store()
     {

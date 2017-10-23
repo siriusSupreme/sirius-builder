@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Console;
 
 use Sirius\Builder\Admin;
-use Illuminate\Console\Command;
+use Sirius\Console\Command;
 
 class ImportCommand extends Command
 {

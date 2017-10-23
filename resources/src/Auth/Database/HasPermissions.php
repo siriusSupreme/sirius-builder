@@ -2,9 +2,9 @@
 
 namespace Sirius\Builder\Auth\Database;
 
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Storage;
+use Sirius\Database\Eloquent\Relations\BelongsToMany;
+use Sirius\Support\Collection;
+use Sirius\Support\Facades\Storage;
 
 trait HasPermissions
 {

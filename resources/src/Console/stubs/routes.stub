@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Routing\Router;
+use Sirius\Routing\Router;
 
 Admin::registerAuthRoutes();
 

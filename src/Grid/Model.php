@@ -3,14 +3,14 @@
 namespace Sirius\Builder\Grid;
 
 use Sirius\Builder\Middleware\Pjax;
-use Illuminate\Database\Eloquent\Model as EloquentModel;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Request;
+use Sirius\Database\Eloquent\Model as EloquentModel;
+use Sirius\Database\Eloquent\Relations\BelongsTo;
+use Sirius\Database\Eloquent\Relations\HasOne;
+use Sirius\Database\Eloquent\Relations\Relation;
+use Sirius\Pagination\LengthAwarePaginator;
+use Sirius\Support\Collection;
+use Sirius\Support\Facades\Input;
+use Sirius\Support\Facades\Request;
 
 class Model
 {
@@ -24,7 +24,7 @@ class Model
     /**
      * Array of queries of the eloquent model.
      *
-     * @var \Illuminate\Support\Collection
+     * @var \Sirius\Support\Collection
      */
     protected $queries;
 

@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Form\Field;
 
-use Illuminate\Contracts\Support\Arrayable;
+use Sirius\Support\Contracts\Arrayable;
 
 class Checkbox extends MultipleSelect
 {

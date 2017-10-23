@@ -7,8 +7,8 @@ use Sirius\Builder\Facades\Admin;
 use Sirius\Builder\Form;
 use Sirius\Builder\Grid;
 use Sirius\Builder\Layout\Content;
-use Illuminate\Routing\Controller;
-use Illuminate\Support\Str;
+use Sirius\Routing\Controller;
+use Sirius\Support\Str;
 
 class PermissionController extends Controller
 {
