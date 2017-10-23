@@ -107,6 +107,6 @@ class Table extends Widget implements Renderable
             'attributes'    => $this->formatAttributes(),
         ];
 
-        return view($this->view, $vars)->render();
+        return view($this->view, $vars);
     }
 }

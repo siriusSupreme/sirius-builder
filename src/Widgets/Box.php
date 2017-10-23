@@ -157,6 +157,6 @@ class Box extends Widget implements Renderable
      */
     public function render()
     {
-        return view($this->view, $this->variables())->render();
+        return view($this->view, $this->variables());
     }
 }

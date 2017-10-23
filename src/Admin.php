@@ -90,7 +90,7 @@ class Admin
      */
     public function getModel($model)
     {
-        if ($model instanceof EloquentModel) {
+        if ($model instanceof Model) {
             return $model;
         }
 

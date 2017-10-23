@@ -3,7 +3,6 @@
 namespace Sirius\Builder;
 
 use Closure;
-use Sirius\Builder\Exception\Handler;
 use Sirius\Builder\Grid\Column;
 use Sirius\Builder\Grid\Displayers\Actions;
 use Sirius\Builder\Grid\Displayers\RowSelector;
@@ -12,17 +11,14 @@ use Sirius\Builder\Grid\Filter;
 use Sirius\Builder\Grid\Model;
 use Sirius\Builder\Grid\Row;
 use Sirius\Builder\Grid\Tools;
-use Sirius\Database\Eloquent\Model as Eloquent;
-use Sirius\Database\Eloquent\Relations\BelongsTo;
-use Sirius\Database\Eloquent\Relations\BelongsToMany;
-use Sirius\Database\Eloquent\Relations\HasMany;
-use Sirius\Database\Eloquent\Relations\HasOne;
-use Sirius\Database\Eloquent\Relations\MorphToMany;
-use Sirius\Database\Eloquent\Relations\Relation;
+use think\Model as ThinkModel;
+use think\model\relation\BelongsTo;
+use think\model\relation\BelongsToMany;
+use Sirius\Builder\Form\Field\HasMany;
+use think\model\relation\HasOne;
+use think\model\relation\MorphMany;
+use think\model\Relation;
 use Sirius\Support\Collection;
-use Sirius\Support\Facades\Input;
-use Sirius\Support\Facades\Schema;
-use Jenssegers\Mongodb\Eloquent\Model as MongodbModel;
 
 class Grid
 {

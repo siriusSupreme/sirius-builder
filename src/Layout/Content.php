@@ -159,7 +159,7 @@ class Content implements Renderable
             'content'     => $this->build(),
         ];
 
-        return view('admin::content', $items)->render();
+        return view('admin::content', $items);
     }
 
     /**
