@@ -1,13 +1,12 @@
 <?php
 
-namespace Encore\Admin;
+namespace Sirius\Builder;
 
 use Closure;
-use Encore\Admin\Tree\Tools;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Database\Eloquent\Model;
+use Sirius\Builder\Tree\Tools;
+use think\Model;
 
-class Tree implements Renderable
+class Tree
 {
     /**
      * @var array

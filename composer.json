@@ -17,6 +17,7 @@
   ],
   "require": {
     "php": ">=7.0.0",
+    "siriussupreme/sirius-support": "^1.0",
     "topthink/framework": "5.1.x-dev"
   },
   "require-dev": {

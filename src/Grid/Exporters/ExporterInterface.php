@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid\Exporters;
+namespace Sirius\Builder\Grid\Exporters;
 
 interface ExporterInterface
 {
