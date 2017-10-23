@@ -1,17 +1,17 @@
 <?php
 
-namespace Sirius\Builder;
+namespace Encore\Admin;
 
 use Closure;
-use Sirius\Builder\Exception\Handler;
-use Sirius\Builder\Grid\Column;
-use Sirius\Builder\Grid\Displayers\Actions;
-use Sirius\Builder\Grid\Displayers\RowSelector;
-use Sirius\Builder\Grid\Exporter;
-use Sirius\Builder\Grid\Filter;
-use Sirius\Builder\Grid\Model;
-use Sirius\Builder\Grid\Row;
-use Sirius\Builder\Grid\Tools;
+use Encore\Admin\Exception\Handler;
+use Encore\Admin\Grid\Column;
+use Encore\Admin\Grid\Displayers\Actions;
+use Encore\Admin\Grid\Displayers\RowSelector;
+use Encore\Admin\Grid\Exporter;
+use Encore\Admin\Grid\Filter;
+use Encore\Admin\Grid\Model;
+use Encore\Admin\Grid\Row;
+use Encore\Admin\Grid\Tools;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -29,7 +29,7 @@ class Grid
     /**
      * The grid data model instance.
      *
-     * @var \Sirius\Builder\Grid\Model
+     * @var \Encore\Admin\Grid\Model
      */
     protected $model;
 
@@ -92,7 +92,7 @@ class Grid
     /**
      * The grid Filter.
      *
-     * @var \Sirius\Builder\Grid\Filter
+     * @var \Encore\Admin\Grid\Filter
      */
     protected $filter;
 
@@ -895,19 +895,19 @@ class Grid
     public static function registerColumnDisplayer()
     {
         $map = [
-            'editable'      => \Sirius\Builder\Grid\Displayers\Editable::class,
-            'switch'        => \Sirius\Builder\Grid\Displayers\SwitchDisplay::class,
-            'switchGroup'   => \Sirius\Builder\Grid\Displayers\SwitchGroup::class,
-            'select'        => \Sirius\Builder\Grid\Displayers\Select::class,
-            'image'         => \Sirius\Builder\Grid\Displayers\Image::class,
-            'label'         => \Sirius\Builder\Grid\Displayers\Label::class,
-            'button'        => \Sirius\Builder\Grid\Displayers\Button::class,
-            'link'          => \Sirius\Builder\Grid\Displayers\Link::class,
-            'badge'         => \Sirius\Builder\Grid\Displayers\Badge::class,
-            'progressBar'   => \Sirius\Builder\Grid\Displayers\ProgressBar::class,
-            'radio'         => \Sirius\Builder\Grid\Displayers\Radio::class,
-            'checkbox'      => \Sirius\Builder\Grid\Displayers\Checkbox::class,
-            'orderable'     => \Sirius\Builder\Grid\Displayers\Orderable::class,
+            'editable'      => \Encore\Admin\Grid\Displayers\Editable::class,
+            'switch'        => \Encore\Admin\Grid\Displayers\SwitchDisplay::class,
+            'switchGroup'   => \Encore\Admin\Grid\Displayers\SwitchGroup::class,
+            'select'        => \Encore\Admin\Grid\Displayers\Select::class,
+            'image'         => \Encore\Admin\Grid\Displayers\Image::class,
+            'label'         => \Encore\Admin\Grid\Displayers\Label::class,
+            'button'        => \Encore\Admin\Grid\Displayers\Button::class,
+            'link'          => \Encore\Admin\Grid\Displayers\Link::class,
+            'badge'         => \Encore\Admin\Grid\Displayers\Badge::class,
+            'progressBar'   => \Encore\Admin\Grid\Displayers\ProgressBar::class,
+            'radio'         => \Encore\Admin\Grid\Displayers\Radio::class,
+            'checkbox'      => \Encore\Admin\Grid\Displayers\Checkbox::class,
+            'orderable'     => \Encore\Admin\Grid\Displayers\Orderable::class,
         ];
 
         foreach ($map as $abstract => $class) {

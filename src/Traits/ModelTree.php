@@ -1,6 +1,6 @@
 <?php
 
-namespace Sirius\Builder\Traits;
+namespace Encore\Admin\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;

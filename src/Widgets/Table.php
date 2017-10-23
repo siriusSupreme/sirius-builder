@@ -1,6 +1,6 @@
 <?php
 
-namespace Sirius\Builder\Widgets;
+namespace Encore\Admin\Widgets;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Arr;

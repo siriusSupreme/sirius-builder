@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Grid\Tools;
+namespace Encore\Admin\Grid\Tools;
 
-use Sirius\Builder\Admin;
+use Encore\Admin\Admin;
 use Illuminate\Support\Collection;
 
 class BatchActions extends AbstractTool

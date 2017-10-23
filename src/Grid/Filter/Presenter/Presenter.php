@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Grid\Filter\Presenter;
+namespace Encore\Admin\Grid\Filter\Presenter;
 
-use Sirius\Builder\Grid\Filter\AbstractFilter;
+use Encore\Admin\Grid\Filter\AbstractFilter;
 
 abstract class Presenter
 {

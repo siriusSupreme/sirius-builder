@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Form;
+namespace Encore\Admin\Form;
 
-use Sirius\Builder\Form;
+use Encore\Admin\Form;
 use Illuminate\Support\Collection;
 
 /**

@@ -1,9 +1,9 @@
 <?php
 
-namespace Sirius\Builder\Widgets;
+namespace Encore\Admin\Widgets;
 
-use Sirius\Builder\Form\Field;
-use Sirius\Support\Contracts\Arrayable;
+use Encore\Admin\Form\Field;
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Renderable;
 
 /**
@@ -46,7 +46,7 @@ use Illuminate\Contracts\Support\Renderable;
  * @method Field\Tags           tags($column, $label = '')
  * @method Field\Icon           icon($column, $label = '')
  */
-class Form
+class Form implements Renderable
 {
     /**
      * @var Field[]
@@ -179,7 +179,7 @@ class Form
      */
     public static function findFieldClass($method)
     {
-        $class = array_get(\Sirius\Builder\Form::$availableFields, $method);
+        $class = array_get(\Encore\Admin\Form::$availableFields, $method);
 
         if (class_exists($class)) {
             return $class;

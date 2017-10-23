@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Grid\Tools;
+namespace Encore\Admin\Grid\Tools;
 
-use Sirius\Builder\Grid;
+use Encore\Admin\Grid;
 
 class CreateButton extends AbstractTool
 {

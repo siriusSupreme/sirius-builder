@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Grid;
+namespace Encore\Admin\Grid;
 
-use Sirius\Builder\Middleware\Pjax;
+use Encore\Admin\Middleware\Pjax;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;

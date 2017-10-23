@@ -1,6 +1,6 @@
 <?php
 
-namespace Sirius\Builder\Grid\Displayers;
+namespace Encore\Admin\Grid\Displayers;
 
 class Link extends AbstractDisplayer
 {

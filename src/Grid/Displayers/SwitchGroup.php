@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Grid\Displayers;
+namespace Encore\Admin\Grid\Displayers;
 
-use Sirius\Builder\Facades\Admin;
+use Encore\Admin\Facades\Admin;
 use Illuminate\Support\Arr;
 
 class SwitchGroup extends AbstractDisplayer

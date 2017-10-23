@@ -1,11 +1,15 @@
 <?php
 
-namespace Sirius\Builder;
+namespace Encore\Admin;
 
 use Closure;
-use Sirius\Builder\Layout\Content;
-use Sirius\Builder\Widgets\Navbar;
-use think\Model;
+use Encore\Admin\Auth\Database\Menu;
+use Encore\Admin\Layout\Content;
+use Encore\Admin\Widgets\Navbar;
+use Illuminate\Database\Eloquent\Model as EloquentModel;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Route;
 use InvalidArgumentException;
 
 /**
@@ -42,7 +46,7 @@ class Admin
      * @param $model
      * @param Closure $callable
      *
-     * @return \Sirius\Builder\Grid
+     * @return \Encore\Admin\Grid
      */
     public function grid($model, Closure $callable)
     {
@@ -53,7 +57,7 @@ class Admin
      * @param $model
      * @param Closure $callable
      *
-     * @return \Sirius\Builder\Form
+     * @return \Encore\Admin\Form
      */
     public function form($model, Closure $callable)
     {
@@ -65,7 +69,7 @@ class Admin
      *
      * @param $model
      *
-     * @return \Sirius\Builder\Tree
+     * @return \Encore\Admin\Tree
      */
     public function tree($model, Closure $callable = null)
     {
@@ -75,7 +79,7 @@ class Admin
     /**
      * @param Closure $callable
      *
-     * @return \Sirius\Builder\Layout\Content
+     * @return \Encore\Admin\Layout\Content
      */
     public function content(Closure $callable = null)
     {
@@ -207,7 +211,7 @@ class Admin
     /**
      * Get navbar object.
      *
-     * @return \Sirius\Builder\Widgets\Navbar
+     * @return \Encore\Admin\Widgets\Navbar
      */
     public function getNavbar()
     {
@@ -227,7 +231,7 @@ class Admin
     {
         $attributes = [
             'prefix'        => config('admin.route.prefix'),
-            'namespace'     => 'Sirius\Builder\Controllers',
+            'namespace'     => 'Encore\Admin\Controllers',
             'middleware'    => config('admin.route.middleware'),
         ];
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Sirius\Builder\Form;
+namespace Encore\Admin\Form;
 
-use Sirius\Builder\Admin;
-use Sirius\Builder\Form;
+use Encore\Admin\Admin;
+use Encore\Admin\Form;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Arr;

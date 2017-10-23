@@ -1,13 +1,13 @@
 <?php
 
-namespace Sirius\Builder\Grid\Exporters;
+namespace Encore\Admin\Grid\Exporters;
 
-use Sirius\Builder\Grid;
+use Encore\Admin\Grid;
 
 abstract class AbstractExporter implements ExporterInterface
 {
     /**
-     * @var \Sirius\Builder\Grid
+     * @var \Encore\Admin\Grid
      */
     protected $grid;
 

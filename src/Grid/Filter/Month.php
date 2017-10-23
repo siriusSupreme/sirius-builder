@@ -1,6 +1,6 @@
 <?php
 
-namespace Sirius\Builder\Grid\Filter;
+namespace Encore\Admin\Grid\Filter;
 
 class Month extends Date
 {

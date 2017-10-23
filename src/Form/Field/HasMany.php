@@ -1,11 +1,11 @@
 <?php
 
-namespace Sirius\Builder\Form\Field;
+namespace Encore\Admin\Form\Field;
 
-use Sirius\Builder\Admin;
-use Sirius\Builder\Form;
-use Sirius\Builder\Form\Field;
-use Sirius\Builder\Form\NestedForm;
+use Encore\Admin\Admin;
+use Encore\Admin\Form;
+use Encore\Admin\Form\Field;
+use Encore\Admin\Form\NestedForm;
 use Illuminate\Database\Eloquent\Relations\HasMany as Relation;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Validator;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Grid\Displayers;
+namespace Encore\Admin\Grid\Displayers;
 
-use Sirius\Builder\Admin;
+use Encore\Admin\Admin;
 
 class Actions extends AbstractDisplayer
 {

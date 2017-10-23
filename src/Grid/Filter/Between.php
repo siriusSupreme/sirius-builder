@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Grid\Filter;
+namespace Encore\Admin\Grid\Filter;
 
-use Sirius\Builder\Admin;
+use Encore\Admin\Admin;
 
 class Between extends AbstractFilter
 {

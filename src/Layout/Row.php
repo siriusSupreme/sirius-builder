@@ -1,6 +1,6 @@
 <?php
 
-namespace Sirius\Builder\Layout;
+namespace Encore\Admin\Layout;
 
 class Row implements Buildable
 {

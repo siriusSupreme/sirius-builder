@@ -1,6 +1,6 @@
 <?php
 
-namespace Sirius\Builder\Grid\Filter\Presenter;
+namespace Encore\Admin\Grid\Filter\Presenter;
 
 class MultipleSelect extends Select
 {

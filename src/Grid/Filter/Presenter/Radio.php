@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Grid\Filter\Presenter;
+namespace Encore\Admin\Grid\Filter\Presenter;
 
-use Sirius\Builder\Facades\Admin;
+use Encore\Admin\Facades\Admin;
 use Illuminate\Contracts\Support\Arrayable;
 
 class Radio extends Presenter

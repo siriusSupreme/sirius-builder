@@ -1,6 +1,6 @@
 <?php
 
-namespace Sirius\Builder\Grid\Exporters;
+namespace Encore\Admin\Grid\Exporters;
 
 use Illuminate\Support\Arr;
 

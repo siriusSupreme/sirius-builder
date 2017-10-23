@@ -1,6 +1,6 @@
 <?php
 
-namespace Sirius\Builder\Grid\Tools;
+namespace Encore\Admin\Grid\Tools;
 
 abstract class BatchAction
 {

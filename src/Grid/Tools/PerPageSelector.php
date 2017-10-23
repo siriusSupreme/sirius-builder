@@ -1,9 +1,9 @@
 <?php
 
-namespace Sirius\Builder\Grid\Tools;
+namespace Encore\Admin\Grid\Tools;
 
-use Sirius\Builder\Admin;
-use Sirius\Builder\Grid;
+use Encore\Admin\Admin;
+use Encore\Admin\Grid;
 
 class PerPageSelector extends AbstractTool
 {

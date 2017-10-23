@@ -1,10 +1,10 @@
 <?php
 
-namespace Sirius\Builder\Traits;
+namespace Encore\Admin\Traits;
 
-use Sirius\Builder\Form;
-use Sirius\Builder\Grid;
-use Sirius\Builder\Tree;
+use Encore\Admin\Form;
+use Encore\Admin\Grid;
+use Encore\Admin\Tree;
 
 trait AdminBuilder
 {

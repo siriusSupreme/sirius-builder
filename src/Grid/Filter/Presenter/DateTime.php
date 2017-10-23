@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Grid\Filter\Presenter;
+namespace Encore\Admin\Grid\Filter\Presenter;
 
-use Sirius\Builder\Admin;
+use Encore\Admin\Admin;
 
 class DateTime extends Presenter
 {

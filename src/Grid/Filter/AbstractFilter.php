@@ -1,15 +1,15 @@
 <?php
 
-namespace Sirius\Builder\Grid\Filter;
+namespace Encore\Admin\Grid\Filter;
 
-use Sirius\Builder\Grid\Filter;
-use Sirius\Builder\Grid\Filter\Presenter\Checkbox;
-use Sirius\Builder\Grid\Filter\Presenter\DateTime;
-use Sirius\Builder\Grid\Filter\Presenter\MultipleSelect;
-use Sirius\Builder\Grid\Filter\Presenter\Presenter;
-use Sirius\Builder\Grid\Filter\Presenter\Radio;
-use Sirius\Builder\Grid\Filter\Presenter\Select;
-use Sirius\Builder\Grid\Filter\Presenter\Text;
+use Encore\Admin\Grid\Filter;
+use Encore\Admin\Grid\Filter\Presenter\Checkbox;
+use Encore\Admin\Grid\Filter\Presenter\DateTime;
+use Encore\Admin\Grid\Filter\Presenter\MultipleSelect;
+use Encore\Admin\Grid\Filter\Presenter\Presenter;
+use Encore\Admin\Grid\Filter\Presenter\Radio;
+use Encore\Admin\Grid\Filter\Presenter\Select;
+use Encore\Admin\Grid\Filter\Presenter\Text;
 
 /**
  * Class AbstractFilter.
