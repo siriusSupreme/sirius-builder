@@ -4,10 +4,10 @@ namespace Sirius\Builder\Form;
 
 use Sirius\Builder\Facades\Admin;
 use Sirius\Builder\Form;
-use Sirius\Support\Contracts\Htmlable;
-use Sirius\Support\Contracts\Renderable;
-use Sirius\Support\Collection;
-use Sirius\Support\Str;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 class Tools implements Renderable
 {

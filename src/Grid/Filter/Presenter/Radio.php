@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Grid\Filter\Presenter;
 
 use Sirius\Builder\Facades\Admin;
-use Sirius\Support\Contracts\Arrayable;
+use Illuminate\Contracts\Support\Arrayable;
 
 class Radio extends Presenter
 {
@@ -47,7 +47,7 @@ class Radio extends Presenter
         return $this;
     }
 
-    protected function prepare() : void
+    protected function prepare()
     {
         $script = "$('.{$this->filter->getId()}').iCheck({radioClass:'iradio_minimal-blue'});";
 

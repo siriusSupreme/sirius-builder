@@ -18,6 +18,7 @@
   "require": {
     "php": ">=7.0.0",
     "intervention/image": "^2.4",
+    "siriussupreme/sirius-filesystem": "^1.0",
     "siriussupreme/sirius-support": "^1.0",
     "symfony/css-selector": "^3.3",
     "topthink/framework": "5.1.x-dev"

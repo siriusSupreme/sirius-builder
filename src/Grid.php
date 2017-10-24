@@ -3,6 +3,7 @@
 namespace Sirius\Builder;
 
 use Closure;
+use Sirius\Builder\Exception\Handler;
 use Sirius\Builder\Grid\Column;
 use Sirius\Builder\Grid\Displayers\Actions;
 use Sirius\Builder\Grid\Displayers\RowSelector;
@@ -11,14 +12,17 @@ use Sirius\Builder\Grid\Filter;
 use Sirius\Builder\Grid\Model;
 use Sirius\Builder\Grid\Row;
 use Sirius\Builder\Grid\Tools;
-use think\Model as ThinkModel;
-use think\model\relation\BelongsTo;
-use think\model\relation\BelongsToMany;
-use Sirius\Builder\Form\Field\HasMany;
-use think\model\relation\HasOne;
-use think\model\relation\MorphMany;
-use think\model\Relation;
-use Sirius\Support\Collection;
+use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Schema;
+use Jenssegers\Mongodb\Eloquent\Model as MongodbModel;
 
 class Grid
 {
@@ -32,21 +36,21 @@ class Grid
     /**
      * Collection of all grid columns.
      *
-     * @var \Sirius\Support\Collection
+     * @var \Illuminate\Support\Collection
      */
     protected $columns;
 
     /**
      * Collection of table columns.
      *
-     * @var \Sirius\Support\Collection
+     * @var \Illuminate\Support\Collection
      */
     protected $dbColumns;
 
     /**
      * Collection of all data rows.
      *
-     * @var \Sirius\Support\Collection
+     * @var \Illuminate\Support\Collection
      */
     protected $rows;
 
@@ -268,7 +272,7 @@ class Grid
 
             $label = empty($label) ? ucfirst($relationColumn) : $label;
 
-            $name = $relationName.'.'.$relationColumn;
+            $name = snake_case($relationName).'.'.$relationColumn;
         }
 
         $column = $this->addColumn($name, $label);
@@ -557,7 +561,7 @@ class Grid
     /**
      * Render the grid filter.
      *
-     * @return \Sirius\Contracts\View\Factory|\Sirius\View\View|string
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
      */
     public function renderFilter()
     {
@@ -840,13 +844,13 @@ class Grid
         if ($relation instanceof HasOne || $relation instanceof BelongsTo) {
             $this->model()->with($method);
 
-            return $this->addColumn($method, $label)->setRelation($method);
+            return $this->addColumn($method, $label)->setRelation(snake_case($method));
         }
 
         if ($relation instanceof HasMany || $relation instanceof BelongsToMany || $relation instanceof MorphToMany) {
             $this->model()->with($method);
 
-            return $this->addColumn($method, $label);
+            return $this->addColumn(snake_case($method), $label);
         }
 
         return false;

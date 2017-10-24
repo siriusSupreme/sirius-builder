@@ -4,8 +4,8 @@ namespace Sirius\Builder\Form\Field;
 
 use Sirius\Builder\Form\EmbeddedForm;
 use Sirius\Builder\Form\Field;
-use Sirius\Support\Facades\Validator;
-use Sirius\Support\Str;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class Embeds extends Field
 {
@@ -244,7 +244,7 @@ class Embeds extends Field
     /**
      * Render the form.
      *
-     * @return \Sirius\View\View
+     * @return \Illuminate\View\View
      */
     public function render()
     {

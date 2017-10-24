@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Grid\Tools;
 
 use Sirius\Builder\Grid;
-use Sirius\Support\Contracts\Renderable;
+use Illuminate\Contracts\Support\Renderable;
 
 abstract class AbstractTool implements Renderable
 {

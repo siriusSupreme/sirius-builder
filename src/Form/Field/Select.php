@@ -4,8 +4,8 @@ namespace Sirius\Builder\Form\Field;
 
 use Sirius\Builder\Facades\Admin;
 use Sirius\Builder\Form\Field;
-use Sirius\Support\Contracts\Arrayable;
-use Sirius\Support\Str;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Str;
 
 class Select extends Field
 {

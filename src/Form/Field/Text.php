@@ -11,7 +11,7 @@ class Text extends Field
     /**
      * Render this filed.
      *
-     * @return \Sirius\Contracts\View\Factory|\Sirius\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function render()
     {

@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Widgets;
 
-use Sirius\Support\Contracts\Renderable;
+use Illuminate\Contracts\Support\Renderable;
 
 class InfoBox extends Widget implements Renderable
 {

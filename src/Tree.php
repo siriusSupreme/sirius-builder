@@ -4,8 +4,8 @@ namespace Sirius\Builder;
 
 use Closure;
 use Sirius\Builder\Tree\Tools;
-use Sirius\Support\Contracts\Renderable;
-use think\Model;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Database\Eloquent\Model;
 
 class Tree implements Renderable
 {
@@ -53,6 +53,16 @@ class Tree implements Renderable
      * @var bool
      */
     public $useCreate = true;
+
+    /**
+     * @var bool
+     */
+    public $useSave = true;
+
+    /**
+     * @var bool
+     */
+    public $useRefresh = true;
 
     /**
      * @var array
@@ -160,6 +170,26 @@ class Tree implements Renderable
     public function disableCreate()
     {
         $this->useCreate = false;
+    }
+
+    /**
+     * Disable save.
+     *
+     * @return void
+     */
+    public function disableSave()
+    {
+        $this->useSave = false;
+    }
+
+    /**
+     * Disable refresh.
+     *
+     * @return void
+     */
+    public function disableRefresh()
+    {
+        $this->useRefresh = false;
     }
 
     /**
@@ -301,6 +331,8 @@ SCRIPT;
             'tools'     => $this->tools->render(),
             'items'     => $this->getItems(),
             'useCreate' => $this->useCreate,
+            'useSave'   => $this->useSave,
+            'useRefresh'=> $this->useRefresh,
         ];
     }
 
@@ -319,7 +351,7 @@ SCRIPT;
     /**
      * Render a tree.
      *
-     * @return \Sirius\Http\JsonResponse|string
+     * @return \Illuminate\Http\JsonResponse|string
      */
     public function render()
     {

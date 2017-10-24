@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Widgets;
 
-use Sirius\Support\Contracts\Renderable;
+use Illuminate\Contracts\Support\Renderable;
 
 class Callout extends Widget implements Renderable
 {
@@ -77,6 +77,6 @@ class Callout extends Widget implements Renderable
      */
     public function render()
     {
-        return view($this->view, $this->variables());
+        return view($this->view, $this->variables())->render();
     }
 }

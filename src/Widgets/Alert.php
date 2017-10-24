@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Widgets;
 
-use Sirius\Support\Contracts\Renderable;
+use Illuminate\Contracts\Support\Renderable;
 
 class Alert extends Widget implements Renderable
 {

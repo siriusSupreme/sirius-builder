@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Widgets;
 
-use Sirius\Support\Fluent;
+use Illuminate\Support\Fluent;
 
 abstract class Widget extends Fluent
 {

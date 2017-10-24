@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Form\Field;
 
 use Sirius\Builder\Form\Field;
-use Sirius\Support\Facades\Validator;
+use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class File extends Field
@@ -59,6 +59,10 @@ class File extends Field
     {
         if (request()->has(static::FILE_DELETE_FLAG)) {
             return false;
+        }
+
+        if ($this->validator) {
+            return $this->validator->call($this, $input);
         }
 
         /*
@@ -159,7 +163,7 @@ class File extends Field
     /**
      * Render file upload field.
      *
-     * @return \Sirius\Contracts\View\Factory|\Sirius\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function render()
     {

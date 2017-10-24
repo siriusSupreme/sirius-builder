@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Form;
 
 use Sirius\Builder\Form;
-use Sirius\Support\Collection;
+use Illuminate\Support\Collection;
 
 class Tab
 {

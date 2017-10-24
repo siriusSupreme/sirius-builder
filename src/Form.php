@@ -9,15 +9,15 @@ use Sirius\Builder\Form\Field;
 use Sirius\Builder\Form\Field\File;
 use Sirius\Builder\Form\Row;
 use Sirius\Builder\Form\Tab;
-use Sirius\Database\Eloquent\Model;
-use Sirius\Database\Eloquent\Relations\Relation;
-use Sirius\Http\Request;
-use Sirius\Support\Arr;
-use Sirius\Support\Facades\DB;
-use Sirius\Support\Facades\Input;
-use Sirius\Support\MessageBag;
-use Sirius\Support\Str;
-use Sirius\Validation\Validator;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\MessageBag;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Validator;
 use Spatie\EloquentSortable\Sortable;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -78,7 +78,7 @@ class Form
     protected $model;
 
     /**
-     * @var \Sirius\Validation\Validator
+     * @var \Illuminate\Validation\Validator
      */
     protected $validator;
 
@@ -317,7 +317,7 @@ class Form
     /**
      * Store a new record.
      *
-     * @return \Sirius\Http\RedirectResponse|\Sirius\Routing\Redirector|\Sirius\Http\JsonResponse
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\Http\JsonResponse
      */
     public function store()
     {
@@ -358,7 +358,7 @@ class Form
     /**
      * Get RedirectResponse after store.
      *
-     * @return \Sirius\Http\RedirectResponse
+     * @return \Illuminate\Http\RedirectResponse
      */
     protected function redirectAfterStore()
     {
@@ -374,7 +374,7 @@ class Form
      *
      * @param string $message
      *
-     * @return bool|\Sirius\Http\JsonResponse
+     * @return bool|\Illuminate\Http\JsonResponse
      */
     protected function ajaxResponse($message)
     {
@@ -554,7 +554,7 @@ class Form
     /**
      * Get RedirectResponse after update.
      *
-     * @return \Sirius\Http\RedirectResponse
+     * @return \Illuminate\Http\RedirectResponse
      */
     protected function redirectAfterUpdate()
     {
@@ -641,8 +641,8 @@ class Form
 
             $relation = $this->model->$name();
 
-            $oneToOneRelation = $relation instanceof \Sirius\Database\Eloquent\Relations\HasOne
-                || $relation instanceof \Sirius\Database\Eloquent\Relations\MorphOne;
+            $oneToOneRelation = $relation instanceof \Illuminate\Database\Eloquent\Relations\HasOne
+                || $relation instanceof \Illuminate\Database\Eloquent\Relations\MorphOne;
 
             $prepared = $this->prepareUpdate([$name => $values], $oneToOneRelation);
 
@@ -651,13 +651,13 @@ class Form
             }
 
             switch (get_class($relation)) {
-                case \Sirius\Database\Eloquent\Relations\BelongsToMany::class:
-                case \Sirius\Database\Eloquent\Relations\MorphToMany::class:
+                case \Illuminate\Database\Eloquent\Relations\BelongsToMany::class:
+                case \Illuminate\Database\Eloquent\Relations\MorphToMany::class:
                     if (isset($prepared[$name])) {
                         $relation->sync($prepared[$name]);
                     }
                     break;
-                case \Sirius\Database\Eloquent\Relations\HasOne::class:
+                case \Illuminate\Database\Eloquent\Relations\HasOne::class:
 
                     $related = $this->model->$name;
 
@@ -673,7 +673,7 @@ class Form
 
                     $related->save();
                     break;
-                case \Sirius\Database\Eloquent\Relations\MorphOne::class:
+                case \Illuminate\Database\Eloquent\Relations\MorphOne::class:
                     $related = $this->model->$name;
                     if (is_null($related)) {
                         $related = $relation->make();
@@ -683,8 +683,8 @@ class Form
                     }
                     $related->save();
                     break;
-                case \Sirius\Database\Eloquent\Relations\HasMany::class:
-                case \Sirius\Database\Eloquent\Relations\MorphMany::class:
+                case \Illuminate\Database\Eloquent\Relations\HasMany::class:
+                case \Illuminate\Database\Eloquent\Relations\MorphMany::class:
 
                     foreach ($prepared[$name] as $related) {
                         $relation = $this->model()->$name();
@@ -924,7 +924,7 @@ class Form
      */
     protected function setFieldOriginalValue()
     {
-        static::doNotSnakeAttributes($this->model);
+//        static::doNotSnakeAttributes($this->model);
 
         $values = $this->model->toArray();
 
@@ -946,7 +946,7 @@ class Form
 
         $this->model = $this->model->with($relations)->findOrFail($id);
 
-        static::doNotSnakeAttributes($this->model);
+//        static::doNotSnakeAttributes($this->model);
 
         $data = $this->model->toArray();
 
@@ -998,7 +998,7 @@ class Form
     /**
      * Merge validation messages from input validators.
      *
-     * @param \Sirius\Validation\Validator[] $validators
+     * @param \Illuminate\Validation\Validator[] $validators
      *
      * @return MessageBag
      */

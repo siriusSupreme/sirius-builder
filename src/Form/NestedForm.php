@@ -4,7 +4,7 @@ namespace Sirius\Builder\Form;
 
 use Sirius\Builder\Admin;
 use Sirius\Builder\Form;
-use Sirius\Support\Collection;
+use Illuminate\Support\Collection;
 
 /**
  * Class NestedForm.
@@ -117,6 +117,16 @@ class NestedForm
         $this->form = $form;
 
         return $this;
+    }
+
+    /**
+     * Get form.
+     *
+     * @return Form
+     */
+    public function getForm()
+    {
+        return $this->form;
     }
 
     /**

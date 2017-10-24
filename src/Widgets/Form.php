@@ -3,11 +3,8 @@
 namespace Sirius\Builder\Widgets;
 
 use Sirius\Builder\Form\Field;
-use function Sirius\Support\array_forget;
-use function Sirius\Support\array_get;
-use function Sirius\Support\collect;
-use Sirius\Support\Contracts\Arrayable;
-use Sirius\Support\Contracts\Renderable;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Contracts\Support\Renderable;
 
 /**
  * Class Form.
@@ -280,8 +277,6 @@ class Form implements Renderable
 
             return $element;
         }
-
-        return null;
     }
 
     /**
@@ -291,7 +286,7 @@ class Form implements Renderable
      */
     public function render()
     {
-        return view('admin::widgets.form', $this->getVariables());
+        return view('admin::widgets.form', $this->getVariables())->render();
     }
 
     /**

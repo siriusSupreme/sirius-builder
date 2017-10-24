@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Widgets;
 
-use Sirius\Support\Contracts\Renderable;
+use Illuminate\Contracts\Support\Renderable;
 
 class Carousel extends Widget implements Renderable
 {
@@ -58,6 +58,6 @@ class Carousel extends Widget implements Renderable
             'attributes'    => $this->formatAttributes(),
         ];
 
-        return view($this->view, $variables);
+        return view($this->view, $variables)->render();
     }
 }

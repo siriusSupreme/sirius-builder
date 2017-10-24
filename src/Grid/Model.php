@@ -3,14 +3,14 @@
 namespace Sirius\Builder\Grid;
 
 use Sirius\Builder\Middleware\Pjax;
-use Sirius\Database\Eloquent\Model as EloquentModel;
-use Sirius\Database\Eloquent\Relations\BelongsTo;
-use Sirius\Database\Eloquent\Relations\HasOne;
-use Sirius\Database\Eloquent\Relations\Relation;
-use Sirius\Pagination\LengthAwarePaginator;
-use Sirius\Support\Collection;
-use Sirius\Support\Facades\Input;
-use Sirius\Support\Facades\Request;
+use Illuminate\Database\Eloquent\Model as EloquentModel;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 
 class Model
 {
@@ -24,7 +24,7 @@ class Model
     /**
      * Array of queries of the eloquent model.
      *
-     * @var \Sirius\Support\Collection
+     * @var \Illuminate\Support\Collection
      */
     protected $queries;
 
@@ -86,7 +86,7 @@ class Model
 
         $this->queries = collect();
 
-        static::doNotSnakeAttributes($this->model);
+//        static::doNotSnakeAttributes($this->model);
     }
 
     /**
@@ -188,9 +188,11 @@ class Model
     /**
      * Build.
      *
-     * @return array
+     * @param bool $toArray
+     *
+     * @return array|Collection|mixed
      */
-    public function buildData()
+    public function buildData($toArray = true)
     {
         if (empty($this->data)) {
             $collection = $this->get();
@@ -199,10 +201,37 @@ class Model
                 $collection = call_user_func($this->collectionCallback, $collection);
             }
 
-            $this->data = $collection->toArray();
+            if ($toArray) {
+                $this->data = $collection->toArray();
+            } else {
+                $this->data = $collection;
+            }
         }
 
         return $this->data;
+    }
+
+    /**
+     * @param callable $callback
+     * @param int      $count
+     *
+     * @return bool
+     */
+    public function chunk($callback, $count = 100)
+    {
+        if ($this->usePaginate) {
+            return $this->buildData(false)->chunk($count)->each($callback);
+        }
+
+        $this->setSort();
+
+        $this->queries->reject(function ($query) {
+            return $query['method'] == 'paginate';
+        })->each(function ($query) {
+            $this->model = $this->model->{$query['method']}(...$query['arguments']);
+        });
+
+        return $this->model->chunk($count, $callback);
     }
 
     /**

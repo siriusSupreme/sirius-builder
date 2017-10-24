@@ -3,8 +3,8 @@
 namespace Sirius\Builder\Layout;
 
 use Closure;
-use Sirius\Support\Contracts\Renderable;
-use Sirius\Support\MessageBag;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\MessageBag;
 
 class Content implements Renderable
 {
@@ -159,7 +159,7 @@ class Content implements Renderable
             'content'     => $this->build(),
         ];
 
-        return view('admin::content', $items);
+        return view('admin::content', $items)->render();
     }
 
     /**

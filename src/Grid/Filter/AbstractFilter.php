@@ -48,6 +48,11 @@ abstract class AbstractFilter
     protected $value;
 
     /**
+     * @var array|string
+     */
+    protected $defaultValue;
+
+    /**
      * @var string
      */
     protected $column;
@@ -351,6 +356,22 @@ abstract class AbstractFilter
     }
 
     /**
+     * Set default value for filter.
+     *
+     * @param null $default
+     *
+     * @return $this
+     */
+    public function default($default = null)
+    {
+        if ($default) {
+            $this->defaultValue = $default;
+        }
+
+        return $this;
+    }
+
+    /**
      * Get element id.
      *
      * @return array|string
@@ -423,7 +444,7 @@ abstract class AbstractFilter
             'id'        => $this->id,
             'name'      => $this->formatName($this->column),
             'label'     => $this->label,
-            'value'     => $this->value,
+            'value'     => $this->value ?: $this->defaultValue,
             'presenter' => $this->presenter(),
         ], $this->presenter()->variables());
     }
@@ -431,7 +452,7 @@ abstract class AbstractFilter
     /**
      * Render this filter.
      *
-     * @return \Sirius\View\View|string
+     * @return \Illuminate\View\View|string
      */
     public function render()
     {
@@ -441,7 +462,7 @@ abstract class AbstractFilter
     /**
      * Render this filter.
      *
-     * @return \Sirius\View\View|string
+     * @return \Illuminate\View\View|string
      */
     public function __toString()
     {

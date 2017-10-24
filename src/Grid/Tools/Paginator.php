@@ -3,13 +3,13 @@
 namespace Sirius\Builder\Grid\Tools;
 
 use Sirius\Builder\Grid;
-use Sirius\Pagination\LengthAwarePaginator;
-use Sirius\Support\Facades\Input;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Input;
 
 class Paginator extends AbstractTool
 {
     /**
-     * @var \Sirius\Pagination\LengthAwarePaginator
+     * @var \Illuminate\Pagination\LengthAwarePaginator
      */
     protected $paginator = null;
 

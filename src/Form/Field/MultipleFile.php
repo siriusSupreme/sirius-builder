@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Form\Field;
 
 use Sirius\Builder\Form\Field;
-use Sirius\Support\Facades\Validator;
+use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class MultipleFile extends Field
@@ -61,6 +61,10 @@ class MultipleFile extends Field
             return false;
         }
 
+        if ($this->validator) {
+            return $this->validator->call($this, $input);
+        }
+
         $attributes = [];
 
         if (!$fieldRules = $this->getRules()) {
@@ -83,6 +87,10 @@ class MultipleFile extends Field
      */
     protected function hydrateFiles(array $value)
     {
+        if (empty($value)) {
+            return [[$this->column => $this->getRules()], []];
+        }
+
         $rules = $input = [];
 
         foreach ($value as $key => $file) {
@@ -191,7 +199,7 @@ class MultipleFile extends Field
     /**
      * Render file upload field.
      *
-     * @return \Sirius\Contracts\View\Factory|\Sirius\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function render()
     {

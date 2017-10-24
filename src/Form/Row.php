@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Form;
 
 use Sirius\Builder\Form;
-use Sirius\Support\Contracts\Renderable;
+use Illuminate\Contracts\Support\Renderable;
 
 class Row implements Renderable
 {
@@ -67,7 +67,7 @@ class Row implements Renderable
     /**
      * Render the row.
      *
-     * @return \Sirius\Contracts\View\Factory|\Sirius\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function render()
     {

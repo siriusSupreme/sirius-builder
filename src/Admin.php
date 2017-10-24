@@ -6,7 +6,10 @@ use Closure;
 use Sirius\Builder\Auth\Database\Menu;
 use Sirius\Builder\Layout\Content;
 use Sirius\Builder\Widgets\Navbar;
-use think\Model;
+use Illuminate\Database\Eloquent\Model as EloquentModel;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Route;
 use InvalidArgumentException;
 
 /**
@@ -90,7 +93,7 @@ class Admin
      */
     public function getModel($model)
     {
-        if ($model instanceof Model) {
+        if ($model instanceof EloquentModel) {
             return $model;
         }
 
@@ -106,7 +109,7 @@ class Admin
      *
      * @param null $css
      *
-     * @return \Sirius\Contracts\View\Factory|\Sirius\View\View|void
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
      */
     public static function css($css = null)
     {
@@ -128,7 +131,7 @@ class Admin
      *
      * @param null $js
      *
-     * @return \Sirius\Contracts\View\Factory|\Sirius\View\View|void
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
      */
     public static function js($js = null)
     {
@@ -148,7 +151,7 @@ class Admin
     /**
      * @param string $script
      *
-     * @return \Sirius\Contracts\View\Factory|\Sirius\View\View|void
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
      */
     public static function script($script = '')
     {
@@ -234,10 +237,10 @@ class Admin
 
         Route::group($attributes, function ($router) {
 
-            /* @var \Sirius\Routing\Router $router */
+            /* @var \Illuminate\Routing\Router $router */
             $router->group([], function ($router) {
 
-                /* @var \Sirius\Routing\Router $router */
+                /* @var \Illuminate\Routing\Router $router */
                 $router->resource('auth/users', 'UserController');
                 $router->resource('auth/roles', 'RoleController');
                 $router->resource('auth/permissions', 'PermissionController');

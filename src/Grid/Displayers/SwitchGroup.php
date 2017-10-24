@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Grid\Displayers;
 
 use Sirius\Builder\Facades\Admin;
-use Sirius\Support\Arr;
+use Illuminate\Support\Arr;
 
 class SwitchGroup extends AbstractDisplayer
 {

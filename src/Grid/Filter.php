@@ -4,7 +4,8 @@ namespace Sirius\Builder\Grid;
 
 use Sirius\Builder\Facades\Admin;
 use Sirius\Builder\Grid\Filter\AbstractFilter;
-use think\facade\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 
 /**
  * Class Filter.
@@ -23,6 +24,7 @@ use think\facade\Request;
  * @method AbstractFilter     day($column, $label = '')
  * @method AbstractFilter     month($column, $label = '')
  * @method AbstractFilter     year($column, $label = '')
+ * @method AbstractFilter     hidden($name, $value)
  */
 class Filter
 {
@@ -41,7 +43,7 @@ class Filter
      */
     protected $supports = [
         'equal', 'notEqual', 'ilike', 'like', 'gt', 'lt', 'between',
-        'where', 'in', 'notIn', 'date', 'day', 'month', 'year',
+        'where', 'in', 'notIn', 'date', 'day', 'month', 'year', 'hidden',
     ];
 
     /**
@@ -166,9 +168,20 @@ class Filter
     }
 
     /**
+     * @param callable $callback
+     * @param int      $count
+     *
+     * @return bool
+     */
+    public function chunk(callable $callback, $count = 100)
+    {
+        return $this->model->addConditions($this->conditions())->chunk($callback, $count);
+    }
+
+    /**
      * Get the string contents of the filter view.
      *
-     * @return \Sirius\View\View|string
+     * @return \Illuminate\View\View|string
      */
     public function render()
     {
@@ -211,7 +224,7 @@ EOT;
             $columns[] = $filter->getColumn();
         }
 
-        /** @var \Sirius\Http\Request $request * */
+        /** @var \Illuminate\Http\Request $request * */
         $request = Request::instance();
 
         $query = $request->query();
@@ -246,7 +259,7 @@ EOT;
     /**
      * Get the string contents of the filter view.
      *
-     * @return \Sirius\View\View|string
+     * @return \Illuminate\View\View|string
      */
     public function __toString()
     {

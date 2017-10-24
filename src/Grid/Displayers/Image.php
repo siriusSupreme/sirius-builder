@@ -2,8 +2,8 @@
 
 namespace Sirius\Builder\Grid\Displayers;
 
-use Sirius\Support\Contracts\Arrayable;
-use Sirius\Support\Facades\Storage;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Facades\Storage;
 
 class Image extends AbstractDisplayer
 {
@@ -16,8 +16,6 @@ class Image extends AbstractDisplayer
         return collect((array) $this->value)->filter()->map(function ($path) use ($server, $width, $height) {
             if (url()->isValidUrl($path)) {
                 $src = $path;
-            } elseif ($server) {
-                $src = $server.$path;
             } else {
                 $src = Storage::disk(config('admin.upload.disk'))->url($path);
             }

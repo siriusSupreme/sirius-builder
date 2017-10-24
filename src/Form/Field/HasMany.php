@@ -6,10 +6,10 @@ use Sirius\Builder\Admin;
 use Sirius\Builder\Form;
 use Sirius\Builder\Form\Field;
 use Sirius\Builder\Form\NestedForm;
-use Sirius\Database\Eloquent\Relations\HasMany as Relation;
-use Sirius\Database\Eloquent\Relations\MorphMany;
-use Sirius\Support\Facades\Validator;
-use Sirius\Support\Str;
+use Illuminate\Database\Eloquent\Relations\HasMany as Relation;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 /**
  * Class HasMany.
@@ -483,7 +483,7 @@ EOT;
      *
      * @throws \Exception
      *
-     * @return \Sirius\View\View
+     * @return \Illuminate\View\View
      */
     public function render()
     {

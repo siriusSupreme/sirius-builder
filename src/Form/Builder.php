@@ -4,9 +4,9 @@ namespace Sirius\Builder\Form;
 
 use Sirius\Builder\Admin;
 use Sirius\Builder\Form;
-use Sirius\Support\Collection;
-use think\facade\Url;
-use Sirius\Support\Str;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Str;
 
 /**
  * Class Builder.

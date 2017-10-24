@@ -4,10 +4,10 @@ namespace Sirius\Builder\Form;
 
 use Sirius\Builder\Admin;
 use Sirius\Builder\Form;
-use Sirius\Support\Contracts\Arrayable;
-use Sirius\Support\Contracts\Renderable;
-use Sirius\Support\Arr;
-use think\facade\Validate;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Validator;
 
 /**
  * Class Field.
@@ -92,6 +92,11 @@ class Field implements Renderable
      * @var string|\Closure
      */
     protected $rules = '';
+
+    /**
+     * @var callable
+     */
+    protected $validator;
 
     /**
      * Validation messages.
@@ -385,7 +390,7 @@ class Field implements Renderable
      * @param null  $rules
      * @param array $messages
      *
-     * @return mixed
+     * @return $this
      */
     public function rules($rules = null, $messages = [])
     {
@@ -428,6 +433,20 @@ class Field implements Renderable
     protected function removeRule($rule)
     {
         $this->rules = str_replace($rule, '', $this->rules);
+    }
+
+    /**
+     * Set field validator.
+     *
+     * @param callable $validator
+     *
+     * @return $this
+     */
+    public function validator(callable $validator)
+    {
+        $this->validator = $validator;
+
+        return $this;
     }
 
     /**
@@ -554,6 +573,10 @@ class Field implements Renderable
      */
     public function getValidator(array $input)
     {
+        if ($this->validator) {
+            return $this->validator->call($this, $input);
+        }
+
         $rules = $attributes = [];
 
         if (!$fieldRules = $this->getRules()) {
@@ -877,7 +900,7 @@ class Field implements Renderable
     /**
      * Render this filed.
      *
-     * @return \Sirius\Contracts\View\Factory|\Sirius\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function render()
     {
