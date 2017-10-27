@@ -5,9 +5,9 @@ namespace Sirius\Builder\Form;
 use Sirius\Builder\Admin;
 use Sirius\Builder\Form;
 use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Validator;
+use Sirius\Support\Contracts\Renderable;
+use Sirius\Support\Arr;
+use Sirius\Support\Facades\Validator;
 
 /**
  * Class Field.

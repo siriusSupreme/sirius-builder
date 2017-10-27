@@ -5,9 +5,9 @@ namespace Sirius\Builder\Form;
 use Sirius\Builder\Facades\Admin;
 use Sirius\Builder\Form;
 use Illuminate\Contracts\Support\Htmlable;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
+use Sirius\Support\Contracts\Renderable;
+use Sirius\Support\Collection;
+use Sirius\Support\Str;
 
 class Tools implements Renderable
 {

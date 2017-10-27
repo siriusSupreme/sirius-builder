@@ -4,7 +4,7 @@ namespace Sirius\Builder;
 
 use Sirius\Builder\Auth\Database\Menu;
 use Sirius\Builder\Auth\Database\Permission;
-use Illuminate\Support\Facades\Route;
+use Sirius\Support\Facades\Route;
 
 abstract class Extension
 {

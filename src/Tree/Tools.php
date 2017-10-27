@@ -3,9 +3,9 @@
 namespace Sirius\Builder\Tree;
 
 use Sirius\Builder\Tree;
-use Illuminate\Contracts\Support\Htmlable;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Support\Collection;
+use Sirius\Support\Contracts\Htmlable;
+use Sirius\Support\Contracts\Renderable;
+use Sirius\Support\Collection;
 
 class Tools implements Renderable
 {
@@ -26,7 +26,7 @@ class Tools implements Renderable
     /**
      * Create a new Tools instance.
      *
-     * @param Builder $builder
+     * @param Tree $builder
      */
     public function __construct(Tree $tree)
     {

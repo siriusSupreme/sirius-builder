@@ -4,7 +4,7 @@ namespace Sirius\Builder\Grid\Tools;
 
 use Sirius\Builder\Grid;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\Input;
+use Sirius\Support\Facades\Input;
 
 class Paginator extends AbstractTool
 {

@@ -3,13 +3,12 @@
 namespace Sirius\Builder;
 
 use Closure;
-use Sirius\Builder\Auth\Database\Menu;
 use Sirius\Builder\Layout\Content;
 use Sirius\Builder\Widgets\Navbar;
-use Illuminate\Database\Eloquent\Model as EloquentModel;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Route;
+use function Sirius\Support\array_get;
+use think\Model as ThinkModel;
+use think\facade\Config;
+use think\facade\Route;
 use InvalidArgumentException;
 
 /**
@@ -93,7 +92,7 @@ class Admin
      */
     public function getModel($model)
     {
-        if ($model instanceof EloquentModel) {
+        if ($model instanceof ThinkModel) {
             return $model;
         }
 
@@ -109,14 +108,14 @@ class Admin
      *
      * @param null $css
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     * @return null
      */
     public static function css($css = null)
     {
         if (!is_null($css)) {
             self::$css = array_merge(self::$css, (array) $css);
 
-            return;
+            return null;
         }
 
         $css = array_get(Form::collectFieldAssets(), 'css', []);
@@ -131,14 +130,14 @@ class Admin
      *
      * @param null $js
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     * @return null
      */
     public static function js($js = null)
     {
         if (!is_null($js)) {
             self::$js = array_merge(self::$js, (array) $js);
 
-            return;
+            return null;
         }
 
         $js = array_get(Form::collectFieldAssets(), 'js', []);
@@ -151,14 +150,14 @@ class Admin
     /**
      * @param string $script
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     * @return null
      */
     public static function script($script = '')
     {
         if (!empty($script)) {
             self::$script = array_merge(self::$script, (array) $script);
 
-            return;
+            return null;
         }
 
         return view('admin::partials.script', ['script' => array_unique(self::$script)]);
@@ -229,31 +228,7 @@ class Admin
      */
     public function registerAuthRoutes()
     {
-        $attributes = [
-            'prefix'        => config('admin.route.prefix'),
-            'namespace'     => 'Sirius\Builder\Controllers',
-            'middleware'    => config('admin.route.middleware'),
-        ];
 
-        Route::group($attributes, function ($router) {
-
-            /* @var \Illuminate\Routing\Router $router */
-            $router->group([], function ($router) {
-
-                /* @var \Illuminate\Routing\Router $router */
-                $router->resource('auth/users', 'UserController');
-                $router->resource('auth/roles', 'RoleController');
-                $router->resource('auth/permissions', 'PermissionController');
-                $router->resource('auth/menu', 'MenuController', ['except' => ['create']]);
-                $router->resource('auth/logs', 'LogController', ['only' => ['index', 'destroy']]);
-            });
-
-            $router->get('auth/login', 'AuthController@getLogin');
-            $router->post('auth/login', 'AuthController@postLogin');
-            $router->get('auth/logout', 'AuthController@getLogout');
-            $router->get('auth/setting', 'AuthController@getSetting');
-            $router->put('auth/setting', 'AuthController@putSetting');
-        });
     }
 
     public static function extend($name, $class)

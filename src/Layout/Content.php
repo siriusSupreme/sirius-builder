@@ -3,8 +3,8 @@
 namespace Sirius\Builder\Layout;
 
 use Closure;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Support\MessageBag;
+use Sirius\Support\Contracts\Renderable;
+use Sirius\Support\MessageBag;
 
 class Content implements Renderable
 {
@@ -141,7 +141,7 @@ class Content implements Renderable
     {
         $error = new MessageBag(compact('title', 'message'));
 
-        session()->flash('error', $error);
+        app('session')->flash('error', $error);
 
         return $this;
     }
@@ -159,7 +159,7 @@ class Content implements Renderable
             'content'     => $this->build(),
         ];
 
-        return view('admin::content', $items)->render();
+        return view('admin::content', $items)->getContent();
     }
 
     /**

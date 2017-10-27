@@ -3,21 +3,19 @@
 namespace Sirius\Builder;
 
 use Closure;
-use Sirius\Builder\Exception\Handler;
 use Sirius\Builder\Form\Builder;
 use Sirius\Builder\Form\Field;
 use Sirius\Builder\Form\Field\File;
 use Sirius\Builder\Form\Row;
 use Sirius\Builder\Form\Tab;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\MessageBag;
-use Illuminate\Support\Str;
-use Illuminate\Validation\Validator;
+use think\model\Relation;
+use think\facade\Request;
+use Sirius\Support\Arr;
+use think\Db;
+use Sirius\Support\MessageBag;
+use Sirius\Support\Str;
+use think\facade\Validate;
 use Spatie\EloquentSortable\Sortable;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -641,8 +639,8 @@ class Form
 
             $relation = $this->model->$name();
 
-            $oneToOneRelation = $relation instanceof \Illuminate\Database\Eloquent\Relations\HasOne
-                || $relation instanceof \Illuminate\Database\Eloquent\Relations\MorphOne;
+            $oneToOneRelation = $relation instanceof \think\model\relation\HasOne
+                || $relation instanceof \think\model\relation\MorphOne;
 
             $prepared = $this->prepareUpdate([$name => $values], $oneToOneRelation);
 
@@ -651,13 +649,13 @@ class Form
             }
 
             switch (get_class($relation)) {
-                case \Illuminate\Database\Eloquent\Relations\BelongsToMany::class:
-                case \Illuminate\Database\Eloquent\Relations\MorphToMany::class:
+                case \think\model\relation\BelongsToMany::class:
+                case \think\model\relation\MorphToMany::class:
                     if (isset($prepared[$name])) {
                         $relation->sync($prepared[$name]);
                     }
                     break;
-                case \Illuminate\Database\Eloquent\Relations\HasOne::class:
+                case \think\model\relation\HasOne::class:
 
                     $related = $this->model->$name;
 
@@ -673,7 +671,7 @@ class Form
 
                     $related->save();
                     break;
-                case \Illuminate\Database\Eloquent\Relations\MorphOne::class:
+                case \think\model\relation\MorphOne::class:
                     $related = $this->model->$name;
                     if (is_null($related)) {
                         $related = $relation->make();
@@ -683,8 +681,8 @@ class Form
                     }
                     $related->save();
                     break;
-                case \Illuminate\Database\Eloquent\Relations\HasMany::class:
-                case \Illuminate\Database\Eloquent\Relations\MorphMany::class:
+                case \think\model\relation\HasMany::class:
+                case \think\model\relation\MorphMany::class:
 
                     foreach ($prepared[$name] as $related) {
                         $relation = $this->model()->$name();

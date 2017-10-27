@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Grid\Displayers;
 
 use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Support\Facades\Storage;
+use Sirius\Support\Facades\Storage;
 
 class Image extends AbstractDisplayer
 {

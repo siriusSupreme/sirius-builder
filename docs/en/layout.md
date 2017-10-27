@@ -25,4 +25,4 @@ $content->row(function(Row $row) {
 });
 
 ```
-The `$width` parameter is used to set the width of the column elements, based on the `bootstrap` layout definition of the grid system. The `$element` parameter can be any object that implements the `Illuminate\Contracts\Support\Renderable` interface or any other printable variable.
+The `$width` parameter is used to set the width of the column elements, based on the `bootstrap` layout definition of the grid system. The `$element` parameter can be any object that implements the `Sirius\Support\Contracts\Renderable` interface or any other printable variable.

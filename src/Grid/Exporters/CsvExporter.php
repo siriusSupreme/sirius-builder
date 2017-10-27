@@ -3,8 +3,8 @@
 namespace Sirius\Builder\Grid\Exporters;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
+use Sirius\Support\Collection;
+use Sirius\Support\Str;
 
 class CsvExporter extends AbstractExporter
 {

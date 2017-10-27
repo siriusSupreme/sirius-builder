@@ -19,7 +19,7 @@ echo $box;
 
 ```
 
-`Box::__construct($title, $content)`,`$title`参数为Box组件的标题，`$content`参数为Box的内容元素，可以是实现了`Illuminate\Contracts\Support\Renderable`接口的对象或者其他可打印变量。
+`Box::__construct($title, $content)`,`$title`参数为Box组件的标题，`$content`参数为Box的内容元素，可以是实现了`Sirius\Support\Contracts\Renderable`接口的对象或者其他可打印变量。
 
 `Box::title($title)`方法用来设置Box组件标题。
 

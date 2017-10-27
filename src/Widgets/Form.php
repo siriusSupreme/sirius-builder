@@ -4,7 +4,7 @@ namespace Sirius\Builder\Widgets;
 
 use Sirius\Builder\Form\Field;
 use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Contracts\Support\Renderable;
+use Sirius\Support\Contracts\Renderable;
 
 /**
  * Class Form.

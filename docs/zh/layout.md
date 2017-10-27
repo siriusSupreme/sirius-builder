@@ -25,4 +25,4 @@ $content->row(function(Row $row) {
 });
 
 ```
-`$width`参数用来确定列元素的宽度，基于`bootstrap`布局定义的网格系统，取值为1-12的整数，12为屏幕的100%宽度。`$element`参数可以是任何实现了`Illuminate\Contracts\Support\Renderable`接口的对象或者其他可打印变量。
+`$width`参数用来确定列元素的宽度，基于`bootstrap`布局定义的网格系统，取值为1-12的整数，12为屏幕的100%宽度。`$element`参数可以是任何实现了`Sirius\Support\Contracts\Renderable`接口的对象或者其他可打印变量。

@@ -3,7 +3,6 @@
 namespace Sirius\Builder;
 
 use Closure;
-use Sirius\Builder\Exception\Handler;
 use Sirius\Builder\Grid\Column;
 use Sirius\Builder\Grid\Displayers\Actions;
 use Sirius\Builder\Grid\Displayers\RowSelector;
@@ -12,16 +11,14 @@ use Sirius\Builder\Grid\Filter;
 use Sirius\Builder\Grid\Model;
 use Sirius\Builder\Grid\Row;
 use Sirius\Builder\Grid\Tools;
-use Illuminate\Database\Eloquent\Model as Eloquent;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Schema;
+use think\Model as ThinkModel;
+use think\model\relation\BelongsTo;
+use think\model\relation\BelongsToMany;
+use think\model\relation\HasMany;
+use think\model\relation\HasOne;
+use think\model\relation\MorphToMany;
+use think\model\relation\Relation;
+use Sirius\Support\Collection;
 use Jenssegers\Mongodb\Eloquent\Model as MongodbModel;
 
 class Grid
@@ -36,21 +33,21 @@ class Grid
     /**
      * Collection of all grid columns.
      *
-     * @var \Illuminate\Support\Collection
+     * @var \Sirius\Support\Collection
      */
     protected $columns;
 
     /**
      * Collection of table columns.
      *
-     * @var \Illuminate\Support\Collection
+     * @var \Sirius\Support\Collection
      */
     protected $dbColumns;
 
     /**
      * Collection of all data rows.
      *
-     * @var \Illuminate\Support\Collection
+     * @var \Sirius\Support\Collection
      */
     protected $rows;
 
@@ -174,12 +171,12 @@ class Grid
     /**
      * Create a new grid instance.
      *
-     * @param Eloquent $model
+     * @param \think\Model $model
      * @param Closure  $builder
      */
-    public function __construct(Eloquent $model, Closure $builder)
+    public function __construct(ThinkModel $model, Closure $builder)
     {
-        $this->keyName = $model->getKeyName();
+        $this->keyName = $model->getPk();
         $this->model = new Model($model);
         $this->columns = new Collection();
         $this->rows = new Collection();

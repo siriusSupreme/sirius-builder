@@ -3,9 +3,9 @@
 namespace Sirius\Builder\Form\Field;
 
 use Sirius\Builder\Form;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\URL;
-use Illuminate\Support\MessageBag;
+use Sirius\Support\Facades\Storage;
+use Sirius\Support\Facades\URL;
+use Sirius\Support\MessageBag;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 trait UploadField

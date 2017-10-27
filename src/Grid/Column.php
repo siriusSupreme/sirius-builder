@@ -7,8 +7,8 @@ use Sirius\Builder\Grid;
 use Sirius\Builder\Grid\Displayers\AbstractDisplayer;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Str;
+use Sirius\Support\Facades\URL;
+use Sirius\Support\Str;
 
 class Column
 {

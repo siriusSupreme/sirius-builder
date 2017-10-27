@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Form;
 
 use Sirius\Builder\Form;
-use Illuminate\Contracts\Support\Renderable;
+use Sirius\Support\Contracts\Renderable;
 
 class Row implements Renderable
 {

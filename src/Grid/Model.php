@@ -2,29 +2,26 @@
 
 namespace Sirius\Builder\Grid;
 
-use Sirius\Builder\Middleware\Pjax;
-use Illuminate\Database\Eloquent\Model as EloquentModel;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Request;
+use think\Model as ThinkModel;
+use think\model\relation\BelongsTo;
+use think\model\relation\HasOne;
+use think\model\Relation;
+use Sirius\Support\Collection;
+use think\Request;
 
 class Model
 {
     /**
      * Eloquent model instance of the grid model.
      *
-     * @var EloquentModel
+     * @var \think\Model
      */
     protected $model;
 
     /**
      * Array of queries of the eloquent model.
      *
-     * @var \Illuminate\Support\Collection
+     * @var \Sirius\Support\Collection
      */
     protected $queries;
 
@@ -78,9 +75,9 @@ class Model
     /**
      * Create a new grid model instance.
      *
-     * @param EloquentModel $model
+     * @param \think\Model $model
      */
-    public function __construct(EloquentModel $model)
+    public function __construct(ThinkModel $model)
     {
         $this->model = $model;
 
@@ -92,11 +89,11 @@ class Model
     /**
      * Don't snake case attributes.
      *
-     * @param EloquentModel $model
+     * @param ThinkModel $model
      *
      * @return void
      */
-    protected static function doNotSnakeAttributes(EloquentModel $model)
+    protected static function doNotSnakeAttributes(ThinkModel $model)
     {
         $class = get_class($model);
 
@@ -106,9 +103,9 @@ class Model
     /**
      * Get the eloquent model of the grid model.
      *
-     * @return EloquentModel
+     * @return ThinkModel
      */
-    public function eloquent()
+    public function model()
     {
         return $this->model;
     }
