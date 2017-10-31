@@ -2,7 +2,8 @@
 
 namespace Sirius\Builder\Widgets;
 
-use Illuminate\Contracts\Support\Htmlable;
+use function Sirius\Support\collect;
+use Sirius\Support\Contracts\Htmlable;
 use Sirius\Support\Contracts\Renderable;
 
 class Navbar implements Renderable

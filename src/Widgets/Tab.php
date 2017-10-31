@@ -24,6 +24,7 @@ class Tab extends Widget implements Renderable
     public function __construct()
     {
         $this->class('nav-tabs-custom');
+        parent::__construct();
     }
 
     /**
