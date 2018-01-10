@@ -3,21 +3,27 @@
 namespace Sirius\Builder;
 
 use Closure;
+use function Sirius\Support\array_dot;
+use function Sirius\Support\array_except;
+use function Sirius\Support\array_forget;
+use function Sirius\Support\array_get;
+use function Sirius\Support\array_has;
+use function Sirius\Support\array_set;
+use function Sirius\Support\collect;
+use think\Model;
 use Sirius\Builder\Form\Builder;
 use Sirius\Builder\Form\Field;
 use Sirius\Builder\Form\Field\File;
 use Sirius\Builder\Form\Row;
 use Sirius\Builder\Form\Tab;
-use Illuminate\Database\Eloquent\Model;
-use think\model\Relation;
-use think\facade\Request;
 use Sirius\Support\Arr;
-use think\Db;
 use Sirius\Support\MessageBag;
 use Sirius\Support\Str;
-use think\facade\Validate;
 use Spatie\EloquentSortable\Sortable;
 use Symfony\Component\HttpFoundation\Response;
+use think\Db;
+use think\facade\Request;
+use think\model\Relation;
 
 /**
  * Class Form.
@@ -76,7 +82,7 @@ class Form
     protected $model;
 
     /**
-     * @var \Illuminate\Validation\Validator
+     * @var \think\Validate
      */
     protected $validator;
 
@@ -372,15 +378,15 @@ class Form
      *
      * @param string $message
      *
-     * @return bool|\Illuminate\Http\JsonResponse
+     * @return bool|\think\response\Json
      */
     protected function ajaxResponse($message)
     {
-        $request = Request::capture();
+        $request = Request::instance();
 
         // ajax but not pjax
-        if ($request->ajax() && !$request->pjax()) {
-            return response()->json([
+        if ($request->is_ajax() && !$request->is_pjax()) {
+            return json([
                 'status'  => true,
                 'message' => $message,
             ]);
@@ -650,7 +656,7 @@ class Form
 
             switch (get_class($relation)) {
                 case \think\model\relation\BelongsToMany::class:
-                case \think\model\relation\MorphToMany::class:
+                case \think\model\relation\MorphTo::class:
                     if (isset($prepared[$name])) {
                         $relation->sync($prepared[$name]);
                     }

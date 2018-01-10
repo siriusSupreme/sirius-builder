@@ -3,18 +3,17 @@
 namespace Sirius\Builder;
 
 use Closure;
+use InvalidArgumentException;
 use Sirius\Builder\Layout\Content;
 use Sirius\Builder\Widgets\Navbar;
-use function Sirius\Support\array_get;
-use think\Model as ThinkModel;
 use think\facade\Config;
-use think\facade\Route;
-use InvalidArgumentException;
+use think\Model as ThinkModel;
+use function Sirius\Support\array_get;
 
 /**
- * Class Admin.
+ * Class Builder.
  */
-class Admin
+class Builder
 {
     /**
      * @var Navbar
@@ -45,11 +44,11 @@ class Admin
      * @param $model
      * @param Closure $callable
      *
-     * @return \Sirius\Builder\Grid
+     * @return \Sirius\Builder\Table
      */
     public function grid($model, Closure $callable)
     {
-        return new Grid($this->getModel($model), $callable);
+        return new Table($this->getModel($model), $callable);
     }
 
     /**

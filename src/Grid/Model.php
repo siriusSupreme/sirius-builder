@@ -2,6 +2,7 @@
 
 namespace Sirius\Builder\Grid;
 
+use function Sirius\Support\collect;
 use think\Model as ThinkModel;
 use think\model\relation\BelongsTo;
 use think\model\relation\HasOne;

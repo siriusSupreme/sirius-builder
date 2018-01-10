@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Grid;
 
-use Sirius\Builder\Grid;
+use Sirius\Builder\Table;
 use Sirius\Builder\Grid\Exporters\CsvExporter;
 
 class Exporter
@@ -36,7 +36,7 @@ class Exporter
     /**
      * Create a new Exporter instance.
      *
-     * @param Grid $grid
+     * @param Table $grid
      */
     public function __construct(Grid $grid)
     {

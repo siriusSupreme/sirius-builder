@@ -21,7 +21,7 @@ use think\model\relation\Relation;
 use Sirius\Support\Collection;
 use Jenssegers\Mongodb\Eloquent\Model as MongodbModel;
 
-class Grid
+class Table
 {
     /**
      * The grid data model instance.

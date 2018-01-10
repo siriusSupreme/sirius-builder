@@ -5,7 +5,7 @@ namespace Sirius\Builder;
 use Closure;
 use Sirius\Builder\Tree\Tools;
 use Sirius\Support\Contracts\Renderable;
-use Illuminate\Database\Eloquent\Model;
+use think\Model;
 
 class Tree implements Renderable
 {

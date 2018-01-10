@@ -2,12 +2,15 @@
 
 namespace Sirius\Builder\Form;
 
-use Sirius\Builder\Admin;
+use Sirius\Builder\Builder;
 use Sirius\Builder\Form;
-use Illuminate\Contracts\Support\Arrayable;
+use function Sirius\Support\array_get;
+use function Sirius\Support\array_has;
+use function Sirius\Support\array_set;
+use Sirius\Support\Contracts\Arrayable;
 use Sirius\Support\Contracts\Renderable;
 use Sirius\Support\Arr;
-use Sirius\Support\Facades\Validator;
+use think\facade\Validate;
 
 /**
  * Class Field.
@@ -188,7 +191,7 @@ class Field implements Renderable
     /**
      * Field constructor.
      *
-     * @param $column
+     * @param string|array $column
      * @param array $arguments
      */
     public function __construct($column, $arguments = [])
@@ -569,7 +572,7 @@ class Field implements Renderable
      *
      * @param array $input
      *
-     * @return bool|Validator
+     * @return bool|\think\Validate
      */
     public function getValidator(array $input)
     {
@@ -605,7 +608,7 @@ class Field implements Renderable
             }
         }
 
-        return Validator::make($input, $rules, $this->validationMessages, $attributes);
+        return Validate::make($input, $rules, $this->validationMessages, $attributes);
     }
 
     /**

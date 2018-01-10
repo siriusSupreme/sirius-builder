@@ -3,6 +3,7 @@
 namespace Sirius\Builder\Form;
 
 use Sirius\Builder\Form;
+use function Sirius\Support\array_get;
 use Sirius\Support\Collection;
 
 /**
