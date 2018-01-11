@@ -1,9 +1,31 @@
 <?php
+  namespace Sirius\Builder;
 
-use think\facade\App;
+  use think\Template;
 
-require __DIR__ . '/../vendor/topthink/framework/base.php';
+  /**
+   * @param string $template_file 模板文件
+   * @param array $var  模板变量
+   * @param array $config 配置
+   *
+   * @return string
+   */
+  function template( $template_file, $var=[], $config=[]){
+    static $template=null;
 
-App::run();
+    if (is_null( $template)){
+      var_dump( 'new instance');
+      $template=new Template($config);
+    }
 
-echo app('view')->fetch(__DIR__.'/test.html')->getContent();
+    $template->config( $config);
+    $template->assign($var);
+
+    ob_start();
+    ob_implicit_flush(false);
+    $template->fetch($template_file);
+    $content=ob_get_clean();
+
+    return $content;
+
+  }

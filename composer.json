@@ -22,7 +22,7 @@
     "siriussupreme/sirius-filesystem": "^1.0",
     "siriussupreme/sirius-support": "^1.0",
     "symfony/css-selector": "^3.3",
-    "topthink/framework": "5.1.2"
+    "topthink/framework": "^5.1.2"
   },
   "require-dev": {
     "phpunit/phpunit": "^6.4"
@@ -32,7 +32,9 @@
       "Sirius\\Builder\\": "src/"
     },
     "classmap": [],
-    "files": []
+    "files": [
+      "src/helpers.php"
+    ]
   },
   "autoload-dev": {
     "psr-4": {},
