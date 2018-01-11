@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Middleware;
+namespace Sirius\Builder\Middleware;
 
 use Closure;
-use Encore\Admin\Admin;
+use Sirius\Builder\Admin;
 use Illuminate\Support\Facades\Auth;
 
 class Authenticate

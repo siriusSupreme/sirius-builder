@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Table\Filter\Presenter;
 
 use Sirius\Builder\Facades\Admin;
-use Illuminate\Contracts\Support\Arrayable;
+use Sirius\Support\Contracts\Arrayable;
 
 class Radio extends Presenter
 {

@@ -3,7 +3,7 @@
 namespace DummyNamespace;
 
 use App\Http\Controllers\Controller;
-use Encore\Admin\Controllers\ModelForm;
+use Sirius\Builder\Controllers\ModelForm;
 
 class DummyClass extends Controller
 {

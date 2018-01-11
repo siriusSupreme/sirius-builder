@@ -1,7 +1,7 @@
 <?php
 
-use Encore\Admin\Auth\Database\Administrator;
-use Encore\Admin\Auth\Database\OperationLog;
+use Sirius\Builder\Auth\Database\Administrator;
+use Sirius\Builder\Auth\Database\OperationLog;
 
 class OperationLogTest extends TestCase
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Encore\Admin;
+namespace Sirius\Builder;
 
-use Encore\Admin\Auth\Database\Menu;
-use Encore\Admin\Auth\Database\Permission;
-use Illuminate\Support\Facades\Route;
+use Sirius\Builder\Auth\Database\Menu;
+use Sirius\Builder\Auth\Database\Permission;
+use think\facade\Route;
 
 abstract class Extension
 {

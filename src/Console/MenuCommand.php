@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace Sirius\Builder\Console;
 
-use Encore\Admin\Facades\Admin;
+use Sirius\Builder\Facades\Admin;
 use Illuminate\Console\Command;
 
 class MenuCommand extends Command

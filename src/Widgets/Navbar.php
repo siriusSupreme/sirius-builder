@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace Sirius\Builder\Widgets;
 
-use Illuminate\Contracts\Support\Htmlable;
-use Illuminate\Contracts\Support\Renderable;
+use Sirius\Support\Contracts\Htmlable;
+use Sirius\Support\Contracts\Renderable;
 
 class Navbar implements Renderable
 {

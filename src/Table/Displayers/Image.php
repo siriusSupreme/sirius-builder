@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Table\Displayers;
 
-use Illuminate\Contracts\Support\Arrayable;
+use Sirius\Support\Contracts\Arrayable;
 use Sirius\Support\Facades\Storage;
 
 class Image extends AbstractDisplayer

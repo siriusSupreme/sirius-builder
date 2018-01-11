@@ -1,11 +1,11 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace Sirius\Builder\Form;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Form;
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Contracts\Support\Renderable;
+use Sirius\Builder\Admin;
+use Sirius\Builder\Form;
+use Sirius\Support\Contracts\Arrayable;
+use Sirius\Support\Contracts\Renderable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;
 

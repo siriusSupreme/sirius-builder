@@ -1,6 +1,6 @@
 <?php
 
-use Encore\Admin\Auth\Database\Administrator;
+use Sirius\Builder\Auth\Database\Administrator;
 
 class UsersTest extends TestCase
 {

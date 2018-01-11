@@ -1,7 +1,7 @@
 <?php
 
-use Encore\Admin\Auth\Database\Administrator;
-use Encore\Admin\Auth\Database\Menu;
+use Sirius\Builder\Auth\Database\Administrator;
+use Sirius\Builder\Auth\Database\Menu;
 
 class MenuTest extends TestCase
 {

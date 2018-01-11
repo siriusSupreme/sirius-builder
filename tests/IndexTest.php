@@ -1,6 +1,6 @@
 <?php
 
-use Encore\Admin\Auth\Database\Administrator;
+use Sirius\Builder\Auth\Database\Administrator;
 
 class IndexTest extends TestCase
 {

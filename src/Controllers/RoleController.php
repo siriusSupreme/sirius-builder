@@ -1,13 +1,13 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace Sirius\Builder\Controllers;
 
-use Encore\Admin\Auth\Database\Permission;
-use Encore\Admin\Auth\Database\Role;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
+use Sirius\Builder\Auth\Database\Permission;
+use Sirius\Builder\Auth\Database\Role;
+use Sirius\Builder\Facades\Admin;
+use Sirius\Builder\Form;
+use Sirius\Builder\Grid;
+use Sirius\Builder\Layout\Content;
 use Illuminate\Routing\Controller;
 
 class RoleController extends Controller

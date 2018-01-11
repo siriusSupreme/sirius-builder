@@ -3,11 +3,11 @@
 namespace Tests\Controllers;
 
 use App\Http\Controllers\Controller;
-use Encore\Admin\Controllers\ModelForm;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
+use Sirius\Builder\Controllers\ModelForm;
+use Sirius\Builder\Facades\Admin;
+use Sirius\Builder\Form;
+use Sirius\Builder\Grid;
+use Sirius\Builder\Layout\Content;
 use Tests\Models\Tag;
 use Tests\Models\User;
 

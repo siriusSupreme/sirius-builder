@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace Sirius\Builder\Grid\Tools;
 
 class BatchDelete extends BatchAction
 {

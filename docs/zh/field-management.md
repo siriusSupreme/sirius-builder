@@ -14,7 +14,7 @@ form表单内置的`map`和`editor`组件通过cdn的方式引用了前端文件
 
 <?php
 
-use Encore\Admin\Form;
+use Sirius\Builder\Form;
 
 Form::forget('map');
 Form::forget('editor');
@@ -41,7 +41,7 @@ Form::forget(['map', 'editor']);
 
 namespace App\Admin\Extensions;
 
-use Encore\Admin\Form\Field;
+use Sirius\Builder\Form\Field;
 
 class PHPEditor extends Field
 {
@@ -110,7 +110,7 @@ EOT;
 <?php
 
 use App\Admin\Extensions\PHPEditor;
-use Encore\Admin\Form;
+use Sirius\Builder\Form;
 
 Form::extend('php', PHPEditor::class);
 
@@ -140,7 +140,7 @@ $form->php('code');
 
 namespace App\Admin\Extensions;
 
-use Encore\Admin\Form\Field;
+use Sirius\Builder\Form\Field;
 
 class WangEditor extends Field
 {
@@ -176,7 +176,7 @@ EOT;
 <?php
 
 use App\Admin\Extensions\WangEditor;
-use Encore\Admin\Form;
+use Sirius\Builder\Form;
 
 Form::extend('editor', WangEditor::class);
 
@@ -227,7 +227,7 @@ app/Admin/Extensions/uEditor.php:
 ```php
 <?php
 namespace App\Admin\Extensions;
-use Encore\Admin\Form\Field;
+use Sirius\Builder\Form\Field;
 
 /**
  * 百度编辑器
@@ -279,7 +279,7 @@ resources/views/admin/uEditor.blade.php
 然后注册进`laravel-admin`,在`app/Admin/bootstrap.php`中添加以下代码：
 ```php
 use App\Admin\Extensions\uEditor;
-use Encore\Admin\Form;
+use Sirius\Builder\Form;
 
 Form::extend('editor', uEditor::class); // 覆盖editor
 ```

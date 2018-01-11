@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Grid;
+namespace Sirius\Builder\Grid;
 
-use Encore\Admin\Grid;
-use Encore\Admin\Grid\Exporters\CsvExporter;
+use Sirius\Builder\Grid;
+use Sirius\Builder\Grid\Exporters\CsvExporter;
 
 class Exporter
 {

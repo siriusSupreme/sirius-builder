@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace Sirius\Builder\Form;
 
-use Encore\Admin\Form;
-use Illuminate\Contracts\Support\Renderable;
+use Sirius\Builder\Form;
+use Sirius\Support\Contracts\Renderable;
 
 class Row implements Renderable
 {

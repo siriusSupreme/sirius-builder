@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace Sirius\Builder\Grid\Tools;
 
-use Encore\Admin\Grid;
-use Illuminate\Contracts\Support\Renderable;
+use Sirius\Builder\Grid;
+use Sirius\Support\Contracts\Renderable;
 
 abstract class AbstractTool implements Renderable
 {

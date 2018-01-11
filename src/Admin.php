@@ -1,15 +1,15 @@
 <?php
 
-namespace Encore\Admin;
+namespace Sirius\Builder;
 
 use Closure;
-use Encore\Admin\Auth\Database\Menu;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Widgets\Navbar;
-use Illuminate\Database\Eloquent\Model as EloquentModel;
+use Sirius\Builder\Auth\Database\Menu;
+use Sirius\Builder\Layout\Content;
+use Sirius\Builder\Widgets\Navbar;
+use think\Model;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Route;
+use think\facade\Config;
+use think\facade\Route;
 use InvalidArgumentException;
 
 /**
@@ -46,7 +46,7 @@ class Admin
      * @param $model
      * @param Closure $callable
      *
-     * @return \Encore\Admin\Grid
+     * @return \Sirius\Builder\Grid
      */
     public function grid($model, Closure $callable)
     {
@@ -57,7 +57,7 @@ class Admin
      * @param $model
      * @param Closure $callable
      *
-     * @return \Encore\Admin\Form
+     * @return \Sirius\Builder\Form
      */
     public function form($model, Closure $callable)
     {
@@ -69,7 +69,7 @@ class Admin
      *
      * @param $model
      *
-     * @return \Encore\Admin\Tree
+     * @return \Sirius\Builder\Tree
      */
     public function tree($model, Closure $callable = null)
     {
@@ -79,7 +79,7 @@ class Admin
     /**
      * @param Closure $callable
      *
-     * @return \Encore\Admin\Layout\Content
+     * @return \Sirius\Builder\Layout\Content
      */
     public function content(Closure $callable = null)
     {
@@ -93,7 +93,7 @@ class Admin
      */
     public function getModel($model)
     {
-        if ($model instanceof EloquentModel) {
+        if ($model instanceof Model) {
             return $model;
         }
 
@@ -213,7 +213,7 @@ class Admin
     /**
      * Get navbar object.
      *
-     * @return \Encore\Admin\Widgets\Navbar
+     * @return \Sirius\Builder\Widgets\Navbar
      */
     public function getNavbar()
     {
@@ -233,7 +233,7 @@ class Admin
     {
         $attributes = [
             'prefix'     => config('admin.route.prefix'),
-            'namespace'  => 'Encore\Admin\Controllers',
+            'namespace'  => 'Sirius\Builder\Controllers',
             'middleware' => config('admin.route.middleware'),
         ];
 

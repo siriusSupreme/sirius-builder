@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Middleware;
+namespace Sirius\Builder\Middleware;
 
-use Encore\Admin\Auth\Database\OperationLog as OperationLogModel;
-use Encore\Admin\Facades\Admin;
+use Sirius\Builder\Auth\Database\OperationLog as OperationLogModel;
+use Sirius\Builder\Facades\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Encore\Admin\Tree;
+namespace Sirius\Builder\Tree;
 
-use Encore\Admin\Tree;
-use Illuminate\Contracts\Support\Htmlable;
-use Illuminate\Contracts\Support\Renderable;
+use Sirius\Builder\Tree;
+use Sirius\Support\Contracts\Htmlable;
+use Sirius\Support\Contracts\Renderable;
 use Illuminate\Support\Collection;
 
 class Tools implements Renderable

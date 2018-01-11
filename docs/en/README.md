@@ -37,7 +37,7 @@ composer require encore/laravel-admin "1.1.x-dev"
 In`config/app.php`add`ServiceProvider`:
 
 ```
-Encore\Admin\AdminServiceProvider::class
+Sirius\Builder\AdminServiceProvider::class
 ```
 
 Then run these commands to finnish install：

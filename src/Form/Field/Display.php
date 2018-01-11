@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace Sirius\Builder\Form\Field;
 
 use Closure;
-use Encore\Admin\Form\Field;
+use Sirius\Builder\Form\Field;
 
 class Display extends Field
 {

@@ -5,7 +5,7 @@ namespace Sirius\Builder\Table;
 use Closure;
 use Sirius\Builder\Table;
 use Sirius\Builder\Table\Displayers\AbstractDisplayer;
-use Illuminate\Contracts\Support\Arrayable;
+use Sirius\Support\Contracts\Arrayable;
 use Illuminate\Database\Eloquent\Model;
 use Sirius\Support\Facades\URL;
 use Sirius\Support\Str;

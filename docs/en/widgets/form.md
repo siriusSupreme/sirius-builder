@@ -1,6 +1,6 @@
 # Form
 
-`Encore\Admin\Widgets\Form` class is used to quickly build a form：
+`Sirius\Builder\Widgets\Form` class is used to quickly build a form：
 
 ```php
 

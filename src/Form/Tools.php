@@ -1,11 +1,11 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace Sirius\Builder\Form;
 
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
-use Illuminate\Contracts\Support\Htmlable;
-use Illuminate\Contracts\Support\Renderable;
+use Sirius\Builder\Facades\Admin;
+use Sirius\Builder\Form;
+use Sirius\Support\Contracts\Htmlable;
+use Sirius\Support\Contracts\Renderable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 

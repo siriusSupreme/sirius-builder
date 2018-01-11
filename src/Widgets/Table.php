@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace Sirius\Builder\Widgets;
 
-use Illuminate\Contracts\Support\Renderable;
+use Sirius\Support\Contracts\Renderable;
 use Illuminate\Support\Arr;
 
 class Table extends Widget implements Renderable

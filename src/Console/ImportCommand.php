@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace Sirius\Builder\Console;
 
-use Encore\Admin\Admin;
+use Sirius\Builder\Admin;
 use Illuminate\Console\Command;
 
 class ImportCommand extends Command

@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Layout;
+namespace Sirius\Builder\Layout;
 
 use Closure;
-use Illuminate\Contracts\Support\Renderable;
+use Sirius\Support\Contracts\Renderable;
 use Illuminate\Support\MessageBag;
 
 class Content implements Renderable

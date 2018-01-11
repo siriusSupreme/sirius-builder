@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter\Presenter;
+namespace Sirius\Builder\Grid\Filter\Presenter;
 
-use Encore\Admin\Facades\Admin;
-use Illuminate\Contracts\Support\Arrayable;
+use Sirius\Builder\Facades\Admin;
+use Sirius\Support\Contracts\Arrayable;
 
 class Select extends Presenter
 {

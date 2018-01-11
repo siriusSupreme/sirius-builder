@@ -1,6 +1,37 @@
 <?php
+  namespace Sirius\Builder;
 
-if (!function_exists('admin_path')) {
+  use think\Template;
+
+  if (!function_exists( '\Sirius\Builder\template')){
+    /**
+     * @param string $template_file
+     * @param array $var
+     * @param array $config
+     *
+     * @return string
+     */
+    function template($template_file,$var=[],$config=[]){
+      static $template=null;
+
+      if (is_null( $template)){
+        $template=new Template($config);
+      }
+
+      $template->config($config);
+      $template->assign($var);
+
+      ob_start();
+      ob_implicit_flush(false);
+      $template->fetch($template_file);
+      $content=ob_get_clean();
+
+      return $content;
+
+    }
+  }
+
+if (!function_exists('\Sirius\Builder\admin_path')) {
 
     /**
      * Get admin path.
@@ -15,7 +46,7 @@ if (!function_exists('admin_path')) {
     }
 }
 
-if (!function_exists('admin_url')) {
+if (!function_exists('\Sirius\Builder\admin_url')) {
     /**
      * Get admin url.
      *
@@ -33,7 +64,7 @@ if (!function_exists('admin_url')) {
     }
 }
 
-if (!function_exists('admin_base_path')) {
+if (!function_exists('\Sirius\Builder\admin_base_path')) {
     /**
      * Get admin url.
      *
@@ -51,7 +82,7 @@ if (!function_exists('admin_base_path')) {
     }
 }
 
-if (!function_exists('admin_toastr')) {
+if (!function_exists('\Sirius\Builder\admin_toastr')) {
 
     /**
      * Flash a toastr message bag to session.
@@ -70,7 +101,7 @@ if (!function_exists('admin_toastr')) {
     }
 }
 
-if (!function_exists('admin_asset')) {
+if (!function_exists('\Sirius\Builder\admin_asset')) {
 
     /**
      * @param $path

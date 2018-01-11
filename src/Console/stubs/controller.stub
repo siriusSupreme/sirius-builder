@@ -4,12 +4,12 @@ namespace DummyNamespace;
 
 use DummyModelNamespace;
 
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Layout\Content;
+use Sirius\Builder\Form;
+use Sirius\Builder\Grid;
+use Sirius\Builder\Facades\Admin;
+use Sirius\Builder\Layout\Content;
 use App\Http\Controllers\Controller;
-use Encore\Admin\Controllers\ModelForm;
+use Sirius\Builder\Controllers\ModelForm;
 
 class DummyClass extends Controller
 {

@@ -1,9 +1,9 @@
 # Tab component
 
-The `Encore\Admin\Widgets\Tab` class is used to generate the tab components:
+The `Sirius\Builder\Widgets\Tab` class is used to generate the tab components:
 
 ```php
-use Encore\Admin\Widgets\Tab;
+use Sirius\Builder\Widgets\Tab;
 
 $tab = new Tab();
 

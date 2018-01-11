@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace Sirius\Builder\Console;
 
-use Encore\Admin\Auth\Database\Administrator;
+use Sirius\Builder\Auth\Database\Administrator;
 use Illuminate\Console\Command;
 
 class InstallCommand extends Command
@@ -50,7 +50,7 @@ class InstallCommand extends Command
         $this->call('migrate');
 
         if (Administrator::count() == 0) {
-            $this->call('db:seed', ['--class' => \Encore\Admin\Auth\Database\AdminTablesSeeder::class]);
+            $this->call('db:seed', ['--class' => \Sirius\Builder\Auth\Database\AdminTablesSeeder::class]);
         }
     }
 

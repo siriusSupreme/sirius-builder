@@ -1,8 +1,8 @@
 <?php
 
-use Encore\Admin\Auth\Database\Administrator;
-use Encore\Admin\Auth\Database\Permission;
-use Encore\Admin\Auth\Database\Role;
+use Sirius\Builder\Auth\Database\Administrator;
+use Sirius\Builder\Auth\Database\Permission;
+use Sirius\Builder\Auth\Database\Role;
 
 class PermissionsTest extends TestCase
 {

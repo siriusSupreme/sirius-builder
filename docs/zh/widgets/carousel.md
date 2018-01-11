@@ -1,9 +1,9 @@
 # Carousel组件
 
-`Encore\Admin\Widgets\Carousel`用来生成滑动相册组件：
+`Sirius\Builder\Widgets\Carousel`用来生成滑动相册组件：
 
 ```php
-use Encore\Admin\Widgets\Carousel;
+use Sirius\Builder\Widgets\Carousel;
 
 $items = [
     [

@@ -1,9 +1,9 @@
 # Carousel
 
-`Encore\Admin\Widgets\Carousel`Used to generate carousel components:
+`Sirius\Builder\Widgets\Carousel`Used to generate carousel components:
 
 ```php
-use Encore\Admin\Widgets\Carousel;
+use Sirius\Builder\Widgets\Carousel;
 
 $items = [
     [

@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace Sirius\Builder\Grid\Displayers;
 
-use Illuminate\Contracts\Support\Arrayable;
+use Sirius\Support\Contracts\Arrayable;
 use Illuminate\Support\Facades\Storage;
 
 class Image extends AbstractDisplayer
