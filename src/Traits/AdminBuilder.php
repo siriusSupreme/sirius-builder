@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Traits;
 
 use Sirius\Builder\Form;
-use Sirius\Builder\Grid;
+use Sirius\Builder\Table;
 use Sirius\Builder\Tree;
 
 trait AdminBuilder
@@ -11,11 +11,11 @@ trait AdminBuilder
     /**
      * @param \Closure $callback
      *
-     * @return Grid
+     * @return Table
      */
     public static function grid(\Closure $callback)
     {
-        return new Grid(new static(), $callback);
+        return new Table(new static(), $callback);
     }
 
     /**

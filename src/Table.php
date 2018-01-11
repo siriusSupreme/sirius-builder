@@ -3,14 +3,14 @@
 namespace Sirius\Builder;
 
 use Closure;
-use Sirius\Builder\Grid\Column;
-use Sirius\Builder\Grid\Displayers\Actions;
-use Sirius\Builder\Grid\Displayers\RowSelector;
-use Sirius\Builder\Grid\Exporter;
-use Sirius\Builder\Grid\Filter;
-use Sirius\Builder\Grid\Model;
-use Sirius\Builder\Grid\Row;
-use Sirius\Builder\Grid\Tools;
+use Sirius\Builder\Table\Column;
+use Sirius\Builder\Table\Displayers\Actions;
+use Sirius\Builder\Table\Displayers\RowSelector;
+use Sirius\Builder\Table\Exporter;
+use Sirius\Builder\Table\Filter;
+use Sirius\Builder\Table\Model;
+use Sirius\Builder\Table\Row;
+use Sirius\Builder\Table\Tools;
 use think\Model as ThinkModel;
 use think\model\relation\BelongsTo;
 use think\model\relation\BelongsToMany;
@@ -26,7 +26,7 @@ class Table
     /**
      * The grid data model instance.
      *
-     * @var \Sirius\Builder\Grid\Model
+     * @var \Sirius\Builder\Table\Model
      */
     protected $model;
 
@@ -66,7 +66,7 @@ class Table
     public $columnNames = [];
 
     /**
-     * Grid builder.
+     * Table builder.
      *
      * @var \Closure
      */
@@ -89,7 +89,7 @@ class Table
     /**
      * The grid Filter.
      *
-     * @var \Sirius\Builder\Grid\Filter
+     * @var \Sirius\Builder\Table\Filter
      */
     protected $filter;
 
@@ -251,7 +251,7 @@ class Table
     }
 
     /**
-     * Add column to Grid.
+     * Add column to Table.
      *
      * @param string $name
      * @param string $label
@@ -329,7 +329,7 @@ class Table
     }
 
     /**
-     * Get Grid model.
+     * Get Table model.
      *
      * @return Model
      */
@@ -445,12 +445,12 @@ class Table
     /**
      * Disable row selector.
      *
-     * @return Grid|mixed
+     * @return Table|mixed
      */
     public function disableRowSelector()
     {
         $this->tools(function ($tools) {
-            /* @var Grid\Tools $tools */
+            /* @var Table\Tools $tools */
             $tools->disableBatchActions();
         });
 
@@ -524,7 +524,7 @@ class Table
     }
 
     /**
-     * Get filter of Grid.
+     * Get filter of Table.
      *
      * @return Filter
      */
@@ -626,7 +626,7 @@ class Table
     }
 
     /**
-     * Set exporter driver for Grid to export.
+     * Set exporter driver for Table to export.
      *
      * @param $exporter
      *
@@ -892,19 +892,19 @@ class Table
     public static function registerColumnDisplayer()
     {
         $map = [
-            'editable'      => \Sirius\Builder\Grid\Displayers\Editable::class,
-            'switch'        => \Sirius\Builder\Grid\Displayers\SwitchDisplay::class,
-            'switchGroup'   => \Sirius\Builder\Grid\Displayers\SwitchGroup::class,
-            'select'        => \Sirius\Builder\Grid\Displayers\Select::class,
-            'image'         => \Sirius\Builder\Grid\Displayers\Image::class,
-            'label'         => \Sirius\Builder\Grid\Displayers\Label::class,
-            'button'        => \Sirius\Builder\Grid\Displayers\Button::class,
-            'link'          => \Sirius\Builder\Grid\Displayers\Link::class,
-            'badge'         => \Sirius\Builder\Grid\Displayers\Badge::class,
-            'progressBar'   => \Sirius\Builder\Grid\Displayers\ProgressBar::class,
-            'radio'         => \Sirius\Builder\Grid\Displayers\Radio::class,
-            'checkbox'      => \Sirius\Builder\Grid\Displayers\Checkbox::class,
-            'orderable'     => \Sirius\Builder\Grid\Displayers\Orderable::class,
+          'editable'      => \Sirius\Builder\Table\Displayers\Editable::class,
+          'switch'        => \Sirius\Builder\Table\Displayers\SwitchDisplay::class,
+          'switchGroup'   => \Sirius\Builder\Table\Displayers\SwitchGroup::class,
+          'select'        => \Sirius\Builder\Table\Displayers\Select::class,
+          'image'         => \Sirius\Builder\Table\Displayers\Image::class,
+          'label'         => \Sirius\Builder\Table\Displayers\Label::class,
+          'button'        => \Sirius\Builder\Table\Displayers\Button::class,
+          'link'          => \Sirius\Builder\Table\Displayers\Link::class,
+          'badge'         => \Sirius\Builder\Table\Displayers\Badge::class,
+          'progressBar'   => \Sirius\Builder\Table\Displayers\ProgressBar::class,
+          'radio'         => \Sirius\Builder\Table\Displayers\Radio::class,
+          'checkbox'      => \Sirius\Builder\Table\Displayers\Checkbox::class,
+          'orderable'     => \Sirius\Builder\Table\Displayers\Orderable::class,
         ];
 
         foreach ($map as $abstract => $class) {

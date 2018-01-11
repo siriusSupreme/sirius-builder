@@ -3,7 +3,10 @@
 namespace Sirius\Builder\Widgets;
 
 use Sirius\Builder\Form\Field;
-use Illuminate\Contracts\Support\Arrayable;
+use Sirius\Support\Contracts\Arrayable;
+use function Sirius\Support\array_forget;
+use function Sirius\Support\array_get;
+use function Sirius\Support\collect;
 use Sirius\Support\Contracts\Renderable;
 
 /**
