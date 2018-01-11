@@ -1,8 +1,8 @@
 # Collapse
 
-`Sirius\Builder\Widgets\Collapse` class used to generate folding components:
+`Encore\Admin\Widgets\Collapse` class used to generate folding components:
 ```php
-use Sirius\Builder\Widgets\Collapse;
+use Encore\Admin\Widgets\Collapse;
 
 $collapse = new Collapse();
 

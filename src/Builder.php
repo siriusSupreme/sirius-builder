@@ -7,7 +7,7 @@ use InvalidArgumentException;
 use Sirius\Builder\Layout\Content;
 use Sirius\Builder\Widgets\Navbar;
 use think\facade\Config;
-use think\Model as ThinkModel;
+use think\Model;
 use function Sirius\Support\array_get;
 
 /**
@@ -46,7 +46,7 @@ class Builder
      *
      * @return \Sirius\Builder\Table
      */
-    public function grid($model, Closure $callable)
+    public function table($model, Closure $callable)
     {
         return new Table($this->getModel($model), $callable);
     }
@@ -91,7 +91,7 @@ class Builder
      */
     public function getModel($model)
     {
-        if ($model instanceof ThinkModel) {
+        if ($model instanceof Model) {
             return $model;
         }
 

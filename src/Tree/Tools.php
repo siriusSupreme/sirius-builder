@@ -1,11 +1,11 @@
 <?php
 
-namespace Sirius\Builder\Tree;
+namespace Encore\Admin\Tree;
 
-use Sirius\Builder\Tree;
-use Sirius\Support\Contracts\Htmlable;
-use Sirius\Support\Contracts\Renderable;
-use Sirius\Support\Collection;
+use Encore\Admin\Tree;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Collection;
 
 class Tools implements Renderable
 {
@@ -26,7 +26,7 @@ class Tools implements Renderable
     /**
      * Create a new Tools instance.
      *
-     * @param Tree $builder
+     * @param Builder $builder
      */
     public function __construct(Tree $tree)
     {

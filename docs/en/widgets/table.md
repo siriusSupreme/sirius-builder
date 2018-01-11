@@ -1,9 +1,9 @@
 # Table
 
-`Sirius\Builder\Widgets\Table` class is used to generate forms：
+`Encore\Admin\Widgets\Table` class is used to generate forms：
 
 ```php
-use Sirius\Builder\Widgets\Table;
+use Encore\Admin\Widgets\Table;
 
 // table 1
 $headers = ['Id', 'Email', 'Name', 'Company'];

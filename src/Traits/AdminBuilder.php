@@ -1,21 +1,21 @@
 <?php
 
-namespace Sirius\Builder\Traits;
+namespace Encore\Admin\Traits;
 
-use Sirius\Builder\Form;
-use Sirius\Builder\Table;
-use Sirius\Builder\Tree;
+use Encore\Admin\Form;
+use Encore\Admin\Grid;
+use Encore\Admin\Tree;
 
 trait AdminBuilder
 {
     /**
      * @param \Closure $callback
      *
-     * @return Table
+     * @return Grid
      */
     public static function grid(\Closure $callback)
     {
-        return new Table(new static(), $callback);
+        return new Grid(new static(), $callback);
     }
 
     /**

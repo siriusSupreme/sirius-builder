@@ -1,10 +1,10 @@
 <?php
 
-namespace Sirius\Builder\Form;
+namespace Encore\Admin\Form;
 
-use Sirius\Builder\Admin;
-use Sirius\Builder\Form;
-use Sirius\Support\Collection;
+use Encore\Admin\Admin;
+use Encore\Admin\Form;
+use Illuminate\Support\Collection;
 
 /**
  * Class NestedForm.
@@ -84,7 +84,7 @@ class NestedForm
     protected $original = [];
 
     /**
-     * @var \Sirius\Builder\Form
+     * @var \Encore\Admin\Form
      */
     protected $form;
 
@@ -217,7 +217,7 @@ class NestedForm
                 $value = $field->prepare($value);
             }
 
-            if (($field instanceof \Sirius\Builder\Form\Field\Hidden) || $value != $field->original()) {
+            if (($field instanceof \Encore\Admin\Form\Field\Hidden) || $value != $field->original()) {
                 if (is_array($columns)) {
                     foreach ($columns as $name => $column) {
                         array_set($prepared, $column, $value[$name]);
@@ -337,7 +337,7 @@ class NestedForm
     {
         $column = $field->column();
 
-        $elementName = $elementClass = $errorKey = '';
+        $elementName = $elementClass = $errorKey = [];
 
         $key = $this->key ?: 'new_'.static::DEFAULT_KEY_NAME;
 

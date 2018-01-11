@@ -39,7 +39,7 @@
         <!-- /.box-body -->
         <div class="box-footer">
 
-            @if( ! $form->isMode(\Sirius\Builder\Form\Builder::MODE_VIEW)  || ! $form->option('enableSubmit'))
+            @if( ! $form->isMode(\Encore\Admin\Form\Builder::MODE_VIEW)  || ! $form->option('enableSubmit'))
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
             @endif
             <div class="col-md-{{$width['label']}}">

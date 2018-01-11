@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Form\Field;
+namespace Encore\Admin\Form\Field;
 
-use think\model\relation\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class MultipleSelect extends Select
 {

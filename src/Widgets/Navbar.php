@@ -1,10 +1,9 @@
 <?php
 
-namespace Sirius\Builder\Widgets;
+namespace Encore\Admin\Widgets;
 
-use function Sirius\Support\collect;
-use Sirius\Support\Contracts\Htmlable;
-use Sirius\Support\Contracts\Renderable;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Contracts\Support\Renderable;
 
 class Navbar implements Renderable
 {
@@ -19,8 +18,8 @@ class Navbar implements Renderable
     public function __construct()
     {
         $this->elements = [
-            'left'   => collect(),
-            'right'  => collect(),
+            'left'  => collect(),
+            'right' => collect(),
         ];
     }
 

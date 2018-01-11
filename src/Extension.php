@@ -1,10 +1,10 @@
 <?php
 
-namespace Sirius\Builder;
+namespace Encore\Admin;
 
-use Sirius\Builder\Auth\Database\Menu;
-use Sirius\Builder\Auth\Database\Permission;
-use Sirius\Support\Facades\Route;
+use Encore\Admin\Auth\Database\Menu;
+use Encore\Admin\Auth\Database\Permission;
+use Illuminate\Support\Facades\Route;
 
 abstract class Extension
 {
@@ -49,9 +49,9 @@ abstract class Extension
     protected static function createPermission($name, $slug, $path)
     {
         Permission::create([
-            'name'          => $name,
-            'slug'          => $slug,
-            'http_path'     => '/'.trim($path, '/'),
+            'name'      => $name,
+            'slug'      => $slug,
+            'http_path' => '/'.trim($path, '/'),
         ]);
     }
 }

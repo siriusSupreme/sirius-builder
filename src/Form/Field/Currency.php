@@ -1,6 +1,6 @@
 <?php
 
-namespace Sirius\Builder\Form\Field;
+namespace Encore\Admin\Form\Field;
 
 class Currency extends Text
 {
@@ -16,10 +16,10 @@ class Currency extends Text
      * @var array
      */
     protected $options = [
-        'alias'                 => 'currency',
-        'radixPoint'            => '.',
-        'prefix'                => '',
-        'removeMaskOnSubmit'    => true,
+        'alias'              => 'currency',
+        'radixPoint'         => '.',
+        'prefix'             => '',
+        'removeMaskOnSubmit' => true,
     ];
 
     public function symbol($symbol)

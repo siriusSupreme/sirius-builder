@@ -1,6 +1,6 @@
 <?php
 
-namespace Sirius\Builder\Form\Field;
+namespace Encore\Admin\Form\Field;
 
 class Email extends Text
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Form\Field;
+namespace Encore\Admin\Form\Field;
 
-use Sirius\Builder\Form;
+use Encore\Admin\Form;
 
 class Captcha extends Text
 {

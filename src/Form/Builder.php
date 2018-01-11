@@ -1,12 +1,12 @@
 <?php
 
-namespace Sirius\Builder\Form;
+namespace Encore\Admin\Form;
 
-use Sirius\Builder\Admin;
-use Sirius\Builder\Form;
-use Sirius\Support\Collection;
-use think\facade\Url;
-use Sirius\Support\Str;
+use Encore\Admin\Admin;
+use Encore\Admin\Form;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Str;
 
 /**
  * Class Builder.
@@ -444,7 +444,11 @@ class Builder
             return '';
         }
 
-        $text = trans('admin.submit');
+        if ($this->mode == self::MODE_EDIT) {
+            $text = trans('admin.save');
+        } else {
+            $text = trans('admin.submit');
+        }
 
         return <<<EOT
 <div class="btn-group pull-right">
@@ -534,9 +538,9 @@ SCRIPT;
         }
 
         $data = [
-            'form'     => $this,
-            'tabObj'   => $tabObj,
-            'width'    => $this->width,
+            'form'   => $this,
+            'tabObj' => $tabObj,
+            'width'  => $this->width,
         ];
 
         return view($this->view, $data)->render();

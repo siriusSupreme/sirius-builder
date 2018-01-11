@@ -1,29 +1,25 @@
 <?php
 
-namespace Sirius\Builder;
+namespace Encore\Admin;
 
 use Closure;
-use function Sirius\Support\array_dot;
-use function Sirius\Support\array_except;
-use function Sirius\Support\array_forget;
-use function Sirius\Support\array_get;
-use function Sirius\Support\array_has;
-use function Sirius\Support\array_set;
-use function Sirius\Support\collect;
-use think\Model;
-use Sirius\Builder\Form\Builder;
-use Sirius\Builder\Form\Field;
-use Sirius\Builder\Form\Field\File;
-use Sirius\Builder\Form\Row;
-use Sirius\Builder\Form\Tab;
-use Sirius\Support\Arr;
-use Sirius\Support\MessageBag;
-use Sirius\Support\Str;
+use Encore\Admin\Exception\Handler;
+use Encore\Admin\Form\Builder;
+use Encore\Admin\Form\Field;
+use Encore\Admin\Form\Field\File;
+use Encore\Admin\Form\Row;
+use Encore\Admin\Form\Tab;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\MessageBag;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Validator;
 use Spatie\EloquentSortable\Sortable;
 use Symfony\Component\HttpFoundation\Response;
-use think\Db;
-use think\facade\Request;
-use think\model\Relation;
 
 /**
  * Class Form.
@@ -82,7 +78,7 @@ class Form
     protected $model;
 
     /**
-     * @var \think\Validate
+     * @var \Illuminate\Validation\Validator
      */
     protected $validator;
 
@@ -378,15 +374,15 @@ class Form
      *
      * @param string $message
      *
-     * @return bool|\think\response\Json
+     * @return bool|\Illuminate\Http\JsonResponse
      */
     protected function ajaxResponse($message)
     {
-        $request = Request::instance();
+        $request = Request::capture();
 
         // ajax but not pjax
-        if ($request->is_ajax() && !$request->is_pjax()) {
-            return json([
+        if ($request->ajax() && !$request->pjax()) {
+            return response()->json([
                 'status'  => true,
                 'message' => $message,
             ]);
@@ -645,8 +641,8 @@ class Form
 
             $relation = $this->model->$name();
 
-            $oneToOneRelation = $relation instanceof \think\model\relation\HasOne
-                || $relation instanceof \think\model\relation\MorphOne;
+            $oneToOneRelation = $relation instanceof \Illuminate\Database\Eloquent\Relations\HasOne
+                || $relation instanceof \Illuminate\Database\Eloquent\Relations\MorphOne;
 
             $prepared = $this->prepareUpdate([$name => $values], $oneToOneRelation);
 
@@ -655,13 +651,13 @@ class Form
             }
 
             switch (get_class($relation)) {
-                case \think\model\relation\BelongsToMany::class:
-                case \think\model\relation\MorphTo::class:
+                case \Illuminate\Database\Eloquent\Relations\BelongsToMany::class:
+                case \Illuminate\Database\Eloquent\Relations\MorphToMany::class:
                     if (isset($prepared[$name])) {
                         $relation->sync($prepared[$name]);
                     }
                     break;
-                case \think\model\relation\HasOne::class:
+                case \Illuminate\Database\Eloquent\Relations\HasOne::class:
 
                     $related = $this->model->$name;
 
@@ -677,7 +673,7 @@ class Form
 
                     $related->save();
                     break;
-                case \think\model\relation\MorphOne::class:
+                case \Illuminate\Database\Eloquent\Relations\MorphOne::class:
                     $related = $this->model->$name;
                     if (is_null($related)) {
                         $related = $relation->make();
@@ -687,8 +683,8 @@ class Form
                     }
                     $related->save();
                     break;
-                case \think\model\relation\HasMany::class:
-                case \think\model\relation\MorphMany::class:
+                case \Illuminate\Database\Eloquent\Relations\HasMany::class:
+                case \Illuminate\Database\Eloquent\Relations\MorphMany::class:
 
                     foreach ($prepared[$name] as $related) {
                         $relation = $this->model()->$name();
@@ -1202,52 +1198,52 @@ class Form
     public static function registerBuiltinFields()
     {
         $map = [
-            'button'            => \Sirius\Builder\Form\Field\Button::class,
-            'checkbox'          => \Sirius\Builder\Form\Field\Checkbox::class,
-            'color'             => \Sirius\Builder\Form\Field\Color::class,
-            'currency'          => \Sirius\Builder\Form\Field\Currency::class,
-            'date'              => \Sirius\Builder\Form\Field\Date::class,
-            'dateRange'         => \Sirius\Builder\Form\Field\DateRange::class,
-            'datetime'          => \Sirius\Builder\Form\Field\Datetime::class,
-            'dateTimeRange'     => \Sirius\Builder\Form\Field\DatetimeRange::class,
-            'datetimeRange'     => \Sirius\Builder\Form\Field\DatetimeRange::class,
-            'decimal'           => \Sirius\Builder\Form\Field\Decimal::class,
-            'display'           => \Sirius\Builder\Form\Field\Display::class,
-            'divider'           => \Sirius\Builder\Form\Field\Divide::class,
-            'divide'            => \Sirius\Builder\Form\Field\Divide::class,
-            'embeds'            => \Sirius\Builder\Form\Field\Embeds::class,
-            'editor'            => \Sirius\Builder\Form\Field\Editor::class,
-            'email'             => \Sirius\Builder\Form\Field\Email::class,
-            'file'              => \Sirius\Builder\Form\Field\File::class,
-            'hasMany'           => \Sirius\Builder\Form\Field\HasMany::class,
-            'hidden'            => \Sirius\Builder\Form\Field\Hidden::class,
-            'id'                => \Sirius\Builder\Form\Field\Id::class,
-            'image'             => \Sirius\Builder\Form\Field\Image::class,
-            'ip'                => \Sirius\Builder\Form\Field\Ip::class,
-            'map'               => \Sirius\Builder\Form\Field\Map::class,
-            'mobile'            => \Sirius\Builder\Form\Field\Mobile::class,
-            'month'             => \Sirius\Builder\Form\Field\Month::class,
-            'multipleSelect'    => \Sirius\Builder\Form\Field\MultipleSelect::class,
-            'number'            => \Sirius\Builder\Form\Field\Number::class,
-            'password'          => \Sirius\Builder\Form\Field\Password::class,
-            'radio'             => \Sirius\Builder\Form\Field\Radio::class,
-            'rate'              => \Sirius\Builder\Form\Field\Rate::class,
-            'select'            => \Sirius\Builder\Form\Field\Select::class,
-            'slider'            => \Sirius\Builder\Form\Field\Slider::class,
-            'switch'            => \Sirius\Builder\Form\Field\SwitchField::class,
-            'text'              => \Sirius\Builder\Form\Field\Text::class,
-            'textarea'          => \Sirius\Builder\Form\Field\Textarea::class,
-            'time'              => \Sirius\Builder\Form\Field\Time::class,
-            'timeRange'         => \Sirius\Builder\Form\Field\TimeRange::class,
-            'url'               => \Sirius\Builder\Form\Field\Url::class,
-            'year'              => \Sirius\Builder\Form\Field\Year::class,
-            'html'              => \Sirius\Builder\Form\Field\Html::class,
-            'tags'              => \Sirius\Builder\Form\Field\Tags::class,
-            'icon'              => \Sirius\Builder\Form\Field\Icon::class,
-            'multipleFile'      => \Sirius\Builder\Form\Field\MultipleFile::class,
-            'multipleImage'     => \Sirius\Builder\Form\Field\MultipleImage::class,
-            'captcha'           => \Sirius\Builder\Form\Field\Captcha::class,
-            'listbox'           => \Sirius\Builder\Form\Field\Listbox::class,
+            'button'         => \Encore\Admin\Form\Field\Button::class,
+            'checkbox'       => \Encore\Admin\Form\Field\Checkbox::class,
+            'color'          => \Encore\Admin\Form\Field\Color::class,
+            'currency'       => \Encore\Admin\Form\Field\Currency::class,
+            'date'           => \Encore\Admin\Form\Field\Date::class,
+            'dateRange'      => \Encore\Admin\Form\Field\DateRange::class,
+            'datetime'       => \Encore\Admin\Form\Field\Datetime::class,
+            'dateTimeRange'  => \Encore\Admin\Form\Field\DatetimeRange::class,
+            'datetimeRange'  => \Encore\Admin\Form\Field\DatetimeRange::class,
+            'decimal'        => \Encore\Admin\Form\Field\Decimal::class,
+            'display'        => \Encore\Admin\Form\Field\Display::class,
+            'divider'        => \Encore\Admin\Form\Field\Divide::class,
+            'divide'         => \Encore\Admin\Form\Field\Divide::class,
+            'embeds'         => \Encore\Admin\Form\Field\Embeds::class,
+            'editor'         => \Encore\Admin\Form\Field\Editor::class,
+            'email'          => \Encore\Admin\Form\Field\Email::class,
+            'file'           => \Encore\Admin\Form\Field\File::class,
+            'hasMany'        => \Encore\Admin\Form\Field\HasMany::class,
+            'hidden'         => \Encore\Admin\Form\Field\Hidden::class,
+            'id'             => \Encore\Admin\Form\Field\Id::class,
+            'image'          => \Encore\Admin\Form\Field\Image::class,
+            'ip'             => \Encore\Admin\Form\Field\Ip::class,
+            'map'            => \Encore\Admin\Form\Field\Map::class,
+            'mobile'         => \Encore\Admin\Form\Field\Mobile::class,
+            'month'          => \Encore\Admin\Form\Field\Month::class,
+            'multipleSelect' => \Encore\Admin\Form\Field\MultipleSelect::class,
+            'number'         => \Encore\Admin\Form\Field\Number::class,
+            'password'       => \Encore\Admin\Form\Field\Password::class,
+            'radio'          => \Encore\Admin\Form\Field\Radio::class,
+            'rate'           => \Encore\Admin\Form\Field\Rate::class,
+            'select'         => \Encore\Admin\Form\Field\Select::class,
+            'slider'         => \Encore\Admin\Form\Field\Slider::class,
+            'switch'         => \Encore\Admin\Form\Field\SwitchField::class,
+            'text'           => \Encore\Admin\Form\Field\Text::class,
+            'textarea'       => \Encore\Admin\Form\Field\Textarea::class,
+            'time'           => \Encore\Admin\Form\Field\Time::class,
+            'timeRange'      => \Encore\Admin\Form\Field\TimeRange::class,
+            'url'            => \Encore\Admin\Form\Field\Url::class,
+            'year'           => \Encore\Admin\Form\Field\Year::class,
+            'html'           => \Encore\Admin\Form\Field\Html::class,
+            'tags'           => \Encore\Admin\Form\Field\Tags::class,
+            'icon'           => \Encore\Admin\Form\Field\Icon::class,
+            'multipleFile'   => \Encore\Admin\Form\Field\MultipleFile::class,
+            'multipleImage'  => \Encore\Admin\Form\Field\MultipleImage::class,
+            'captcha'        => \Encore\Admin\Form\Field\Captcha::class,
+            'listbox'        => \Encore\Admin\Form\Field\Listbox::class,
         ];
 
         foreach ($map as $abstract => $class) {

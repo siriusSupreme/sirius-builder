@@ -1,9 +1,9 @@
 <?php
 
-namespace Sirius\Builder\Form;
+namespace Encore\Admin\Form;
 
-use Sirius\Builder\Form;
-use Sirius\Support\Collection;
+use Encore\Admin\Form;
+use Illuminate\Support\Collection;
 
 class Tab
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Sirius\Builder\Form\Field;
+namespace Encore\Admin\Form\Field;
 
-use Sirius\Builder\Form;
-use Sirius\Support\Facades\Storage;
-use Sirius\Support\Facades\URL;
-use Sirius\Support\MessageBag;
+use Encore\Admin\Form;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\MessageBag;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 trait UploadField
@@ -66,8 +66,8 @@ trait UploadField
             'browseLabel'          => trans('admin.browse'),
             'showRemove'           => false,
             'showUpload'           => false,
-            'initialCaption'       => $this->initialCaption($this->value),
-            'deleteExtraData'      => [
+//            'initialCaption'       => $this->initialCaption($this->value),
+            'deleteExtraData' => [
                 $this->formatName($this->column) => static::FILE_DELETE_FLAG,
                 static::FILE_DELETE_FLAG         => '',
                 '_token'                         => csrf_token(),
@@ -95,7 +95,7 @@ trait UploadField
 
         $this->options([
             //'initialPreview'        => $this->preview(),
-            'initialPreviewConfig'  => $this->initialPreviewConfig(),
+            'initialPreviewConfig' => $this->initialPreviewConfig(),
         ]);
     }
 

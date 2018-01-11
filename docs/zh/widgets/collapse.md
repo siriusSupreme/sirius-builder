@@ -1,8 +1,8 @@
 # Collapse组件
 
-`Sirius\Builder\Widgets\Collapse`类用来生成折叠插件：
+`Encore\Admin\Widgets\Collapse`类用来生成折叠插件：
 ```php
-use Sirius\Builder\Widgets\Collapse;
+use Encore\Admin\Widgets\Collapse;
 
 $collapse = new Collapse();
 

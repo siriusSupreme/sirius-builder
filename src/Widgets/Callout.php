@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Widgets;
+namespace Encore\Admin\Widgets;
 
-use Sirius\Support\Contracts\Renderable;
+use Illuminate\Contracts\Support\Renderable;
 
 class Callout extends Widget implements Renderable
 {
@@ -64,9 +64,9 @@ class Callout extends Widget implements Renderable
         $this->class("callout callout-{$this->style}");
 
         return [
-            'title'         => $this->title,
-            'content'       => $this->content,
-            'attributes'    => $this->formatAttributes(),
+            'title'      => $this->title,
+            'content'    => $this->content,
+            'attributes' => $this->formatAttributes(),
         ];
     }
 

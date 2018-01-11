@@ -1,9 +1,9 @@
 <?php
 
-namespace Sirius\Builder\Form\Field;
+namespace Encore\Admin\Form\Field;
 
-use Sirius\Builder\Form\Field;
-use Sirius\Support\Facades\Validator;
+use Encore\Admin\Form\Field;
+use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class MultipleFile extends Field
@@ -208,7 +208,7 @@ class MultipleFile extends Field
         $this->setupDefaultOptions();
 
         if (!empty($this->value)) {
-            $this->options(['initialPreview' =>$this->preview()]);
+            $this->options(['initialPreview' => $this->preview()]);
             $this->setupPreviewOptions();
         }
 

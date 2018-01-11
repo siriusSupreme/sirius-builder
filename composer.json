@@ -18,14 +18,17 @@
   "require": {
     "php": ">=7.0.0",
     "almasaeed2010/adminlte": "~2.4",
-    "intervention/image": "^2.4",
     "siriussupreme/sirius-filesystem": "^1.0",
     "siriussupreme/sirius-support": "^1.0",
-    "symfony/css-selector": "^3.3",
-    "topthink/framework": "^5.1.2"
+    "symfony/dom-crawler": "~3.1"
   },
   "require-dev": {
-    "phpunit/phpunit": "^6.4"
+    "phpunit/phpunit": "^6.4",
+    "symfony/css-selector": "~3.1",
+    "fzaninotto/faker": "~1.4",
+    "intervention/image": "~2.3",
+    "topthink/framework": "^5.1.2",
+    "laravel/browser-kit-testing": "^2.0"
   },
   "autoload": {
     "psr-4": {
@@ -37,10 +40,18 @@
     ]
   },
   "autoload-dev": {
-    "psr-4": {},
-    "classmap": []
+    "psr-4": {
+      "Tests\\Models\\": "tests/models",
+      "Tests\\Controllers\\": "tests/controllers"
+    },
+    "classmap": [
+      "tests/TestCase.php"
+    ]
   },
-  "suggest": {},
+  "suggest": {
+    "intervention/image": "Required to handling and manipulation upload images (~2.3).",
+    "spatie/eloquent-sortable": "Required to built orderable gird."
+  },
   "extra": {},
   "minimum-stability": "stable",
   "prefer-stable": true,

@@ -1,9 +1,9 @@
 <?php
 
-namespace Sirius\Builder\Form\Field;
+namespace Encore\Admin\Form\Field;
 
-use Sirius\Builder\Form\Field;
-use Sirius\Support\Facades\Validator;
+use Encore\Admin\Form\Field;
+use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class File extends Field
@@ -171,6 +171,7 @@ class File extends Field
 
         if (!empty($this->value)) {
             $this->attribute('data-initial-preview', $this->preview());
+            $this->attribute('data-initial-caption', $this->initialCaption($this->value));
 
             $this->setupPreviewOptions();
         }

@@ -1,15 +1,15 @@
 <?php
 
-namespace Sirius\Builder\Form\Field;
+namespace Encore\Admin\Form\Field;
 
-use Sirius\Builder\Admin;
-use Sirius\Builder\Form;
-use Sirius\Builder\Form\Field;
-use Sirius\Builder\Form\NestedForm;
-use think\model\relation\HasMany as Relation;
-use think\model\relation\MorphMany;
-use Sirius\Support\Facades\Validator;
-use Sirius\Support\Str;
+use Encore\Admin\Admin;
+use Encore\Admin\Form;
+use Encore\Admin\Form\Field;
+use Encore\Admin\Form\NestedForm;
+use Illuminate\Database\Eloquent\Relations\HasMany as Relation;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 /**
  * Class HasMany.
@@ -52,8 +52,8 @@ class HasMany extends Field
      * @var array
      */
     protected $views = [
-        'default'   => 'admin::form.hasmany',
-        'tab'       => 'admin::form.hasmanytab',
+        'default' => 'admin::form.hasmany',
+        'tab'     => 'admin::form.hasmanytab',
     ];
 
     /**
@@ -496,9 +496,9 @@ EOT;
         $this->setupScript($script);
 
         return parent::render()->with([
-            'forms'         => $this->buildRelatedForms(),
-            'template'      => $template,
-            'relationName'  => $this->relationName,
+            'forms'        => $this->buildRelatedForms(),
+            'template'     => $template,
+            'relationName' => $this->relationName,
         ]);
     }
 }

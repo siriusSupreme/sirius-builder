@@ -1,9 +1,9 @@
 # Table
 
-`Sirius\Builder\Widgets\Table`类用来生成表格：
+`Encore\Admin\Widgets\Table`类用来生成表格：
 
 ```php
-use Sirius\Builder\Widgets\Table;
+use Encore\Admin\Widgets\Table;
 
 // table 1
 $headers = ['Id', 'Email', 'Name', 'Company'];

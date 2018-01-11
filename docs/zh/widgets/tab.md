@@ -1,9 +1,9 @@
 # Tab组件
 
-`Sirius\Builder\Widgets\Tab`类用来生成选项卡组件：
+`Encore\Admin\Widgets\Tab`类用来生成选项卡组件：
 
 ```php
-use Sirius\Builder\Widgets\Tab;
+use Encore\Admin\Widgets\Tab;
 
 $tab = new Tab();
 

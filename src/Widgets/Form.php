@@ -1,13 +1,10 @@
 <?php
 
-namespace Sirius\Builder\Widgets;
+namespace Encore\Admin\Widgets;
 
-use Sirius\Builder\Form\Field;
-use Sirius\Support\Contracts\Arrayable;
-use function Sirius\Support\array_forget;
-use function Sirius\Support\array_get;
-use function Sirius\Support\collect;
-use Sirius\Support\Contracts\Renderable;
+use Encore\Admin\Form\Field;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Contracts\Support\Renderable;
 
 /**
  * Class Form.
@@ -182,7 +179,7 @@ class Form implements Renderable
      */
     public static function findFieldClass($method)
     {
-        $class = array_get(\Sirius\Builder\Form::$availableFields, $method);
+        $class = array_get(\Encore\Admin\Form::$availableFields, $method);
 
         if (class_exists($class)) {
             return $class;
@@ -217,8 +214,8 @@ class Form implements Renderable
         }
 
         return [
-            'fields'        => $this->fields,
-            'attributes'    => $this->formatAttribute(),
+            'fields'     => $this->fields,
+            'attributes' => $this->formatAttribute(),
         ];
     }
 

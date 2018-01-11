@@ -1,10 +1,9 @@
 <?php
 
-namespace Sirius\Builder\Form;
+namespace Encore\Admin\Form;
 
-use Sirius\Builder\Form;
-use function Sirius\Support\array_get;
-use Sirius\Support\Collection;
+use Encore\Admin\Form;
+use Illuminate\Support\Collection;
 
 /**
  * Class EmbeddedForm.
@@ -218,7 +217,7 @@ class EmbeddedForm
     {
         $jsonKey = $field->column();
 
-        $elementName = $elementClass = $errorKey = '';
+        $elementName = $elementClass = $errorKey = [];
 
         if (is_array($jsonKey)) {
             foreach ($jsonKey as $index => $name) {

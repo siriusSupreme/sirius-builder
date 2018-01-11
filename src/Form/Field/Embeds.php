@@ -1,11 +1,11 @@
 <?php
 
-namespace Sirius\Builder\Form\Field;
+namespace Encore\Admin\Form\Field;
 
-use Sirius\Builder\Form\EmbeddedForm;
-use Sirius\Builder\Form\Field;
-use Sirius\Support\Facades\Validator;
-use Sirius\Support\Str;
+use Encore\Admin\Form\EmbeddedForm;
+use Encore\Admin\Form\Field;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class Embeds extends Field
 {

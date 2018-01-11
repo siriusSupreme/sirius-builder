@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Form\Field;
+namespace Encore\Admin\Form\Field;
 
-use Sirius\Builder\Form\Field;
+use Encore\Admin\Form\Field;
 
 class SwitchField extends Field
 {
@@ -55,7 +55,7 @@ $('{$this->getElementClassSelector()}.la_checkbox').bootstrapSwitch({
     onColor: '{$this->states['on']['color']}',
     offColor: '{$this->states['off']['color']}',
     onSwitchChange: function(event, state) {
-        $('{$this->getElementClassSelector()}').val(state ? 'on' : 'off').change();
+        $(event.target).closest('.bootstrap-switch').next().val(state ? 'on' : 'off').change();
     }
 });
 

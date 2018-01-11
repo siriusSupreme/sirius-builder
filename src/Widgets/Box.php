@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Widgets;
+namespace Encore\Admin\Widgets;
 
-use Sirius\Support\Contracts\Renderable;
+use Illuminate\Contracts\Support\Renderable;
 
 class Box extends Widget implements Renderable
 {
@@ -143,10 +143,10 @@ class Box extends Widget implements Renderable
     protected function variables()
     {
         return [
-            'title'         => $this->title,
-            'content'       => $this->content,
-            'tools'         => $this->tools,
-            'attributes'    => $this->formatAttributes(),
+            'title'      => $this->title,
+            'content'    => $this->content,
+            'tools'      => $this->tools,
+            'attributes' => $this->formatAttributes(),
         ];
     }
 

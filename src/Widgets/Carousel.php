@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Widgets;
+namespace Encore\Admin\Widgets;
 
-use Sirius\Support\Contracts\Renderable;
+use Illuminate\Contracts\Support\Renderable;
 
 class Carousel extends Widget implements Renderable
 {
@@ -53,9 +53,9 @@ class Carousel extends Widget implements Renderable
     public function render()
     {
         $variables = [
-            'items'         => $this->items,
-            'title'         => $this->title,
-            'attributes'    => $this->formatAttributes(),
+            'items'      => $this->items,
+            'title'      => $this->title,
+            'attributes' => $this->formatAttributes(),
         ];
 
         return view($this->view, $variables)->render();

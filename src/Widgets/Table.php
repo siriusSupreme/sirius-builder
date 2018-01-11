@@ -1,9 +1,9 @@
 <?php
 
-namespace Sirius\Builder\Widgets;
+namespace Encore\Admin\Widgets;
 
-use Sirius\Support\Contracts\Renderable;
-use Sirius\Support\Arr;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Arr;
 
 class Table extends Widget implements Renderable
 {
@@ -101,10 +101,10 @@ class Table extends Widget implements Renderable
     public function render()
     {
         $vars = [
-            'headers'       => $this->headers,
-            'rows'          => $this->rows,
-            'style'         => $this->style,
-            'attributes'    => $this->formatAttributes(),
+            'headers'    => $this->headers,
+            'rows'       => $this->rows,
+            'style'      => $this->style,
+            'attributes' => $this->formatAttributes(),
         ];
 
         return view($this->view, $vars)->render();

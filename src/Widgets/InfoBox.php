@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Widgets;
+namespace Encore\Admin\Widgets;
 
-use Sirius\Support\Contracts\Renderable;
+use Illuminate\Contracts\Support\Renderable;
 
 class InfoBox extends Widget implements Renderable
 {
@@ -28,10 +28,10 @@ class InfoBox extends Widget implements Renderable
     public function __construct($name, $icon, $color, $link, $info)
     {
         $this->data = [
-            'name'  => $name,
-            'icon'  => $icon,
-            'link'  => $link,
-            'info'  => $info,
+            'name' => $name,
+            'icon' => $icon,
+            'link' => $link,
+            'info' => $info,
         ];
 
         $this->class("small-box bg-$color");

@@ -1,6 +1,6 @@
 # Model-Grid
 
-Class `Sirius\Builder\Grid` is used to generate tables based on the data model,for example,we have a table `movies` in database:
+Class `Encore\Admin\Grid` is used to generate tables based on the data model,for example,we have a table `movies` in database:
 
 ```sql
 CREATE TABLE `movies` (
@@ -23,8 +23,8 @@ And the model of this table is `App\Models\Movie`,The following code can generat
 ```php
 
 use App\Models\Movie;
-use Sirius\Builder\Grid;
-use Sirius\Builder\Facades\Admin;
+use Encore\Admin\Grid;
+use Encore\Admin\Facades\Admin;
 
 $grid = Admin::grid(Movie::class, function(Grid $grid){
 
@@ -180,7 +180,7 @@ $grid->filter(function($filter){
     $filter->like('name', 'name');
 
     // sql: ... WHERE `user.email` = $email;
-    $filter->equal('emial', 'Email');
+    $filter->equal('email', 'Email');
 
     // sql: ... WHERE `user.created_at` BETWEEN $start AND $end;
     $filter->between('created_at', 'Created Time')->datetime();

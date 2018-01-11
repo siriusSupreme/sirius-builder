@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Layout;
+namespace Encore\Admin\Layout;
 
-use Sirius\Support\Contracts\Renderable;
+use Illuminate\Contracts\Support\Renderable;
 
 class Column implements Buildable
 {

@@ -1,9 +1,9 @@
 # Infobox组件
 
-`Sirius\Builder\Widgets\InfoBox`类用来生成信息展示块：
+`Encore\Admin\Widgets\InfoBox`类用来生成信息展示块：
 
 ```php
-use Sirius\Builder\Widgets\InfoBox;
+use Encore\Admin\Widgets\InfoBox;
 
 $infoBox = new InfoBox('New Users', 'users', 'aqua', '/admin/users', '1024');
 

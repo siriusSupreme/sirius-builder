@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Widgets;
+namespace Encore\Admin\Widgets;
 
-use Sirius\Support\Contracts\Renderable;
+use Illuminate\Contracts\Support\Renderable;
 
 class Alert extends Widget implements Renderable
 {
@@ -83,10 +83,10 @@ class Alert extends Widget implements Renderable
         $this->class("alert alert-{$this->style} alert-dismissable");
 
         return [
-            'title'         => $this->title,
-            'content'       => $this->content,
-            'icon'          => $this->icon,
-            'attributes'    => $this->formatAttributes(),
+            'title'      => $this->title,
+            'content'    => $this->content,
+            'icon'       => $this->icon,
+            'attributes' => $this->formatAttributes(),
         ];
     }
 

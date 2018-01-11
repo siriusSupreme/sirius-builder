@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirius\Builder\Widgets;
+namespace Encore\Admin\Widgets;
 
-use Sirius\Support\Contracts\Renderable;
+use Illuminate\Contracts\Support\Renderable;
 
 class Collapse extends Widget implements Renderable
 {
@@ -47,9 +47,9 @@ class Collapse extends Widget implements Renderable
     protected function variables()
     {
         return [
-            'id'            => $this->id,
-            'items'         => $this->items,
-            'attributes'    => $this->formatAttributes(),
+            'id'         => $this->id,
+            'items'      => $this->items,
+            'attributes' => $this->formatAttributes(),
         ];
     }
 
