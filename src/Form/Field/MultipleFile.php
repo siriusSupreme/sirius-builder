@@ -3,8 +3,10 @@
 namespace Sirius\Builder\Form\Field;
 
 use Sirius\Builder\Form\Field;
-use Sirius\Support\Facades\Validator;
+use function Sirius\Support\array_get;
+use function Sirius\Support\tap;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use think\facade\Validate;
 
 class MultipleFile extends Field
 {
@@ -75,7 +77,7 @@ class MultipleFile extends Field
 
         list($rules, $input) = $this->hydrateFiles(array_get($input, $this->column, []));
 
-        return Validator::make($input, $rules, $this->validationMessages, $attributes);
+        return Validate::make($input, $rules, $this->validationMessages, $attributes);
     }
 
     /**

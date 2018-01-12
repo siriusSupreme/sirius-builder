@@ -5,12 +5,12 @@ namespace Sirius\Builder\Grid;
 use Closure;
 use Sirius\Builder\Grid;
 use Sirius\Builder\Grid\Displayers\AbstractDisplayer;
+use Sirius\Support\Contracts\Arrayable;
+use Sirius\Support\Str;
+use think\facade\Url;
+use think\Model;
 use function Sirius\Support\array_get;
 use function Sirius\Support\array_set;
-use Sirius\Support\Contracts\Arrayable;
-use think\Model;
-use think\facade\Url;
-use Sirius\Support\Str;
 
 class Column
 {

@@ -904,7 +904,7 @@ class Field implements Renderable
     /**
      * Render this filed.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \think\response\View
      */
     public function render()
     {
@@ -918,6 +918,6 @@ class Field implements Renderable
      */
     public function __toString()
     {
-        return $this->render()->render();
+        return $this->render()->getContent();
     }
 }

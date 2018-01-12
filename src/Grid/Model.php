@@ -4,6 +4,7 @@ namespace Sirius\Builder\Grid;
 
 use Sirius\Builder\Middleware\Pjax;
 use Sirius\Support\Collection;
+use think\model\Collection as ThinkModelCollection;
 use think\facade\Request;
 use think\Model as ThinkModel;
 use think\model\Relation;
@@ -400,7 +401,7 @@ class Model
             $this->resetOrderBy();
 
             $this->queries->push([
-                'method'    => 'orderBy',
+                'method'    => 'order',
                 'arguments' => [$this->sort['column'], $this->sort['type']],
             ]);
         }
@@ -430,7 +431,7 @@ class Model
             $this->resetOrderBy();
 
             $this->queries->push([
-                'method'    => 'orderBy',
+                'method'    => 'order',
                 'arguments' => [
                     $relation->getRelated()->getTable().'.'.$relationColumn,
                     $this->sort['type'],
@@ -447,7 +448,7 @@ class Model
     public function resetOrderBy()
     {
         $this->queries = $this->queries->reject(function ($query) {
-            return $query['method'] == 'orderBy';
+            return $query['method'] == 'order';
         });
     }
 

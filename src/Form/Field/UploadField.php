@@ -4,7 +4,7 @@ namespace Sirius\Builder\Form\Field;
 
 use Sirius\Builder\Form;
 use Sirius\Support\Facades\Storage;
-use Sirius\Support\Facades\URL;
+use think\facade\Url;
 use Sirius\Support\MessageBag;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -70,7 +70,7 @@ trait UploadField
             'deleteExtraData' => [
                 $this->formatName($this->column) => static::FILE_DELETE_FLAG,
                 static::FILE_DELETE_FLAG         => '',
-                '_token'                         => csrf_token(),
+                '_token'                         => token(),
                 '_method'                        => 'PUT',
             ],
         ];
@@ -140,7 +140,7 @@ trait UploadField
                 'message' => "Disk [$disk] not configured, please add a disk config in `config/filesystems.php`.",
             ]);
 
-            return session()->flash('error', $error);
+            return app('session')->flash('error', $error);
         }
 
         $this->storage = Storage::disk($disk);

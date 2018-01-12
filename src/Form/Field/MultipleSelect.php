@@ -2,6 +2,7 @@
 
 namespace Sirius\Builder\Form\Field;
 
+use function Sirius\Support\array_get;
 use think\model\relation\BelongsToMany;
 
 class MultipleSelect extends Select

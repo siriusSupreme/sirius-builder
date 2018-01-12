@@ -4,6 +4,7 @@ namespace Sirius\Builder\Form\Field;
 
 use Sirius\Builder\Form\Field;
 use Sirius\Support\Arr;
+use function Sirius\Support\array_get;
 
 class Tags extends Field
 {

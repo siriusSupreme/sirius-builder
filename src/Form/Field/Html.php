@@ -3,6 +3,7 @@
 namespace Sirius\Builder\Form\Field;
 
 use Sirius\Builder\Form\Field;
+use function Sirius\Support\array_get;
 
 class Html extends Field
 {

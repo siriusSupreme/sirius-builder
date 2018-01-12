@@ -12,19 +12,16 @@ use Sirius\Builder\Grid\Filter;
 use Sirius\Builder\Grid\Model;
 use Sirius\Builder\Grid\Row;
 use Sirius\Builder\Grid\Tools;
-use function Sirius\Support\collect;
-use function Sirius\Support\snake_case;
+use Sirius\Support\Collection;
 use think\Model as ThinkModel;
+use think\model\Relation;
 use think\model\relation\BelongsTo;
 use think\model\relation\BelongsToMany;
 use think\model\relation\HasMany;
 use think\model\relation\HasOne;
 use think\model\relation\MorphTo;
-use think\model\Relation;
-use Sirius\Support\Collection;
-use Sirius\Support\Facades\Input;
-use Sirius\Support\Facades\Schema;
-use Jenssegers\Mongodb\Eloquent\Model as MongodbModel;
+use function Sirius\Support\collect;
+use function Sirius\Support\snake_case;
 
 class Grid
 {
@@ -971,7 +968,7 @@ class Grid
             return Handler::renderException($e);
         }
 
-        return view($this->view, $this->variables())->render();
+        return view($this->view, $this->variables())->getContent();
     }
 
     /**

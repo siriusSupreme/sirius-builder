@@ -4,11 +4,10 @@ namespace Sirius\Builder\Grid;
 
 use Sirius\Builder\Facades\Admin;
 use Sirius\Builder\Grid\Filter\AbstractFilter;
+use think\facade\Request;
 use function Sirius\Support\array_dot;
 use function Sirius\Support\array_forget;
 use function Sirius\Support\array_set;
-use Sirius\Support\Facades\Input;
-use think\facade\Request;
 
 /**
  * Class Filter.

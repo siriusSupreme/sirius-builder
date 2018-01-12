@@ -2,6 +2,7 @@
 
 namespace Sirius\Builder\Form\Field;
 
+use function Sirius\Support\tap;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class MultipleImage extends MultipleFile

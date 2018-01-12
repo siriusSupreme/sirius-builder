@@ -6,8 +6,8 @@ use Sirius\Builder\Grid;
 use Sirius\Builder\Grid\Tools\AbstractTool;
 use Sirius\Builder\Grid\Tools\BatchActions;
 use Sirius\Builder\Grid\Tools\RefreshButton;
-use Sirius\Support\Contracts\Renderable;
 use Sirius\Support\Collection;
+use Sirius\Support\Contracts\Renderable;
 
 class Tools implements Renderable
 {

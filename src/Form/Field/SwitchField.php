@@ -3,6 +3,8 @@
 namespace Sirius\Builder\Form\Field;
 
 use Sirius\Builder\Form\Field;
+use function Sirius\Support\array_dot;
+use function Sirius\Support\array_set;
 
 class SwitchField extends Field
 {

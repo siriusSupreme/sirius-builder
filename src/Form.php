@@ -20,7 +20,6 @@ use think\model\Relation;
 use think\facade\Request;
 use Sirius\Support\Arr;
 use think\Db;
-use Sirius\Support\Facades\Input;
 use Sirius\Support\MessageBag;
 use Sirius\Support\Str;
 use think\facade\Validate;
