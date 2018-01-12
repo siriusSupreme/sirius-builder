@@ -4,10 +4,14 @@ namespace Sirius\Builder\Form;
 
 use Sirius\Builder\Admin;
 use Sirius\Builder\Form;
+use Sirius\Support\Arr;
 use Sirius\Support\Contracts\Arrayable;
 use Sirius\Support\Contracts\Renderable;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Validator;
+use think\facade\Validate;
+use function Sirius\Support\array_get;
+use function Sirius\Support\array_has;
+use function Sirius\Support\array_set;
+use function Sirius\Support\e;
 
 /**
  * Class Field.
@@ -569,7 +573,7 @@ class Field implements Renderable
      *
      * @param array $input
      *
-     * @return bool|Validator
+     * @return bool|\think\Validate
      */
     public function getValidator(array $input)
     {
@@ -605,7 +609,7 @@ class Field implements Renderable
             }
         }
 
-        return Validator::make($input, $rules, $this->validationMessages, $attributes);
+        return Validate::make($input, $rules, $this->validationMessages, $attributes);
     }
 
     /**
@@ -676,7 +680,7 @@ class Field implements Renderable
      */
     public function getPlaceholder()
     {
-        return $this->placeholder ?: trans('admin.input').' '.$this->label;
+        return $this->placeholder ?: lang('admin.input').' '.$this->label;
     }
 
     /**

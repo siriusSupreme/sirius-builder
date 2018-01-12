@@ -49,7 +49,7 @@ class Select extends Presenter
         }
 
         if (empty($this->script)) {
-            $placeholder = trans('admin.choose');
+            $placeholder = lang('admin.choose');
 
             $this->script = <<<SCRIPT
 $(".{$this->getElementClass()}").select2({
@@ -97,7 +97,7 @@ EOT;
      */
     public function ajax($resourceUrl)
     {
-        $placeholder = trans('admin.choose');
+        $placeholder = lang('admin.choose');
 
         $this->script = <<<EOT
 

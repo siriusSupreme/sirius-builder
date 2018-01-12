@@ -2,7 +2,7 @@
 
 namespace Tests\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use think\Model;
 
 class MultipleImage extends Model
 {

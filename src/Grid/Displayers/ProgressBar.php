@@ -2,6 +2,8 @@
 
 namespace Sirius\Builder\Grid\Displayers;
 
+use function Sirius\Support\collect;
+
 class ProgressBar extends AbstractDisplayer
 {
     public function display($style = 'primary', $size = 'sm', $max = 100)

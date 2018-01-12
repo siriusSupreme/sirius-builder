@@ -2,7 +2,7 @@
 
 namespace Sirius\Builder\Facades;
 
-use Illuminate\Support\Facades\Facade;
+use think\Facade;
 
 /**
  * Class Admin.
@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Facade;
  */
 class Admin extends Facade
 {
-    protected static function getFacadeAccessor()
+    protected static function getFacadeClass()
     {
         return \Sirius\Builder\Admin::class;
     }

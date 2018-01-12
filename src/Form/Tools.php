@@ -3,11 +3,10 @@
 namespace Sirius\Builder\Form;
 
 use Sirius\Builder\Facades\Admin;
-use Sirius\Builder\Form;
+use Sirius\Support\Collection;
 use Sirius\Support\Contracts\Htmlable;
 use Sirius\Support\Contracts\Renderable;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
+use Sirius\Support\Str;
 
 class Tools implements Renderable
 {
@@ -57,7 +56,7 @@ EOT;
 
         Admin::script($script);
 
-        $text = trans('admin.back');
+        $text = lang('admin.back');
 
         return <<<EOT
 <div class="btn-group pull-right" style="margin-right: 10px">
@@ -71,7 +70,7 @@ EOT;
         $slice = Str::contains($this->form->getResource(0), '/edit') ? null : -1;
         $resource = $this->form->getResource($slice);
 
-        $text = trans('admin.list');
+        $text = lang('admin.list');
 
         return <<<EOT
 <div class="btn-group pull-right" style="margin-right: 10px">

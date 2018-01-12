@@ -219,12 +219,12 @@ class Tree implements Renderable
      */
     protected function script()
     {
-        $deleteConfirm = trans('admin.delete_confirm');
-        $saveSucceeded = trans('admin.save_succeeded');
-        $refreshSucceeded = trans('admin.refresh_succeeded');
-        $deleteSucceeded = trans('admin.delete_succeeded');
-        $confirm = trans('admin.confirm');
-        $cancel = trans('admin.cancel');
+        $deleteConfirm = lang('admin.delete_confirm');
+        $saveSucceeded = lang('admin.save_succeeded');
+        $refreshSucceeded = lang('admin.refresh_succeeded');
+        $deleteSucceeded = lang('admin.delete_succeeded');
+        $confirm = lang('admin.confirm');
+        $cancel = lang('admin.cancel');
 
         $nestableOptions = json_encode($this->nestableOptions);
 

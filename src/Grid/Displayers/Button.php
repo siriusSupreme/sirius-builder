@@ -2,6 +2,8 @@
 
 namespace Sirius\Builder\Grid\Displayers;
 
+use function Sirius\Support\collect;
+
 class Button extends AbstractDisplayer
 {
     public function display($style)

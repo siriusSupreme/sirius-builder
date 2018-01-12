@@ -3,6 +3,8 @@
 namespace Sirius\Builder\Grid\Displayers;
 
 use Sirius\Builder\Admin;
+use function Sirius\Support\array_dot;
+use function Sirius\Support\array_set;
 
 class SwitchDisplay extends AbstractDisplayer
 {

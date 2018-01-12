@@ -1,7 +1,7 @@
 <?php
 
 use Sirius\Builder\Auth\Database\Administrator;
-use Illuminate\Support\Facades\File;
+use Sirius\Support\Facades\File;
 
 class UserSettingTest extends TestCase
 {

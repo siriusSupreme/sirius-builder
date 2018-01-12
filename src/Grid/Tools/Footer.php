@@ -3,6 +3,7 @@
 namespace Sirius\Builder\Grid\Tools;
 
 use Sirius\Builder\Grid;
+use function Sirius\Support\collect;
 
 class Footer extends AbstractTool
 {

@@ -14,10 +14,10 @@
 
         <div class="col-md-8">
             <div class="btn-group pull-left">
-                <button type="reset" class="btn btn-warning pull-right">{{ trans('admin.reset') }}</button>
+                <button type="reset" class="btn btn-warning pull-right">{{ lang('admin.reset') }}</button>
             </div>
             <div class="btn-group pull-right">
-                <button type="submit" class="btn btn-info pull-right">{{ trans('admin.submit') }}</button>
+                <button type="submit" class="btn btn-info pull-right">{{ lang('admin.submit') }}</button>
             </div>
 
         </div>

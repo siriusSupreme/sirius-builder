@@ -3,8 +3,10 @@
 namespace Sirius\Builder\Form\Field;
 
 use Sirius\Builder\Form\Field;
-use Illuminate\Support\Facades\Validator;
+use function Sirius\Support\array_has;
+use Sirius\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use think\facade\Validate;
 
 class File extends Field
 {
@@ -89,7 +91,7 @@ class File extends Field
         $rules[$this->column] = $fieldRules;
         $attributes[$this->column] = $this->label;
 
-        return Validator::make($input, $rules, $this->validationMessages, $attributes);
+        return Validate::make($input, $rules, $this->validationMessages, $attributes);
     }
 
     /**

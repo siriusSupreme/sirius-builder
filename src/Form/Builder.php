@@ -4,9 +4,10 @@ namespace Sirius\Builder\Form;
 
 use Sirius\Builder\Admin;
 use Sirius\Builder\Form;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Str;
+use Sirius\Support\Collection;
+use Sirius\Support\Str;
+use think\facade\Url;
+use function Sirius\Support\array_get;
 
 /**
  * Class Builder.
@@ -333,15 +334,15 @@ class Builder
     public function title()
     {
         if ($this->mode == static::MODE_CREATE) {
-            return trans('admin.create');
+            return lang('admin.create');
         }
 
         if ($this->mode == static::MODE_EDIT) {
-            return trans('admin.edit');
+            return lang('admin.edit');
         }
 
         if ($this->mode == static::MODE_VIEW) {
-            return trans('admin.view');
+            return lang('admin.view');
         }
 
         return '';
@@ -445,9 +446,9 @@ class Builder
         }
 
         if ($this->mode == self::MODE_EDIT) {
-            $text = trans('admin.save');
+            $text = lang('admin.save');
         } else {
-            $text = trans('admin.submit');
+            $text = lang('admin.submit');
         }
 
         return <<<EOT
@@ -468,7 +469,7 @@ EOT;
             return '';
         }
 
-        $text = trans('admin.reset');
+        $text = lang('admin.reset');
 
         return <<<EOT
 <div class="btn-group pull-left">

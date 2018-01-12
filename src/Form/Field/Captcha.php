@@ -12,12 +12,12 @@ class Captcha extends Text
 
     public function __construct($column, $arguments = [])
     {
-        if (!class_exists(\Mews\Captcha\Captcha::class)) {
+        if (!class_exists(\think\captcha\Captcha::class)) {
             throw new \Exception('To use captcha field, please install [mews/captcha] first.');
         }
 
         $this->column = '__captcha__';
-        $this->label = trans('admin.captcha');
+        $this->label = lang('admin.captcha');
     }
 
     public function setForm(Form $form = null)

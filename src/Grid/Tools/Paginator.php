@@ -4,7 +4,8 @@ namespace Sirius\Builder\Grid\Tools;
 
 use Sirius\Builder\Grid;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\Input;
+use function Sirius\Support\collect;
+use Sirius\Support\Facades\Input;
 
 class Paginator extends AbstractTool
 {
@@ -76,7 +77,7 @@ class Paginator extends AbstractTool
             return [$key => "<b>$parameter</b>"];
         });
 
-        return trans('admin.pagination.range', $parameters->all());
+        return lang('admin.pagination.range', $parameters->all());
     }
 
     /**

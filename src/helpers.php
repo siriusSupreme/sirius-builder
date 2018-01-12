@@ -56,7 +56,7 @@ if (!function_exists('\Sirius\Builder\admin_url')) {
      */
     function admin_url($path = '')
     {
-        if (\Illuminate\Support\Facades\URL::isValidUrl($path)) {
+        if (\Sirius\Support\Facades\URL::isValidUrl($path)) {
             return $path;
         }
 
@@ -95,9 +95,9 @@ if (!function_exists('\Sirius\Builder\admin_toastr')) {
      */
     function admin_toastr($message = '', $type = 'success', $options = [])
     {
-        $toastr = new \Illuminate\Support\MessageBag(get_defined_vars());
+        $toastr = new \Sirius\Support\MessageBag(get_defined_vars());
 
-        \Illuminate\Support\Facades\Session::flash('toastr', $toastr);
+        \Sirius\Support\Facades\Session::flash('toastr', $toastr);
     }
 }
 

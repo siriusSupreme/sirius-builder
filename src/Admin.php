@@ -3,14 +3,15 @@
 namespace Sirius\Builder;
 
 use Closure;
+use InvalidArgumentException;
 use Sirius\Builder\Auth\Database\Menu;
 use Sirius\Builder\Layout\Content;
 use Sirius\Builder\Widgets\Navbar;
-use think\Model;
-use Illuminate\Support\Facades\Auth;
+use Sirius\Support\Facades\Auth;
 use think\facade\Config;
 use think\facade\Route;
-use InvalidArgumentException;
+use think\Model;
+use function Sirius\Support\array_get;
 
 /**
  * Class Admin.

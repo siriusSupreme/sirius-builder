@@ -29,11 +29,11 @@ class Listbox extends MultipleSelect
     public function render()
     {
         $settings = array_merge($this->settings, [
-            'infoText'          => trans('admin.listbox.text_total'),
-            'infoTextEmpty'     => trans('admin.listbox.text_empty'),
-            'infoTextFiltered'  => trans('admin.listbox.filtered'),
-            'filterTextClear'   => trans('admin.listbox.filter_clear'),
-            'filterPlaceHolder' => trans('admin.listbox.filter_placeholder'),
+            'infoText'          => lang('admin.listbox.text_total'),
+            'infoTextEmpty'     => lang('admin.listbox.text_empty'),
+            'infoTextFiltered'  => lang('admin.listbox.filtered'),
+            'filterTextClear'   => lang('admin.listbox.filter_clear'),
+            'filterPlaceHolder' => lang('admin.listbox.filter_placeholder'),
         ]);
 
         $settings = json_encode($settings);

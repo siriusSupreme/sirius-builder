@@ -3,6 +3,8 @@
 namespace Sirius\Builder\Grid\Filter;
 
 use Sirius\Builder\Admin;
+use function Sirius\Support\array_get;
+use function Sirius\Support\array_has;
 
 class Between extends AbstractFilter
 {

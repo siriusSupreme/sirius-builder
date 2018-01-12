@@ -4,7 +4,10 @@ namespace Sirius\Builder\Form;
 
 use Sirius\Builder\Admin;
 use Sirius\Builder\Form;
-use Illuminate\Support\Collection;
+use function Sirius\Support\array_get;
+use function Sirius\Support\array_has;
+use function Sirius\Support\array_set;
+use Sirius\Support\Collection;
 
 /**
  * Class NestedForm.

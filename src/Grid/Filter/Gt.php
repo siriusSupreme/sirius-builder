@@ -2,6 +2,8 @@
 
 namespace Sirius\Builder\Grid\Filter;
 
+use function Sirius\Support\array_get;
+
 class Gt extends AbstractFilter
 {
     /**

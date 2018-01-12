@@ -5,7 +5,7 @@ namespace Sirius\Builder\Middleware;
 use Sirius\Builder\Auth\Database\OperationLog as OperationLogModel;
 use Sirius\Builder\Facades\Admin;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Sirius\Support\Str;
 
 class LogOperation
 {

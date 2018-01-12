@@ -2,8 +2,9 @@
 
 namespace Sirius\Builder\Grid\Displayers;
 
+use function Sirius\Support\collect;
 use Sirius\Support\Contracts\Arrayable;
-use Illuminate\Support\Facades\Storage;
+use Sirius\Support\Facades\Storage;
 
 class Image extends AbstractDisplayer
 {

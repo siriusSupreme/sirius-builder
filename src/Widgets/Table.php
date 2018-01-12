@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Widgets;
 
 use Sirius\Support\Contracts\Renderable;
-use Illuminate\Support\Arr;
+use Sirius\Support\Arr;
 
 class Table extends Widget implements Renderable
 {

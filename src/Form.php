@@ -9,15 +9,21 @@ use Sirius\Builder\Form\Field;
 use Sirius\Builder\Form\Field\File;
 use Sirius\Builder\Form\Row;
 use Sirius\Builder\Form\Tab;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\MessageBag;
-use Illuminate\Support\Str;
-use Illuminate\Validation\Validator;
+use function Sirius\Support\array_dot;
+use function Sirius\Support\array_forget;
+use function Sirius\Support\array_get;
+use function Sirius\Support\array_has;
+use function Sirius\Support\array_set;
+use function Sirius\Support\collect;
+use think\Model;
+use think\model\Relation;
+use think\facade\Request;
+use Sirius\Support\Arr;
+use think\Db;
+use Sirius\Support\Facades\Input;
+use Sirius\Support\MessageBag;
+use Sirius\Support\Str;
+use think\facade\Validate;
 use Spatie\EloquentSortable\Sortable;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -78,7 +84,7 @@ class Form
     protected $model;
 
     /**
-     * @var \Illuminate\Validation\Validator
+     * @var \think\Validate
      */
     protected $validator;
 
@@ -348,7 +354,7 @@ class Form
             return $response;
         }
 
-        if ($response = $this->ajaxResponse(trans('admin.save_succeeded'))) {
+        if ($response = $this->ajaxResponse(lang('admin.save_succeeded'))) {
             return $response;
         }
 
@@ -362,7 +368,7 @@ class Form
      */
     protected function redirectAfterStore()
     {
-        admin_toastr(trans('admin.save_succeeded'));
+        admin_toastr(lang('admin.save_succeeded'));
 
         $url = Input::get(Builder::PREVIOUS_URL_KEY) ?: $this->resource(0);
 
@@ -509,7 +515,7 @@ class Form
         if ($this->handleOrderable($id, $data)) {
             return response([
                 'status'  => true,
-                'message' => trans('admin.update_succeeded'),
+                'message' => lang('admin.update_succeeded'),
             ]);
         }
 
@@ -544,7 +550,7 @@ class Form
             return $result;
         }
 
-        if ($response = $this->ajaxResponse(trans('admin.update_succeeded'))) {
+        if ($response = $this->ajaxResponse(lang('admin.update_succeeded'))) {
             return $response;
         }
 
@@ -558,7 +564,7 @@ class Form
      */
     protected function redirectAfterUpdate()
     {
-        admin_toastr(trans('admin.update_succeeded'));
+        admin_toastr(lang('admin.update_succeeded'));
 
         $url = Input::get(Builder::PREVIOUS_URL_KEY) ?: $this->resource(-1);
 
@@ -641,8 +647,8 @@ class Form
 
             $relation = $this->model->$name();
 
-            $oneToOneRelation = $relation instanceof \Illuminate\Database\Eloquent\Relations\HasOne
-                || $relation instanceof \Illuminate\Database\Eloquent\Relations\MorphOne;
+            $oneToOneRelation = $relation instanceof \think\model\relation\HasOne
+                || $relation instanceof \think\model\relation\MorphOne;
 
             $prepared = $this->prepareUpdate([$name => $values], $oneToOneRelation);
 
@@ -651,13 +657,13 @@ class Form
             }
 
             switch (get_class($relation)) {
-                case \Illuminate\Database\Eloquent\Relations\BelongsToMany::class:
-                case \Illuminate\Database\Eloquent\Relations\MorphToMany::class:
+                case \think\model\relation\BelongsToMany::class:
+                case \think\model\relation\MorphTo::class:
                     if (isset($prepared[$name])) {
                         $relation->sync($prepared[$name]);
                     }
                     break;
-                case \Illuminate\Database\Eloquent\Relations\HasOne::class:
+                case \think\model\relation\HasOne::class:
 
                     $related = $this->model->$name;
 
@@ -673,7 +679,7 @@ class Form
 
                     $related->save();
                     break;
-                case \Illuminate\Database\Eloquent\Relations\MorphOne::class:
+                case \think\model\relation\MorphOne::class:
                     $related = $this->model->$name;
                     if (is_null($related)) {
                         $related = $relation->make();
@@ -683,8 +689,8 @@ class Form
                     }
                     $related->save();
                     break;
-                case \Illuminate\Database\Eloquent\Relations\HasMany::class:
-                case \Illuminate\Database\Eloquent\Relations\MorphMany::class:
+                case \think\model\relation\HasMany::class:
+                case \think\model\relation\MorphMany::class:
 
                     foreach ($prepared[$name] as $related) {
                         $relation = $this->model()->$name();

@@ -4,7 +4,7 @@ namespace Sirius\Builder\Middleware;
 
 use Closure;
 use Sirius\Builder\Admin;
-use Illuminate\Support\Facades\Auth;
+use Sirius\Support\Facades\Auth;
 
 class Authenticate
 {

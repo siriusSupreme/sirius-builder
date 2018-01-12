@@ -2,6 +2,8 @@
 
 namespace Sirius\Builder\Grid\Tools;
 
+use function token;
+
 abstract class BatchAction
 {
     protected $id;
@@ -20,7 +22,7 @@ abstract class BatchAction
 
     public function getToken()
     {
-        return csrf_token();
+        return token();
     }
 
     protected function getElementClass()

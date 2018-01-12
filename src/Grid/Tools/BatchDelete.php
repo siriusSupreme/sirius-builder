@@ -9,9 +9,9 @@ class BatchDelete extends BatchAction
      */
     public function script()
     {
-        $deleteConfirm = trans('admin.delete_confirm');
-        $confirm = trans('admin.confirm');
-        $cancel = trans('admin.cancel');
+        $deleteConfirm = lang('admin.delete_confirm');
+        $confirm = lang('admin.confirm');
+        $cancel = lang('admin.cancel');
 
         return <<<EOT
 

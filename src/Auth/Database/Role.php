@@ -2,8 +2,8 @@
 
 namespace Sirius\Builder\Auth\Database;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use think\Model;
+use think\model\relation\BelongsToMany;
 
 class Role extends Model
 {

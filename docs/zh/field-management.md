@@ -98,7 +98,7 @@ EOT;
 
         @include('admin::form.error')
 
-        <textarea class="form-control" id="{{$id}}" name="{{$name}}" placeholder="{{ trans('admin.input') }} {{$label}}" {!! $attributes !!} >{{ old($column, $value) }}</textarea>
+        <textarea class="form-control" id="{{$id}}" name="{{$name}}" placeholder="{{ lang('admin.input') }} {{$label}}" {!! $attributes !!} >{{ old($column, $value) }}</textarea>
     </div>
 </div>
 

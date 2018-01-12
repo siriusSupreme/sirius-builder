@@ -8,10 +8,10 @@ use Sirius\Builder\Form;
 use Sirius\Builder\Layout\Content;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Lang;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Validator;
+use Sirius\Support\Facades\Auth;
+use Sirius\Support\Facades\Lang;
+use Sirius\Support\Facades\Redirect;
+use Sirius\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -47,7 +47,7 @@ class AuthController extends Controller
         }
 
         if (Auth::guard('admin')->attempt($credentials)) {
-            admin_toastr(trans('admin.login_successful'));
+            admin_toastr(lang('admin.login_successful'));
 
             return redirect()->intended(config('admin.route.prefix'));
         }
@@ -77,7 +77,7 @@ class AuthController extends Controller
     public function getSetting()
     {
         return Admin::content(function (Content $content) {
-            $content->header(trans('admin.user_setting'));
+            $content->header(lang('admin.user_setting'));
             $form = $this->settingForm();
             $form->tools(
                 function (Form\Tools $tools) {
@@ -107,11 +107,11 @@ class AuthController extends Controller
     protected function settingForm()
     {
         return Administrator::form(function (Form $form) {
-            $form->display('username', trans('admin.username'));
-            $form->text('name', trans('admin.name'))->rules('required');
-            $form->image('avatar', trans('admin.avatar'));
-            $form->password('password', trans('admin.password'))->rules('confirmed|required');
-            $form->password('password_confirmation', trans('admin.password_confirmation'))->rules('required')
+            $form->display('username', lang('admin.username'));
+            $form->text('name', lang('admin.name'))->rules('required');
+            $form->image('avatar', lang('admin.avatar'));
+            $form->password('password', lang('admin.password'))->rules('confirmed|required');
+            $form->password('password_confirmation', lang('admin.password_confirmation'))->rules('required')
                 ->default(function ($form) {
                     return $form->model()->password;
                 });
@@ -127,7 +127,7 @@ class AuthController extends Controller
             });
 
             $form->saved(function () {
-                admin_toastr(trans('admin.update_succeeded'));
+                admin_toastr(lang('admin.update_succeeded'));
 
                 return redirect(admin_base_path('auth/setting'));
             });
@@ -140,7 +140,7 @@ class AuthController extends Controller
     protected function getFailedLoginMessage()
     {
         return Lang::has('auth.failed')
-            ? trans('auth.failed')
+            ? lang('auth.failed')
             : 'These credentials do not match our records.';
     }
 }

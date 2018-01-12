@@ -8,7 +8,7 @@ use Sirius\Builder\Form;
 use Sirius\Builder\Grid;
 use Sirius\Builder\Layout\Content;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Str;
+use Sirius\Support\Str;
 
 class PermissionController extends Controller
 {
@@ -22,8 +22,8 @@ class PermissionController extends Controller
     public function index()
     {
         return Admin::content(function (Content $content) {
-            $content->header(trans('admin.permissions'));
-            $content->description(trans('admin.list'));
+            $content->header(lang('admin.permissions'));
+            $content->description(lang('admin.list'));
             $content->body($this->grid()->render());
         });
     }
@@ -38,8 +38,8 @@ class PermissionController extends Controller
     public function edit($id)
     {
         return Admin::content(function (Content $content) use ($id) {
-            $content->header(trans('admin.permissions'));
-            $content->description(trans('admin.edit'));
+            $content->header(lang('admin.permissions'));
+            $content->description(lang('admin.edit'));
             $content->body($this->form()->edit($id));
         });
     }
@@ -52,8 +52,8 @@ class PermissionController extends Controller
     public function create()
     {
         return Admin::content(function (Content $content) {
-            $content->header(trans('admin.permissions'));
-            $content->description(trans('admin.create'));
+            $content->header(lang('admin.permissions'));
+            $content->description(lang('admin.create'));
             $content->body($this->form());
         });
     }
@@ -67,10 +67,10 @@ class PermissionController extends Controller
     {
         return Admin::grid(Permission::class, function (Grid $grid) {
             $grid->id('ID')->sortable();
-            $grid->slug(trans('admin.slug'));
-            $grid->name(trans('admin.name'));
+            $grid->slug(lang('admin.slug'));
+            $grid->name(lang('admin.name'));
 
-            $grid->http_path(trans('admin.route'))->display(function ($path) {
+            $grid->http_path(lang('admin.route'))->display(function ($path) {
                 return collect(explode("\r\n", $path))->map(function ($path) {
                     $method = $this->http_method ?: ['ANY'];
 
@@ -91,8 +91,8 @@ class PermissionController extends Controller
                 })->implode('');
             });
 
-            $grid->created_at(trans('admin.created_at'));
-            $grid->updated_at(trans('admin.updated_at'));
+            $grid->created_at(lang('admin.created_at'));
+            $grid->updated_at(lang('admin.updated_at'));
 
             $grid->tools(function (Grid\Tools $tools) {
                 $tools->batch(function (Grid\Tools\BatchActions $actions) {
@@ -112,16 +112,16 @@ class PermissionController extends Controller
         return Admin::form(Permission::class, function (Form $form) {
             $form->display('id', 'ID');
 
-            $form->text('slug', trans('admin.slug'))->rules('required');
-            $form->text('name', trans('admin.name'))->rules('required');
+            $form->text('slug', lang('admin.slug'))->rules('required');
+            $form->text('name', lang('admin.name'))->rules('required');
 
-            $form->multipleSelect('http_method', trans('admin.http.method'))
+            $form->multipleSelect('http_method', lang('admin.http.method'))
                 ->options($this->getHttpMethodsOptions())
-                ->help(trans('admin.all_methods_if_empty'));
-            $form->textarea('http_path', trans('admin.http.path'));
+                ->help(lang('admin.all_methods_if_empty'));
+            $form->textarea('http_path', lang('admin.http.path'));
 
-            $form->display('created_at', trans('admin.created_at'));
-            $form->display('updated_at', trans('admin.updated_at'));
+            $form->display('created_at', lang('admin.created_at'));
+            $form->display('updated_at', lang('admin.updated_at'));
         });
     }
 

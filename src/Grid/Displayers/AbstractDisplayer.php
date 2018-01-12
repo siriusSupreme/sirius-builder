@@ -70,9 +70,9 @@ abstract class AbstractDisplayer
      *
      * @return string|\Symfony\Component\Translation\TranslatorInterface
      */
-    protected function trans($text)
+    protected function lang($text)
     {
-        return trans("admin.$text");
+        return lang("admin.$text");
     }
 
     /**

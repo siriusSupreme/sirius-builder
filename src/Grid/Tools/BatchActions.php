@@ -3,7 +3,7 @@
 namespace Sirius\Builder\Grid\Tools;
 
 use Sirius\Builder\Admin;
-use Illuminate\Support\Collection;
+use Sirius\Support\Collection;
 
 class BatchActions extends AbstractTool
 {
@@ -34,7 +34,7 @@ class BatchActions extends AbstractTool
      */
     protected function appendDefaultAction()
     {
-        $this->add(trans('admin.delete'), new BatchDelete());
+        $this->add(lang('admin.delete'), new BatchDelete());
     }
 
     /**

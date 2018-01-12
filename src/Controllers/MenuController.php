@@ -25,8 +25,8 @@ class MenuController extends Controller
     public function index()
     {
         return Admin::content(function (Content $content) {
-            $content->header(trans('admin.menu'));
-            $content->description(trans('admin.list'));
+            $content->header(lang('admin.menu'));
+            $content->description(lang('admin.list'));
 
             $content->row(function (Row $row) {
                 $row->column(6, $this->treeView()->render());
@@ -35,13 +35,13 @@ class MenuController extends Controller
                     $form = new \Sirius\Builder\Widgets\Form();
                     $form->action(admin_base_path('auth/menu'));
 
-                    $form->select('parent_id', trans('admin.parent_id'))->options(Menu::selectOptions());
-                    $form->text('title', trans('admin.title'))->rules('required');
-                    $form->icon('icon', trans('admin.icon'))->default('fa-bars')->rules('required')->help($this->iconHelp());
-                    $form->text('uri', trans('admin.uri'));
-                    $form->multipleSelect('roles', trans('admin.roles'))->options(Role::all()->pluck('name', 'id'));
+                    $form->select('parent_id', lang('admin.parent_id'))->options(Menu::selectOptions());
+                    $form->text('title', lang('admin.title'))->rules('required');
+                    $form->icon('icon', lang('admin.icon'))->default('fa-bars')->rules('required')->help($this->iconHelp());
+                    $form->text('uri', lang('admin.uri'));
+                    $form->multipleSelect('roles', lang('admin.roles'))->options(Role::all()->pluck('name', 'id'));
 
-                    $column->append((new Box(trans('admin.new'), $form))->style('success'));
+                    $column->append((new Box(lang('admin.new'), $form))->style('success'));
                 });
             });
         });
@@ -95,8 +95,8 @@ class MenuController extends Controller
     public function edit($id)
     {
         return Admin::content(function (Content $content) use ($id) {
-            $content->header(trans('admin.menu'));
-            $content->description(trans('admin.edit'));
+            $content->header(lang('admin.menu'));
+            $content->description(lang('admin.edit'));
 
             $content->row($this->form()->edit($id));
         });
@@ -112,14 +112,14 @@ class MenuController extends Controller
         return Menu::form(function (Form $form) {
             $form->display('id', 'ID');
 
-            $form->select('parent_id', trans('admin.parent_id'))->options(Menu::selectOptions());
-            $form->text('title', trans('admin.title'))->rules('required');
-            $form->icon('icon', trans('admin.icon'))->default('fa-bars')->rules('required')->help($this->iconHelp());
-            $form->text('uri', trans('admin.uri'));
-            $form->multipleSelect('roles', trans('admin.roles'))->options(Role::all()->pluck('name', 'id'));
+            $form->select('parent_id', lang('admin.parent_id'))->options(Menu::selectOptions());
+            $form->text('title', lang('admin.title'))->rules('required');
+            $form->icon('icon', lang('admin.icon'))->default('fa-bars')->rules('required')->help($this->iconHelp());
+            $form->text('uri', lang('admin.uri'));
+            $form->multipleSelect('roles', lang('admin.roles'))->options(Role::all()->pluck('name', 'id'));
 
-            $form->display('created_at', trans('admin.created_at'));
-            $form->display('updated_at', trans('admin.updated_at'));
+            $form->display('created_at', lang('admin.created_at'));
+            $form->display('updated_at', lang('admin.updated_at'));
         });
     }
 

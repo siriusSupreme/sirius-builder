@@ -2,6 +2,7 @@
 
 namespace Sirius\Builder\Widgets;
 
+use function Sirius\Support\collect;
 use Sirius\Support\Contracts\Htmlable;
 use Sirius\Support\Contracts\Renderable;
 

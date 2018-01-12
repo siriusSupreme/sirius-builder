@@ -2,8 +2,8 @@
 
 namespace Sirius\Builder\Auth\Database;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use think\Model;
+use think\model\relation\BelongsTo;
 
 class OperationLog extends Model
 {

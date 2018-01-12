@@ -4,7 +4,7 @@ namespace Sirius\Builder\Auth;
 
 use Sirius\Builder\Facades\Admin;
 use Sirius\Builder\Middleware\Pjax;
-use Illuminate\Support\Facades\Auth;
+use Sirius\Support\Facades\Auth;
 
 class Permission
 {
@@ -75,7 +75,7 @@ class Permission
      */
     public static function error()
     {
-        $response = response(Admin::content()->withError(trans('admin.deny')));
+        $response = response(Admin::content()->withError(lang('admin.deny')));
 
         Pjax::respond($response);
     }

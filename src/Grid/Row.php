@@ -2,6 +2,9 @@
 
 namespace Sirius\Builder\Grid;
 
+use function Sirius\Support\array_get;
+use function Sirius\Support\array_set;
+
 class Row
 {
     /**

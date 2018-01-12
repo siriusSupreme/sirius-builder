@@ -19,8 +19,8 @@ class LogController extends Controller
     public function index()
     {
         return Admin::content(function (Content $content) {
-            $content->header(trans('admin.operation_log'));
-            $content->description(trans('admin.list'));
+            $content->header(lang('admin.operation_log'));
+            $content->description(lang('admin.list'));
 
             $grid = Admin::grid(OperationLog::class, function (Grid $grid) {
                 $grid->model()->orderBy('id', 'DESC');
@@ -44,7 +44,7 @@ class LogController extends Controller
                     return '<pre>'.json_encode($input, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE).'</pre>';
                 });
 
-                $grid->created_at(trans('admin.created_at'));
+                $grid->created_at(lang('admin.created_at'));
 
                 $grid->actions(function (Grid\Displayers\Actions $actions) {
                     $actions->disableEdit();
@@ -71,12 +71,12 @@ class LogController extends Controller
         if (OperationLog::destroy(array_filter($ids))) {
             return response()->json([
                 'status'  => true,
-                'message' => trans('admin.delete_succeeded'),
+                'message' => lang('admin.delete_succeeded'),
             ]);
         } else {
             return response()->json([
                 'status'  => false,
-                'message' => trans('admin.delete_failed'),
+                'message' => lang('admin.delete_failed'),
             ]);
         }
     }

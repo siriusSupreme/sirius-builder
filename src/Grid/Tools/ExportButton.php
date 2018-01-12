@@ -54,10 +54,10 @@ SCRIPT;
 
         $this->setUpScripts();
 
-        $export = trans('admin.export');
-        $all = trans('admin.all');
-        $currentPage = trans('admin.current_page');
-        $selectedRows = trans('admin.selected_rows');
+        $export = lang('admin.export');
+        $all = lang('admin.all');
+        $currentPage = lang('admin.current_page');
+        $selectedRows = lang('admin.selected_rows');
 
         $page = request('page', 1);
 

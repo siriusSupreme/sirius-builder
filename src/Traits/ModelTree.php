@@ -2,9 +2,9 @@
 
 namespace Sirius\Builder\Traits;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Request;
+use think\Model;
+use Sirius\Support\Facades\DB;
+use Sirius\Support\Facades\Request;
 
 trait ModelTree
 {
@@ -36,7 +36,7 @@ trait ModelTree
     /**
      * Get children of current node.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \think\model\relation\HasMany
      */
     public function children()
     {
@@ -46,7 +46,7 @@ trait ModelTree
     /**
      * Get parent of current node.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \think\model\relation\BelongsTo
      */
     public function parent()
     {
@@ -229,7 +229,7 @@ trait ModelTree
     /**
      * Get options for Select field in form.
      *
-     * @return \Illuminate\Support\Collection
+     * @return \Sirius\Support\Collection
      */
     public static function selectOptions()
     {
@@ -294,7 +294,7 @@ trait ModelTree
             $parentColumn = $branch->getParentColumn();
 
             if (Request::has($parentColumn) && Request::input($parentColumn) == $branch->getKey()) {
-                throw new \Exception(trans('admin.parent_select_error'));
+                throw new \Exception(lang('admin.parent_select_error'));
             }
 
             if (Request::has('_order')) {

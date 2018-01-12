@@ -2,8 +2,8 @@
 
 namespace Sirius\Builder\Exception;
 
-use Illuminate\Support\MessageBag;
-use Illuminate\Support\ViewErrorBag;
+use Sirius\Support\MessageBag;
+use Sirius\Support\ViewErrorBag;
 
 class Handler
 {

@@ -2,9 +2,11 @@
 
 namespace Sirius\Builder\Grid\Exporters;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
+use function Sirius\Support\array_dot;
+use function Sirius\Support\collect;
+use think\Model;
+use Sirius\Support\Collection;
+use Sirius\Support\Str;
 
 class CsvExporter extends AbstractExporter
 {

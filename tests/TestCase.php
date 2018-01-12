@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
+use Sirius\Support\Facades\DB;
+use Sirius\Support\Facades\Schema;
 use Laravel\BrowserKitTesting\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase

@@ -10,6 +10,7 @@ use Sirius\Builder\Grid\Filter\Presenter\Presenter;
 use Sirius\Builder\Grid\Filter\Presenter\Radio;
 use Sirius\Builder\Grid\Filter\Presenter\Select;
 use Sirius\Builder\Grid\Filter\Presenter\Text;
+use function Sirius\Support\array_get;
 
 /**
  * Class AbstractFilter.
@@ -452,7 +453,7 @@ abstract class AbstractFilter
     /**
      * Render this filter.
      *
-     * @return \Illuminate\View\View|string
+     * @return \think\View|string
      */
     public function render()
     {
@@ -462,7 +463,7 @@ abstract class AbstractFilter
     /**
      * Render this filter.
      *
-     * @return \Illuminate\View\View|string
+     * @return \think\View|string
      */
     public function __toString()
     {

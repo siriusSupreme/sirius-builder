@@ -3,11 +3,13 @@
 namespace Sirius\Builder\Grid\Displayers;
 
 use Sirius\Builder\Facades\Admin;
-use Illuminate\Support\Arr;
+use Sirius\Support\Arr;
+use function Sirius\Support\array_dot;
+use function Sirius\Support\array_set;
 
 class SwitchGroup extends AbstractDisplayer
 {
-    protected $states = [
+  protected $states = [
         'on'  => ['value' => 1, 'text' => 'ON', 'color' => 'primary'],
         'off' => ['value' => 0, 'text' => 'OFF', 'color' => 'default'],
     ];

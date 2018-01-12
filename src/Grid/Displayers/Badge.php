@@ -2,6 +2,7 @@
 
 namespace Sirius\Builder\Grid\Displayers;
 
+use function Sirius\Support\collect;
 use Sirius\Support\Contracts\Arrayable;
 
 class Badge extends AbstractDisplayer

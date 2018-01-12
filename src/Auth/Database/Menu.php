@@ -4,9 +4,9 @@ namespace Sirius\Builder\Auth\Database;
 
 use Sirius\Builder\Traits\AdminBuilder;
 use Sirius\Builder\Traits\ModelTree;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Support\Facades\DB;
+use think\Model;
+use think\model\relation\BelongsToMany;
+use Sirius\Support\Facades\DB;
 
 /**
  * Class Menu.

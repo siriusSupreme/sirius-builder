@@ -12,16 +12,18 @@ use Sirius\Builder\Grid\Filter;
 use Sirius\Builder\Grid\Model;
 use Sirius\Builder\Grid\Row;
 use Sirius\Builder\Grid\Tools;
-use Illuminate\Database\Eloquent\Model as Eloquent;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Schema;
+use function Sirius\Support\collect;
+use function Sirius\Support\snake_case;
+use think\Model as ThinkModel;
+use think\model\relation\BelongsTo;
+use think\model\relation\BelongsToMany;
+use think\model\relation\HasMany;
+use think\model\relation\HasOne;
+use think\model\relation\MorphTo;
+use think\model\Relation;
+use Sirius\Support\Collection;
+use Sirius\Support\Facades\Input;
+use Sirius\Support\Facades\Schema;
 use Jenssegers\Mongodb\Eloquent\Model as MongodbModel;
 
 class Grid
@@ -36,21 +38,21 @@ class Grid
     /**
      * Collection of all grid columns.
      *
-     * @var \Illuminate\Support\Collection
+     * @var \Sirius\Support\Collection
      */
     protected $columns;
 
     /**
      * Collection of table columns.
      *
-     * @var \Illuminate\Support\Collection
+     * @var \Sirius\Support\Collection
      */
     protected $dbColumns;
 
     /**
      * Collection of all data rows.
      *
-     * @var \Illuminate\Support\Collection
+     * @var \Sirius\Support\Collection
      */
     protected $rows;
 
@@ -174,10 +176,10 @@ class Grid
     /**
      * Create a new grid instance.
      *
-     * @param Eloquent $model
+     * @param ThinkModel $model
      * @param Closure  $builder
      */
-    public function __construct(Eloquent $model, Closure $builder)
+    public function __construct(ThinkModel $model, Closure $builder)
     {
         $this->keyName = $model->getKeyName();
         $this->model = new Model($model);
@@ -436,7 +438,7 @@ class Grid
 
         $grid = $this;
         $callback = $this->actionsCallback;
-        $column = $this->addColumn('__actions__', trans('admin.action'));
+        $column = $this->addColumn('__actions__', lang('admin.action'));
 
         $column->display(function ($value) use ($grid, $column, $callback) {
             $actions = new Actions($value, $grid, $column, $this);
@@ -847,7 +849,7 @@ class Grid
             return $this->addColumn($method, $label)->setRelation(snake_case($method));
         }
 
-        if ($relation instanceof HasMany || $relation instanceof BelongsToMany || $relation instanceof MorphToMany) {
+        if ($relation instanceof HasMany || $relation instanceof BelongsToMany || $relation instanceof MorphTo) {
             $this->model()->with($method);
 
             return $this->addColumn(snake_case($method), $label);

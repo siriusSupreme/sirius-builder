@@ -4,6 +4,7 @@ namespace Sirius\Builder\Grid\Tools;
 
 use Sirius\Builder\Admin;
 use Sirius\Builder\Grid;
+use function Sirius\Support\collect;
 
 class PerPageSelector extends AbstractTool
 {
@@ -74,8 +75,8 @@ class PerPageSelector extends AbstractTool
             return "<option value=\"$url\" $selected>$option</option>";
         })->implode("\r\n");
 
-        $show = trans('admin.show');
-        $entries = trans('admin.entries');
+        $show = lang('admin.show');
+        $entries = lang('admin.entries');
 
         return <<<EOT
 
