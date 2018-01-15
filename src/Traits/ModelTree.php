@@ -2,9 +2,11 @@
 
 namespace Sirius\Builder\Traits;
 
+use function Sirius\Support\array_flatten;
+use function Sirius\Support\collect;
 use think\Model;
-use Sirius\Support\Facades\DB;
-use Sirius\Support\Facades\Request;
+use think\Db;
+use think\facade\Request;
 
 trait ModelTree
 {
