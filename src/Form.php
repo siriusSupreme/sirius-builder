@@ -3,7 +3,6 @@
 namespace Sirius\Builder;
 
 use Closure;
-use Sirius\Builder\Exception\Handler;
 use Sirius\Builder\Form\Builder;
 use Sirius\Builder\Form\Field;
 use Sirius\Builder\Form\Field\File;
@@ -990,7 +989,7 @@ class Form
                 continue;
             }
 
-            if (($validator instanceof Validator) && !$validator->passes()) {
+            if (($validator instanceof Validate) && !$validator->passes()) {
                 $failedValidators[] = $validator;
             }
         }
@@ -1003,7 +1002,7 @@ class Form
     /**
      * Merge validation messages from input validators.
      *
-     * @param \Illuminate\Validation\Validator[] $validators
+     * @param \think\Validate[] $validators
      *
      * @return MessageBag
      */

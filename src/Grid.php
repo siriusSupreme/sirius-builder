@@ -3,7 +3,6 @@
 namespace Sirius\Builder;
 
 use Closure;
-use Sirius\Builder\Exception\Handler;
 use Sirius\Builder\Grid\Column;
 use Sirius\Builder\Grid\Displayers\Actions;
 use Sirius\Builder\Grid\Displayers\RowSelector;
